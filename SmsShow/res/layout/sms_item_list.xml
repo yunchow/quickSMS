@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/smsDetail"
+        android:background="#FFF"
+        android:paddingLeft="10dp"
+        android:paddingTop="10dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="0dp"
+        android:layout_margin="0dp"
+        android:textColor="#333"
+        android:textIsSelectable="true" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/note"
+        android:background="#FFF"
+        android:paddingLeft="10dp"
+        android:paddingTop="0dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="5dp"
+        android:layout_margin="0dp"
+        android:textSize="12sp"
+        android:textColor="#DDD"
+        android:textIsSelectable="true" />
+</LinearLayout>
