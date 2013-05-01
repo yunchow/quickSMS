@@ -46,6 +46,7 @@ public class SMSPopupActivity extends Activity {
 		Log.i(tag, "###### SMSPopupActivity ######");
 		setContentView(R.layout.activity_main);
 		smsListView = (ListView) findViewById(R.id.smsListView);
+		Tools.show(getApplicationContext(), "SMSPopupActivity onCreate");
 	}
 	
 	public void markSMSRead() {
@@ -167,24 +168,7 @@ public class SMSPopupActivity extends Activity {
 		smsListView.setAdapter(cursorAdapter);
 		
 	}
-	
-	@Override
-	protected void onPause() {
-		super.onPause();
-		Log.i(tag, "####### SMSPopupActivity onPause ######");
-	}
-	
-	@Override
-	protected void onStop() {
-		super.onStop();
-		Log.i(tag, "##### SMSPopupActivity onStop ####");
-	}
-	
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-		Log.i(tag, "####### SMSPopupActivity onDestroy #####");
-	}
+
 	
 	public void close(View view) {
 		markSMSRead();

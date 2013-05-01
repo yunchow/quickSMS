@@ -1,49 +1,38 @@
 package nick.chow.smsshow;
 
-import android.app.Service;
+import android.app.IntentService;
 import android.content.Intent;
-import android.os.Bundle;
-import android.os.IBinder;
 import android.util.Log;
 
-public class QuickSMSService extends Service implements Runnable {
-	private final String tag = QuickSMSService.class.getSimpleName();
-	private Intent intent;
-
-	@Override
-	public void onStart(Intent intent, int startId) {
-		this.intent = intent;
-		new Thread(this).start();
-	}
+public class QuickSMSService extends IntentService {
+	private static final String tag = QuickSMSService.class.getSimpleName();
 	
-	@Override
-	public IBinder onBind(Intent intent) {
-		return null;
+	public QuickSMSService() {
+		super(tag);
 	}
 
 	@Override
-	public void run() {
-		Bundle extras = intent.getExtras();
-		String sms = extras.getString("sms");
-		String sender = extras.getString("sender");
-		String time = extras.getString("sendTime");
-		
+	protected void onHandleIntent(Intent intent) {
 		Log.i(tag, "QuickSMSService sleep 500 ms start");
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
-			e.printStackTrace();
+			Tools.show(this, e);
 		}
 		Log.i(tag, "QuickSMSService sleep wake up");
 		
-		Intent aIntent = new Intent(getApplicationContext(), SMSPopupActivity.class);
-		aIntent.putExtra("sms", sms);
-		aIntent.putExtra("sender", sender);
-		aIntent.putExtra("sendTime", time);
+		Intent aIntent = new Intent(this, SMSPopupActivity.class);
 		aIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		startActivity(aIntent);
 		Log.i(tag, "QuickSMSService start a new service");
-		Log.i(tag, "QuickSMSService sms = " + sms);
 	}
+
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		Tools.show(this, "@@@@@@ QuickSMSService:onDestroy");
+	}
+	
+	
 
 }

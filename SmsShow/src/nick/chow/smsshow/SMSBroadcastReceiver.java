@@ -48,5 +48,5 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 		service.putExtra("sendTime", sdf.format(time));
 		context.startService(service);
 	}
-
+	
 }
