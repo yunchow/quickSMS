@@ -46,7 +46,6 @@ public class SMSPopupActivity extends Activity {
 		Log.i(tag, "###### SMSPopupActivity ######");
 		setContentView(R.layout.activity_main);
 		smsListView = (ListView) findViewById(R.id.smsListView);
-		Tools.show(getApplicationContext(), "SMSPopupActivity onCreate");
 	}
 	
 	public void markSMSRead() {

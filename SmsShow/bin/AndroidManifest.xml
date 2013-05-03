@@ -28,7 +28,7 @@
         <activity
             android:name="nick.chow.smsshow.SMSPopupActivity"
             android:launchMode="singleInstance"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+            android:theme="@style/Theme.Translucent.NoTitleBar.Fullscreen" />
         <receiver android:name="nick.chow.smsshow.SMSBroadcastReceiver">
             <intent-filter android:priority="-100">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
