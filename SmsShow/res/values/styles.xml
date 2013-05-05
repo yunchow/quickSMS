@@ -19,8 +19,6 @@
     
     <style name="Theme.Translucent.NoTitleBar.Fullscreen" parent="android:Theme.Translucent.NoTitleBar.Fullscreen">
         <item name="android:background">#3AAA</item>
-        <item name="android:shadowColor">#370</item>
-        <item name="android:shadowRadius">5</item>
     </style>
 
 </resources>

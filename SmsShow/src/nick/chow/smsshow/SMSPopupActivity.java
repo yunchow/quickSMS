@@ -23,6 +23,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -34,6 +35,7 @@ public class SMSPopupActivity extends Activity {
 	private final String tag = SMSPopupActivity.class.getName();
 	
 	private ListView smsListView;
+	private TextView smsCounter;
 	
 	private Set<String> unreadSMSIds = new HashSet<String>();
 	
@@ -46,6 +48,7 @@ public class SMSPopupActivity extends Activity {
 		Log.i(tag, "###### SMSPopupActivity ######");
 		setContentView(R.layout.activity_main);
 		smsListView = (ListView) findViewById(R.id.smsListView);
+		smsCounter = (TextView) findViewById(R.id.smsCounter);
 	}
 	
 	public void markSMSRead() {
@@ -150,6 +153,7 @@ public class SMSPopupActivity extends Activity {
 			}
 			allUnReadSMS.close();
 		}
+		smsCounter.setText("" + data.size());
 
 		SimpleAdapter cursorAdapter = new SimpleAdapter(getApplicationContext(), data, R.layout.sms_item_list,
 				new String[]{"body", "note"}, new int[]{R.id.smsDetail, R.id.note});
