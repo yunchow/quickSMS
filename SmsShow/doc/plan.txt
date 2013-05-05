@@ -1,3 +1,4 @@
 1, drag and drop
 2, dial number when click SMS if contain phone number
 3, settings support
+4, add quick reply support

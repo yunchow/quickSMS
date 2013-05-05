@@ -41,7 +41,7 @@
         android:background="#FFF"
         android:layout_margin="5dp"
         android:gravity="bottom|right"
-        android:layout_marginBottom="15dp"
+        android:paddingBottom="15dp"
         android:orientation="horizontal">
         
         <TextView 
@@ -72,14 +72,14 @@
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
 	        android:background="@drawable/buttonstyle"
-	        android:paddingLeft="10dp"
-	        android:paddingRight="10dp"
-	        android:paddingTop="3dp"
-	        android:paddingBottom="3dp"
-	        android:layout_marginLeft="8dp"
+	        android:paddingLeft="15dp"
+	        android:paddingRight="15dp"
+	        android:paddingTop="10dp"
+	        android:paddingBottom="10dp"
+	        android:layout_marginLeft="10dp"
 	        android:onClick="close"
 	        android:text="@string/close"
-	        android:textColor="#DDD" />
+	        android:textColor="#FFF" />
     </LinearLayout>
 
 </LinearLayout>

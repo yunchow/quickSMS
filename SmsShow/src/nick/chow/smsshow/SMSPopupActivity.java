@@ -2,6 +2,7 @@ package nick.chow.smsshow;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -32,7 +33,7 @@ import android.widget.Toast;
  *
  */
 public class SMSPopupActivity extends Activity {
-	private final String tag = SMSPopupActivity.class.getName();
+	private final String tag = SMSPopupActivity.class.getSimpleName();
 	
 	private ListView smsListView;
 	private TextView smsCounter;
@@ -85,23 +86,58 @@ public class SMSPopupActivity extends Activity {
 	 * @return
 	 */
 	public String getNameByNumber(String number) {
-		Log.i(tag, "getNameByNumber number = " + number);
 		if (number == null) {
 			return "N/A";
 		}
+		String tNumber = number, srcNumber = number, num1 = number, num2 = num1;
 		if (number.indexOf("+86") != -1) {
-			number = number.substring(number.indexOf("+86"));
+			srcNumber = number.substring(3);
+		} else {
+			tNumber = "+86" + number;
 		}
-		Log.i(tag, "phone number is " + number);
 		
+		StringBuilder newNumber = new StringBuilder(srcNumber);
+		StringBuilder newNumber2 = new StringBuilder(tNumber);
+		if (srcNumber.length() == 11) {
+			newNumber.insert(1, " ");
+			newNumber.insert(5, "-");
+			newNumber.insert(9, "-");
+			num1 = newNumber.toString();
+			
+			newNumber2.insert(3, " ");
+			newNumber2.insert(7, "-");
+			newNumber2.insert(12, "-");
+			num2 = newNumber2.toString();
+		}
+		
+		String cName = queryNameByNumber(srcNumber, tNumber, num1, num2);
+		if (cName != null) {
+			return cName;
+		}
+		return number;
+	}
+	
+	public String queryNameByNumber(String... numbers) {
+		if (Log.isLoggable(tag, Log.INFO)) {
+			Log.i(tag, "queryNameByNumber number = " + Arrays.toString(numbers));
+		}
+		Tools.show(this, Arrays.toString(numbers));
+		if (numbers == null) {
+			return null;
+		}
 		String[] projection = { ContactsContract.PhoneLookup.DISPLAY_NAME,
 				ContactsContract.CommonDataKinds.Phone.NUMBER };
 
+		StringBuilder inClause = new StringBuilder("(");
+		for (String number : numbers) {
+			inClause.append("'").append(number).append("'").append(",");
+		}
+		inClause.deleteCharAt(inClause.length() - 1);
+		inClause.append(")");
 		Cursor cursor = this.getContentResolver().query(
 				ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
 				projection, // Which columns to return.
-				ContactsContract.CommonDataKinds.Phone.NUMBER + " = '" + number
-						+ "'", // WHERE clause.
+				ContactsContract.CommonDataKinds.Phone.NUMBER + " in " + inClause, // WHERE clause.
 				null, // WHERE clause value substitution
 				null); // Sort order.
 		
@@ -110,10 +146,13 @@ public class SMSPopupActivity extends Activity {
 			int nameFieldColumnIndex = cursor.getColumnIndex(ContactsContract.PhoneLookup.DISPLAY_NAME); 
 			String nme = cursor.getString(nameFieldColumnIndex);
 			Log.i(tag, "found! contact name = " + nme);
+			cursor.close();
 			return nme;
 		}
-		Log.i(tag, "no found name by " + number);
-		return number;
+		if (Log.isLoggable(tag, Log.INFO)) {
+			Log.i(tag, "no found name by " + Arrays.toString(numbers));
+		}
+		return null;
 	}
 	
 	@Override
@@ -131,10 +170,8 @@ public class SMSPopupActivity extends Activity {
 	    //getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 	    getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 	    
-	    //Toast.makeText(getApplicationContext(), "开始查询", Toast.LENGTH_SHORT).show();
 		Cursor allUnReadSMS = queryAllUnReadSMS();
 		List<Map<String, String>> data = new ArrayList<Map<String, String>>();
-		//Toast.makeText(getApplicationContext(), "查询结束，总条数：" + allUnReadSMS.getCount(), Toast.LENGTH_SHORT).show();
 		
 		if (allUnReadSMS != null) {
 			while (allUnReadSMS.moveToNext()) {
