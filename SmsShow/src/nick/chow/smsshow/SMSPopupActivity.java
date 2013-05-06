@@ -50,6 +50,7 @@ public class SMSPopupActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		smsListView = (ListView) findViewById(R.id.smsListView);
 		smsCounter = (TextView) findViewById(R.id.smsCounter);
+		
 	}
 	
 	public void markSMSRead() {
@@ -192,7 +193,7 @@ public class SMSPopupActivity extends Activity {
 		}
 		smsCounter.setText("" + data.size());
 
-		SimpleAdapter cursorAdapter = new SimpleAdapter(getApplicationContext(), data, R.layout.sms_item_list,
+		SimpleAdapter cursorAdapter = new SimpleAdapter(this, data, R.layout.sms_item_list,
 				new String[]{"body", "note"}, new int[]{R.id.smsDetail, R.id.note});
 		int layoutHeight = smsListView.getLayoutParams().height;
 		int disHeight = smsListView.getHeight();

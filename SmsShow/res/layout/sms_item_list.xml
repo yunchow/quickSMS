@@ -16,6 +16,10 @@
         android:paddingBottom="0dp"
         android:layout_margin="0dp"
         android:textColor="#333"
+        android:autoLink="all"
+        android:clickable="true"
+        android:linksClickable="true"
+        android:focusable="true"
         android:textIsSelectable="true" />
 
     <TextView
