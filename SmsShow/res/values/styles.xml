@@ -21,4 +21,6 @@
         <item name="android:background">#3AAA</item>
     </style>
 
+    <color name="clolor_369">#369</color>
+    <color name="clolor_DDD">#DDD</color>
 </resources>

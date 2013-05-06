@@ -49,14 +49,12 @@
 	        android:layout_width="wrap_content"
 	        android:background="#FFF"
 	        android:textSize="12sp"
-	        android:gravity="bottom"
 	        android:text="@string/smscountleft"/>
 	    <TextView 
 	        android:id="@+id/smsCounter"
 	        android:layout_height="wrap_content"
 	        android:layout_width="wrap_content"
 	        android:background="#FFF"
-	        android:gravity="bottom"
 	        android:textColor="#369"
 	        android:textIsSelectable="true"
 	        android:textSize="15sp" />
@@ -64,19 +62,19 @@
 	        android:layout_height="wrap_content"
 	        android:layout_width="wrap_content"
 	        android:background="#FFF"
-	        android:gravity="bottom"
 	        android:textSize="12sp"
 	        android:text="@string/smscountright"/>
 	    <Button
 	        android:id="@+id/close"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:background="@drawable/buttonstyle"
+	        android:background="@drawable/button_selector"
 	        android:paddingLeft="15dp"
 	        android:paddingRight="15dp"
 	        android:paddingTop="10dp"
 	        android:paddingBottom="10dp"
 	        android:layout_marginLeft="10dp"
+	        android:layout_marginRight="10dp"
 	        android:onClick="close"
 	        android:text="@string/close"
 	        android:textColor="#FFF" />
