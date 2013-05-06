@@ -22,6 +22,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
+import android.view.animation.AnimationUtils;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -37,6 +40,7 @@ public class SMSPopupActivity extends Activity {
 	
 	private ListView smsListView;
 	private TextView smsCounter;
+	private View smsContainer;
 	
 	private Set<String> unreadSMSIds = new HashSet<String>();
 	
@@ -50,7 +54,7 @@ public class SMSPopupActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		smsListView = (ListView) findViewById(R.id.smsListView);
 		smsCounter = (TextView) findViewById(R.id.smsCounter);
-		
+		smsContainer = findViewById(R.id.smsContainer);
 	}
 	
 	public void markSMSRead() {
@@ -207,13 +211,15 @@ public class SMSPopupActivity extends Activity {
 			smsListView.getLayoutParams().height = disHeight;
 		}
 		smsListView.setAdapter(cursorAdapter);
-		
+		Animation animation = AnimationUtils.loadAnimation(this, R.anim.hyperspace_jump_in);
+		smsContainer.setAnimation(animation);
 	}
 
-	
 	public void close(View view) {
 		markSMSRead();
-		finish();
+		Animation animation = AnimationUtils.loadAnimation(this, R.anim.hyperspace_jump_out);
+		animation.setAnimationListener(animationOut);
+		smsContainer.startAnimation(animation);
 		Log.i(tag, "close MainActivity");
 	}
 	
@@ -221,6 +227,20 @@ public class SMSPopupActivity extends Activity {
 		Log.i(tag, "reply sms");
 		Toast.makeText(getApplicationContext(), "reply sms", Toast.LENGTH_LONG).show();
 	}
+	
+	private AnimationListener animationOut = new AnimationListener() {
+		public void onAnimationStart(Animation animation) {
+			
+		}
+		
+		public void onAnimationRepeat(Animation animation) {
+			
+		}
+		
+		public void onAnimationEnd(Animation animation) {
+			finish();
+		}
+	};
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
