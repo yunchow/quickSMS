@@ -1,5 +1,6 @@
 package nick.chow.smsshow;
 
+import nick.chow.app.context.Tools;
 import android.app.IntentService;
 import android.content.Intent;
 import android.util.Log;
@@ -26,13 +27,5 @@ public class QuickSMSService extends IntentService {
 		startActivity(aIntent);
 		Log.i(tag, "QuickSMSService start a new service");
 	}
-
-	@Override
-	public void onDestroy() {
-		super.onDestroy();
-		Tools.show(this, "@@@@@@ QuickSMSService:onDestroy");
-	}
-	
-	
 
 }

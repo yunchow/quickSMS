@@ -2,7 +2,7 @@ package nick.chow.app.service;
 
 import java.util.Arrays;
 
-import nick.chow.smsshow.Tools;
+import nick.chow.app.context.Tools;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
