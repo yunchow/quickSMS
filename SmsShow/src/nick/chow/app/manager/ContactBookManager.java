@@ -1,4 +1,4 @@
-package nick.chow.app.service;
+package nick.chow.app.manager;
 
 import java.util.Arrays;
 
@@ -13,12 +13,12 @@ import android.util.Log;
  * @author zhouyun
  *
  */
-public class ContactBookService {
+public class ContactBookManager {
 	public static final Uri SMS_PROVIDER_URI = Uri.parse("content://sms/");
 	private final String tag = getClass().getSimpleName();
 	private Context context;
 	
-	protected ContactBookService(Context context) {
+	protected ContactBookManager(Context context) {
 		this.context = context;
 	}
 
@@ -97,7 +97,7 @@ public class ContactBookService {
 		return null;
 	}
 	
-	public static ContactBookService createService(Context context) {
-		return new ContactBookService(context);
+	public static ContactBookManager getManager(Context context) {
+		return new ContactBookManager(context);
 	}
 }

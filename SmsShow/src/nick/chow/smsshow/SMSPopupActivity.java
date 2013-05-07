@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import nick.chow.app.service.SMSService;
+import nick.chow.app.manager.SMSManager;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
@@ -34,7 +34,7 @@ public class SMSPopupActivity extends Activity {
 	private TextView smsCounter;
 	private View smsContainer;
 	
-	private SMSService smsService = SMSService.createService(this);
+	private SMSManager smsService = SMSManager.getManager(this);
 	private Set<String> unreadSMSIds = new HashSet<String>();
 	
 	@Override

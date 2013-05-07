@@ -1,4 +1,4 @@
-package nick.chow.app.service;
+package nick.chow.app.manager;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,16 +20,16 @@ import android.util.Log;
  * @author zhouyun
  *
  */
-public class SMSService {
+public class SMSManager {
 	public static final Uri SMS_PROVIDER_URI = Uri.parse("content://sms/");
 	private final String tag = getClass().getSimpleName();
 	private Context context;
 	
-	private ContactBookService contactService;
+	private ContactBookManager contactService;
 	
-	protected SMSService(Context context) {
+	protected SMSManager(Context context) {
 		this.context = context;
-		contactService = ContactBookService.createService(context);
+		contactService = ContactBookManager.getManager(context);
 	}
 	
 	/**
@@ -94,7 +94,7 @@ public class SMSService {
 		return context.getContentResolver().query(SMS_PROVIDER_URI, projection, "read=?", new String[]{"0"}, null);
 	}
 	
-	public static SMSService createService(Context context) {
-		return new SMSService(context);
+	public static SMSManager getManager(Context context) {
+		return new SMSManager(context);
 	}
 }
