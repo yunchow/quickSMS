@@ -216,7 +216,6 @@ public class SMSPopupActivity extends Activity {
 	}
 
 	public void close(View view) {
-		markSMSRead();
 		Animation animation = AnimationUtils.loadAnimation(this, R.anim.hyperspace_jump_out);
 		animation.setAnimationListener(animationOut);
 		smsContainer.startAnimation(animation);
@@ -238,6 +237,7 @@ public class SMSPopupActivity extends Activity {
 		}
 		
 		public void onAnimationEnd(Animation animation) {
+			markSMSRead();
 			finish();
 		}
 	};
