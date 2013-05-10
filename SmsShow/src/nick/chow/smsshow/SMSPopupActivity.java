@@ -70,6 +70,7 @@ public class SMSPopupActivity extends Activity {
 	    		+ data.size() + getString(R.string.smscountright));
 	    titleCount.setSpan(new ForegroundColorSpan(Color.YELLOW), 0, titleCount.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
 	    titleCount.setSpan(new AbsoluteSizeSpan(14, true), 0, titleCount.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+	    titleView.setText(getString(R.string.title));
 	    titleView.append(titleCount);
 	    
 		SimpleAdapter cursorAdapter = new SimpleAdapter(this, data, R.layout.sms_item_list,
