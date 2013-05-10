@@ -24,6 +24,7 @@
     <style name="titleStyle">
         <item name="android:background">@color/title_bg</item>
         <item name="android:textSize">18sp</item>
+        <item name="android:typeface">serif</item>
     </style>
     
     <style name="buttonStyle" parent="@android:attr/buttonBarButtonStyle">

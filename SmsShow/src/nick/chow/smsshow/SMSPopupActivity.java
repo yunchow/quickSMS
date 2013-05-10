@@ -66,12 +66,11 @@ public class SMSPopupActivity extends Activity {
 	    getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 	    
 	    List<Map<String, String>> data = smsService.queryUnReadSMS(unreadSMSIds);
-	    SpannableString titleCount = new SpannableString("" + data.size());
-	    titleCount.setSpan(new ForegroundColorSpan(Color.YELLOW), 0, 1, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
-	    titleCount.setSpan(new AbsoluteSizeSpan(20, true), 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-	    titleView.setText(getString(R.string.smscountleft));
+	    SpannableString titleCount = new SpannableString(getString(R.string.smscountleft) 
+	    		+ data.size() + getString(R.string.smscountright));
+	    titleCount.setSpan(new ForegroundColorSpan(Color.YELLOW), 0, titleCount.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+	    titleCount.setSpan(new AbsoluteSizeSpan(14, true), 0, titleCount.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 	    titleView.append(titleCount);
-	    titleView.append(getString(R.string.smscountright));
 	    
 		SimpleAdapter cursorAdapter = new SimpleAdapter(this, data, R.layout.sms_item_list,
 				new String[]{"body", "note"}, new int[]{R.id.smsDetail, R.id.note});
