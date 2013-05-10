@@ -7,6 +7,8 @@ import java.util.Set;
 
 import nick.chow.app.manager.SMSManager;
 import android.app.Activity;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -35,6 +37,7 @@ public class SMSPopupActivity extends Activity {
 	private View smsContainer;
 	
 	private SMSManager smsService = SMSManager.getManager(this);
+	NotificationManager notificationManager;
 	private Set<String> unreadSMSIds = new HashSet<String>();
 	
 	@Override
@@ -46,6 +49,7 @@ public class SMSPopupActivity extends Activity {
 		smsListView = (ListView) findViewById(R.id.smsListView);
 		smsCounter = (TextView) findViewById(R.id.smsCounter);
 		smsContainer = findViewById(R.id.smsContainer);
+		notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 	}
 	
 	@Override
@@ -53,8 +57,7 @@ public class SMSPopupActivity extends Activity {
 		super.onResume();
 		Log.i(tag, "##### SMSPopupActivity onResume ########");
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);  
-	    //getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD); 
-	    //getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+	    getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 	    getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 	    
 	    List<Map<String, String>> data = smsService.queryUnReadSMS(unreadSMSIds);
@@ -103,6 +106,7 @@ public class SMSPopupActivity extends Activity {
 		
 		public void onAnimationEnd(Animation animation) {
 			smsService.markSMSReadFor(unreadSMSIds);
+			//notificationManager.cancelAll();
 			finish();
 		}
 	};

@@ -9,7 +9,7 @@ import android.widget.Toast;
 public class Tools {
 
 	public static void show(Context context, String text) {
-		Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+		//Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
 	}
 	
 	public static void show(Context context, Exception e) {
