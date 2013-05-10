@@ -9,7 +9,12 @@ import nick.chow.app.manager.SMSManager;
 import android.app.Activity;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.AbsoluteSizeSpan;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -33,7 +38,7 @@ public class SMSPopupActivity extends Activity {
 	private final String tag = SMSPopupActivity.class.getSimpleName();
 	
 	private ListView smsListView;
-	private TextView smsCounter;
+	private TextView titleView;
 	private View smsContainer;
 	
 	private SMSManager smsService = SMSManager.getManager(this);
@@ -47,7 +52,7 @@ public class SMSPopupActivity extends Activity {
 		Log.i(tag, "###### SMSPopupActivity ######");
 		setContentView(R.layout.activity_main);
 		smsListView = (ListView) findViewById(R.id.smsListView);
-		smsCounter = (TextView) findViewById(R.id.smsCounter);
+		titleView = (TextView) findViewById(R.id.title);
 		smsContainer = findViewById(R.id.smsContainer);
 		notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 	}
@@ -61,8 +66,13 @@ public class SMSPopupActivity extends Activity {
 	    getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 	    
 	    List<Map<String, String>> data = smsService.queryUnReadSMS(unreadSMSIds);
-		smsCounter.setText("" + data.size());
-
+	    SpannableString titleCount = new SpannableString("" + data.size());
+	    titleCount.setSpan(new ForegroundColorSpan(Color.YELLOW), 0, 1, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
+	    titleCount.setSpan(new AbsoluteSizeSpan(20), 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+	    titleView.setText(getString(R.string.smscountleft));
+	    titleView.append(titleCount);
+	    titleView.append(getString(R.string.smscountright));
+	    
 		SimpleAdapter cursorAdapter = new SimpleAdapter(this, data, R.layout.sms_item_list,
 				new String[]{"body", "note"}, new int[]{R.id.smsDetail, R.id.note});
 		int layoutHeight = smsListView.getLayoutParams().height;
@@ -85,9 +95,20 @@ public class SMSPopupActivity extends Activity {
 	 */
 	public void close(View view) {
 		Animation animation = AnimationUtils.loadAnimation(this, R.anim.hyperspace_jump_out);
-		animation.setAnimationListener(animationOut);
+		animation.setAnimationListener(animationCloseOut);
 		smsContainer.startAnimation(animation);
-		Log.i(tag, "close MainActivity");
+	}
+	
+	public void markRead(View view) {
+		Animation animation = AnimationUtils.loadAnimation(this, R.anim.hyperspace_jump_out);
+		animation.setAnimationListener(animationReadOut);
+		smsContainer.startAnimation(animation);
+	}
+	
+	public void deleteAll(View view) {
+		Animation animation = AnimationUtils.loadAnimation(this, R.anim.hyperspace_jump_out);
+		animation.setAnimationListener(animationDeleteOut);
+		smsContainer.startAnimation(animation);
 	}
 	
 	public void replySMS(View view) {
@@ -95,21 +116,46 @@ public class SMSPopupActivity extends Activity {
 		Toast.makeText(getApplicationContext(), "reply sms", Toast.LENGTH_LONG).show();
 	}
 	
-	private AnimationListener animationOut = new AnimationListener() {
+	private AnimationListener animationCloseOut = new AnimationDecrator() {
+		
+		public void onAnimationEnd(Animation animation) {
+			finish();
+		}
+	};
+	
+	private AnimationListener animationDeleteOut = new AnimationDecrator() {
+		
+		public void onAnimationEnd(Animation animation) {
+			finish();
+		}
+	};
+	
+	private AnimationListener animationReadOut = new AnimationDecrator() {
+		
+		public void onAnimationEnd(Animation animation) {
+			smsService.markSMSReadFor(unreadSMSIds);
+			finish();
+		}
+	};
+	
+	public static class AnimationDecrator implements AnimationListener {
+
+		@Override
 		public void onAnimationStart(Animation animation) {
 			
 		}
-		
+
+		@Override
+		public void onAnimationEnd(Animation animation) {
+			
+		}
+
+		@Override
 		public void onAnimationRepeat(Animation animation) {
 			
 		}
 		
-		public void onAnimationEnd(Animation animation) {
-			smsService.markSMSReadFor(unreadSMSIds);
-			//notificationManager.cancelAll();
-			finish();
-		}
-	};
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

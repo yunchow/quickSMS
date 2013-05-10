@@ -20,6 +20,10 @@
     <style name="Theme.Translucent.NoTitleBar.Fullscreen" parent="android:Theme.Translucent.NoTitleBar.Fullscreen">
         <item name="android:background">#3AAA</item>
     </style>
+    
+    <style name="buttonStyle" parent="@android:attr/buttonBarButtonStyle">
+		<item name="android:textColor">@color/button_selector</item>        
+    </style>
 
     <color name="clolor_369">#369</color>
     <color name="clolor_DDD">#DDD</color>
