@@ -19,6 +19,8 @@ public final class R {
         public static final int clolor_369=0x7f080000;
         public static final int clolor_DDD=0x7f080001;
         public static final int list_items_bg=0x7f080003;
+        public static final int main_bg=0x7f080004;
+        public static final int title_bg=0x7f080005;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -31,11 +33,7 @@ public final class R {
         public static final int activity_vertical_margin=0x7f050001;
     }
     public static final class drawable {
-        public static final int buttonstyle=0x7f020000;
-        public static final int corner=0x7f020001;
-        public static final int ic_launcher=0x7f020002;
-        public static final int listviewstyle=0x7f020003;
-        public static final int mystyle=0x7f020004;
+        public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
         public static final int action_settings=0x7f0a0009;
@@ -104,6 +102,7 @@ public final class R {
          */
         public static final int AppTheme=0x7f070001;
         public static final int Theme_Translucent_NoTitleBar_Fullscreen=0x7f070002;
-        public static final int buttonStyle=0x7f070003;
+        public static final int buttonStyle=0x7f070004;
+        public static final int titleStyle=0x7f070003;
     }
 }

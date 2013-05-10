@@ -68,7 +68,7 @@ public class SMSPopupActivity extends Activity {
 	    List<Map<String, String>> data = smsService.queryUnReadSMS(unreadSMSIds);
 	    SpannableString titleCount = new SpannableString("" + data.size());
 	    titleCount.setSpan(new ForegroundColorSpan(Color.YELLOW), 0, 1, Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
-	    titleCount.setSpan(new AbsoluteSizeSpan(20), 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+	    titleCount.setSpan(new AbsoluteSizeSpan(20, true), 0, 1, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 	    titleView.setText(getString(R.string.smscountleft));
 	    titleView.append(titleCount);
 	    titleView.append(getString(R.string.smscountright));

@@ -21,6 +21,11 @@
         <item name="android:background">#3AAA</item>
     </style>
     
+    <style name="titleStyle">
+        <item name="android:background">@color/title_bg</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    
     <style name="buttonStyle" parent="@android:attr/buttonBarButtonStyle">
 		<item name="android:textColor">@color/button_selector</item>        
     </style>
