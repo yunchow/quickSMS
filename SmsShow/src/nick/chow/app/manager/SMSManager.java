@@ -33,17 +33,17 @@ public class SMSManager {
 	}
 	
 	/**
-	 * @param unreadSMSIds
+	 * @param smsIds
 	 * @return
 	 */
-	public List<Map<String, String>> queryUnReadSMS(Set<String> unreadSMSIds) {
+	public List<Map<String, String>> querySMSDetail(Set<String> smsIds) {
 		Cursor allUnReadSMS = queryAllUnReadSMS();
 		List<Map<String, String>> data = new ArrayList<Map<String, String>>();
 		
 		try {
 			while (allUnReadSMS != null && allUnReadSMS.moveToNext()) {
 				Log.i(tag, "current cursor : " + allUnReadSMS);
-				unreadSMSIds.add(allUnReadSMS.getString(0));
+				smsIds.add(allUnReadSMS.getString(0));
 				Map<String, String> each = new HashMap<String, String>();
 				each.put("_id", allUnReadSMS.getString(0));
 				each.put("body", allUnReadSMS.getString(3));
@@ -60,6 +60,21 @@ public class SMSManager {
 				allUnReadSMS.close();
 			}
 		}
+		return data;
+	}
+	
+	/**
+	 * @return
+	 */
+	public List<Map<String, String>> buildTestData() {
+		List<Map<String, String>> data = new ArrayList<Map<String, String>>();
+		Map<String, String> each = new HashMap<String, String>();
+		each.put("_id", "-1");
+		each.put("body", context.getString(R.string.testContent));
+		String time = new SimpleDateFormat("MM/dd HH:mm", Locale.getDefault()).format(System.currentTimeMillis());
+		each.put("note", context.getString(R.string.from) + context.getString(R.string.app_name) 
+				+ context.getString(R.string.at) + time);
+		data.add(each);
 		return data;
 	}
 

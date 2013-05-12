@@ -4,10 +4,14 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
+import nick.chow.app.context.Constants;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.telephony.SmsMessage;
 import android.util.Log;
 
@@ -42,11 +46,14 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 		aIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		context.startActivity(aIntent);*/
 		
-		Intent service = new Intent(context, QuickSMSService.class);
-		service.putExtra("sms", detail.toString());
-		service.putExtra("sender", sender);
-		service.putExtra("sendTime", sdf.format(time));
-		context.startService(service);
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+		if (prefs.getBoolean(Constants.ENABLE_QSMS, true)) {
+			Intent service = new Intent(context, QuickSMSService.class);
+			service.putExtra("sms", detail.toString());
+			service.putExtra("sender", sender);
+			service.putExtra("sendTime", sdf.format(time));
+			context.startService(service);
+		}
 	}
 	
 }

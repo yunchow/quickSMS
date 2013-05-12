@@ -12,21 +12,15 @@ public final class R {
         public static final int hyperspace_jump_in=0x7f040000;
         public static final int hyperspace_jump_out=0x7f040001;
     }
-    public static final class array {
-        public static final int pref_example_list_titles=0x7f080000;
-        public static final int pref_example_list_values=0x7f080001;
-        public static final int pref_sync_frequency_titles=0x7f080002;
-        public static final int pref_sync_frequency_values=0x7f080003;
-    }
     public static final class attr {
     }
     public static final class color {
-        public static final int button_selector=0x7f0a0002;
-        public static final int clolor_369=0x7f0a0000;
-        public static final int clolor_DDD=0x7f0a0001;
-        public static final int list_items_bg=0x7f0a0003;
-        public static final int main_bg=0x7f0a0004;
-        public static final int title_bg=0x7f0a0005;
+        public static final int button_selector=0x7f090002;
+        public static final int clolor_369=0x7f090000;
+        public static final int clolor_DDD=0x7f090001;
+        public static final int list_items_bg=0x7f090003;
+        public static final int main_bg=0x7f090004;
+        public static final int title_bg=0x7f090005;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -42,16 +36,20 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f0c0009;
-        public static final int close=0x7f0c0005;
-        public static final int deleteAll=0x7f0c0004;
-        public static final int markRead=0x7f0c0003;
-        public static final int note=0x7f0c0008;
-        public static final int settingFragment=0x7f0c0006;
-        public static final int smsContainer=0x7f0c0000;
-        public static final int smsDetail=0x7f0c0007;
-        public static final int smsListView=0x7f0c0002;
-        public static final int title=0x7f0c0001;
+        public static final int action_about=0x7f0b000d;
+        public static final int action_feedback=0x7f0b000c;
+        public static final int action_settings=0x7f0b000b;
+        public static final int btnBar=0x7f0b0004;
+        public static final int close=0x7f0b0007;
+        public static final int deleteAll=0x7f0b0006;
+        public static final int markRead=0x7f0b0005;
+        public static final int note=0x7f0b000a;
+        public static final int settingFragment=0x7f0b0008;
+        public static final int smsContainer=0x7f0b0000;
+        public static final int smsDetail=0x7f0b0009;
+        public static final int smsDivider=0x7f0b0003;
+        public static final int smsListView=0x7f0b0002;
+        public static final int title=0x7f0b0001;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -60,47 +58,46 @@ public final class R {
         public static final int sms_item_list=0x7f030003;
     }
     public static final class menu {
-        public static final int main=0x7f0b0000;
+        public static final int main=0x7f0a0000;
     }
     public static final class string {
+        public static final int action_about=0x7f070005;
+        public static final int action_feedback=0x7f070003;
         public static final int action_settings=0x7f070002;
+        public static final int animation=0x7f070016;
         public static final int app_name=0x7f070000;
-        public static final int at=0x7f07000a;
-        public static final int close=0x7f070005;
-        public static final int delete=0x7f070007;
-        public static final int from=0x7f070009;
-        public static final int hello_world=0x7f070003;
-        public static final int markRead=0x7f070006;
-        public static final int pref_default_display_name=0x7f070015;
-        public static final int pref_description_social_recommendations=0x7f070013;
-        /**  Example settings for Data & Sync 
-         */
-        public static final int pref_header_data_sync=0x7f070017;
-        /**  Strings related to Settings 
- Example General settings 
-         */
-        public static final int pref_header_general=0x7f070011;
-        /**  Example settings for Notifications 
-         */
-        public static final int pref_header_notifications=0x7f07001a;
-        public static final int pref_ringtone_silent=0x7f07001d;
-        public static final int pref_title_add_friends_to_messages=0x7f070016;
-        public static final int pref_title_display_name=0x7f070014;
-        public static final int pref_title_new_message_notifications=0x7f07001b;
-        public static final int pref_title_ringtone=0x7f07001c;
-        public static final int pref_title_social_recommendations=0x7f070012;
-        public static final int pref_title_sync_frequency=0x7f070018;
-        public static final int pref_title_system_sync_settings=0x7f070019;
-        public static final int pref_title_vibrate=0x7f07001e;
-        public static final int reply=0x7f070004;
-        public static final int sendTime=0x7f070008;
-        public static final int setting=0x7f07000f;
-        public static final int smscountleft=0x7f07000b;
-        public static final int smscountright=0x7f07000c;
-        public static final int testEnv=0x7f07000d;
+        public static final int at=0x7f07000c;
+        public static final int close=0x7f070007;
+        public static final int delete=0x7f070009;
+        public static final int display=0x7f07001b;
+        public static final int displayCloseBtn=0x7f07001d;
+        public static final int displayCloseBtnSumary=0x7f07001e;
+        public static final int displayDelete=0x7f070021;
+        public static final int displayDeleteBtnSumary=0x7f070022;
+        public static final int displayReadBtn=0x7f07001f;
+        public static final int displayReadBtnSumary=0x7f070020;
+        public static final int displaySumary=0x7f07001c;
+        public static final int enableStartAnimation=0x7f070017;
+        public static final int enableStartAnimationDsc=0x7f070018;
+        public static final int enableStopAnimation=0x7f070019;
+        public static final int enableStopAnimationDsc=0x7f07001a;
+        public static final int from=0x7f07000b;
+        public static final int markRead=0x7f070008;
+        public static final int qsmsEnable=0x7f070014;
+        public static final int qsmsEnableDsc=0x7f070015;
+        public static final int reply=0x7f070006;
+        public static final int sendTime=0x7f07000a;
+        public static final int setting=0x7f070011;
+        public static final int smscountleft=0x7f07000d;
+        public static final int smscountright=0x7f07000e;
+        public static final int suggest=0x7f070004;
+        public static final int testContent=0x7f070012;
+        public static final int testEnv=0x7f07000f;
         public static final int title=0x7f070001;
-        public static final int title_activity_main=0x7f07000e;
-        public static final int title_activity_settings=0x7f070010;
+        public static final int title_activity_main=0x7f070010;
+        /**  Settings 
+         */
+        public static final int title_activity_settings=0x7f070013;
     }
     public static final class style {
         /** 
@@ -124,14 +121,14 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f090000;
+        public static final int AppBaseTheme=0x7f080000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f090001;
-        public static final int Theme_Translucent_NoTitleBar_Fullscreen=0x7f090002;
-        public static final int buttonStyle=0x7f090004;
-        public static final int titleStyle=0x7f090003;
+        public static final int AppTheme=0x7f080001;
+        public static final int Theme_Translucent_NoTitleBar_Fullscreen=0x7f080002;
+        public static final int buttonStyle=0x7f080004;
+        public static final int titleStyle=0x7f080003;
     }
     public static final class xml {
         public static final int pref_general=0x7f050000;

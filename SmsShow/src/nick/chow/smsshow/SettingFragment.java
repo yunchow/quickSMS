@@ -21,11 +21,11 @@ public class SettingFragment extends PreferenceFragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.pref_general);
-		bindPreferenceSummaryToValue(findPreference("example_text"));
-		bindPreferenceSummaryToValue(findPreference("example_list"));
+		//bindPreferenceSummaryToValue(findPreference("example_text"));
+		//bindPreferenceSummaryToValue(findPreference("example_list"));
 	}
 	
-	private static void bindPreferenceSummaryToValue(Preference preference) {
+	static void bindPreferenceSummaryToValue(Preference preference) {
 		// Set the listener to watch for value changes.
 		preference
 				.setOnPreferenceChangeListener(sBindPreferenceSummaryToValueListener);
@@ -60,7 +60,7 @@ public class SettingFragment extends PreferenceFragment {
 				// using RingtoneManager.
 				if (TextUtils.isEmpty(stringValue)) {
 					// Empty values correspond to 'silent' (no ringtone).
-					preference.setSummary(R.string.pref_ringtone_silent);
+					preference.setSummary("silent");
 
 				} else {
 					Ringtone ringtone = RingtoneManager.getRingtone(

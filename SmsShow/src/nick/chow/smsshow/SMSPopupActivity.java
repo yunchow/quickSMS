@@ -5,25 +5,31 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import nick.chow.app.context.AnimationDecrator;
+import nick.chow.app.context.Constants;
+import nick.chow.app.context.MenuItemSelector;
 import nick.chow.app.manager.SMSManager;
 import android.app.Activity;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.AbsoluteSizeSpan;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -40,32 +46,85 @@ public class SMSPopupActivity extends Activity {
 	private ListView smsListView;
 	private TextView titleView;
 	private View smsContainer;
+	private boolean istest;
+	private ViewGroup btnBar;
+	private TextView smsDiver;
 	
 	private SMSManager smsService = SMSManager.getManager(this);
 	NotificationManager notificationManager;
 	private Set<String> unreadSMSIds = new HashSet<String>();
+	private SharedPreferences prefs;
+	
+	private Button closeBtn;
+	private Button deleBtn;
+	private Button readBtn;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-		Log.i(tag, "###### SMSPopupActivity ######");
 		setContentView(R.layout.activity_main);
+		
+		istest = getIntent().getBooleanExtra(Constants.IS_TEST, false);
+		
 		smsListView = (ListView) findViewById(R.id.smsListView);
 		titleView = (TextView) findViewById(R.id.title);
 		smsContainer = findViewById(R.id.smsContainer);
+		smsDiver = (TextView) findViewById(R.id.smsDivider);
+		btnBar = (ViewGroup) findViewById(R.id.btnBar);
+		closeBtn = (Button) findViewById(R.id.close);
+		deleBtn = (Button) findViewById(R.id.deleteAll);
+		readBtn = (Button) findViewById(R.id.markRead);
+		
 		notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+		prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+		
+		this.setupButton();
+		this.setupAnimation();
+	}
+	
+	public void setupAnimation() {
+		if (prefs.getBoolean(Constants.ENABLE_START_ANIMATION, true)) {
+			// start animation
+			Animation animation = AnimationUtils.loadAnimation(this, R.anim.hyperspace_jump_in);
+			smsContainer.startAnimation(animation);
+		}
+	}
+	
+	public void setupButton() {
+		boolean display = false;
+		if (prefs.getBoolean(Constants.DISPLAY_CLOSE_BTN, true)) {
+			closeBtn.setVisibility(Button.VISIBLE);
+			display = true;
+		} else {
+			closeBtn.setVisibility(Button.GONE);
+		}
+		if (prefs.getBoolean(Constants.DISPLAY_DELETE_BTN, true)) {
+			deleBtn.setVisibility(Button.VISIBLE);
+			display = true;
+		} else {
+			deleBtn.setVisibility(Button.GONE);
+		}
+		if (prefs.getBoolean(Constants.DISPLAY_READ_BTN, true)) {
+			readBtn.setVisibility(Button.VISIBLE);
+			display = true;
+		} else {
+			readBtn.setVisibility(Button.GONE);
+		}
+		if (!display) {
+			smsDiver.setVisibility(View.GONE);
+			btnBar.setVisibility(View.GONE);
+		}
 	}
 	
 	@Override
 	protected void onResume() {
 		super.onResume();
-		Log.i(tag, "##### SMSPopupActivity onResume ########");
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);  
 	    getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 	    getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 	    
-	    List<Map<String, String>> data = smsService.queryUnReadSMS(unreadSMSIds);
+	    List<Map<String, String>> data = smsService.querySMSDetail(unreadSMSIds);
+	    data = istest ? smsService.buildTestData() : data;
 	    
 	    // prepare for title rendering
 	    SpannableString titleCount = new SpannableString(getString(R.string.smscountleft) 
@@ -88,10 +147,6 @@ public class SMSPopupActivity extends Activity {
 			smsListView.getLayoutParams().height = disHeight;
 		}
 		smsListView.setAdapter(cursorAdapter);
-		
-		// start animation
-		Animation animation = AnimationUtils.loadAnimation(this, R.anim.hyperspace_jump_in);
-		smsContainer.startAnimation(animation);
 	}
 
 	/**
@@ -99,21 +154,34 @@ public class SMSPopupActivity extends Activity {
 	 * @param view
 	 */
 	public void close(View view) {
-		Animation animation = AnimationUtils.loadAnimation(this, R.anim.hyperspace_jump_out);
-		animation.setAnimationListener(animationCloseOut);
-		smsContainer.startAnimation(animation);
+		if (prefs.getBoolean(Constants.ENABLE_STOP_ANIMATION, true)) {
+			Animation animation = AnimationUtils.loadAnimation(this, R.anim.hyperspace_jump_out);
+			animation.setAnimationListener(animationCloseOut);
+			smsContainer.startAnimation(animation);
+		} else {
+			finish();
+		}		
 	}
 	
 	public void markRead(View view) {
-		Animation animation = AnimationUtils.loadAnimation(this, R.anim.hyperspace_jump_out);
-		animation.setAnimationListener(animationReadOut);
-		smsContainer.startAnimation(animation);
+		if (prefs.getBoolean(Constants.ENABLE_STOP_ANIMATION, true)) {
+			Animation animation = AnimationUtils.loadAnimation(this, R.anim.hyperspace_jump_out);
+			animation.setAnimationListener(animationReadOut);
+			smsContainer.startAnimation(animation);
+		} else {
+			smsService.markSMSReadFor(unreadSMSIds);
+		}
+		
 	}
 	
 	public void deleteAll(View view) {
-		Animation animation = AnimationUtils.loadAnimation(this, R.anim.hyperspace_jump_out);
-		animation.setAnimationListener(animationDeleteOut);
-		smsContainer.startAnimation(animation);
+		if (prefs.getBoolean(Constants.ENABLE_STOP_ANIMATION, true)) {
+			Animation animation = AnimationUtils.loadAnimation(this, R.anim.hyperspace_jump_out);
+			animation.setAnimationListener(animationDeleteOut);
+			smsContainer.startAnimation(animation);
+		} else {
+			finish();
+		}	
 	}
 	
 	public void replySMS(View view) {
@@ -121,11 +189,11 @@ public class SMSPopupActivity extends Activity {
 		Toast.makeText(getApplicationContext(), "reply sms", Toast.LENGTH_LONG).show();
 	}
 	
-	private AnimationListener animationCloseOut = new AnimationDecrator();
+	private AnimationListener animationCloseOut = new MyAnimationDecrator();
 	
-	private AnimationListener animationDeleteOut = new AnimationDecrator();
+	private AnimationListener animationDeleteOut = new MyAnimationDecrator();
 	
-	private AnimationListener animationReadOut = new AnimationDecrator() {
+	private AnimationListener animationReadOut = new MyAnimationDecrator() {
 		
 		public void onAnimationEnd(Animation animation) {
 			smsService.markSMSReadFor(unreadSMSIds);
@@ -133,23 +201,12 @@ public class SMSPopupActivity extends Activity {
 		}
 	};
 	
-	public class AnimationDecrator implements AnimationListener {
-
-		@Override
-		public void onAnimationStart(Animation animation) {
-			
-		}
+	public class MyAnimationDecrator extends AnimationDecrator {
 
 		@Override
 		public void onAnimationEnd(Animation animation) {
 			finish();
 		}
-
-		@Override
-		public void onAnimationRepeat(Animation animation) {
-			
-		}
-		
 	}
 
 	@Override
@@ -157,6 +214,12 @@ public class SMSPopupActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
+	}
+	
+	@Override
+	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+		new MenuItemSelector(this).onItemSelect(item);
+		return super.onMenuItemSelected(featureId, item);
 	}
 
 }

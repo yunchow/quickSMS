@@ -39,13 +39,16 @@
     </ListView>
     
     <TextView 
+        android:id="@+id/smsDivider"
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
+        android:textIsSelectable="false"
         android:background="#FF8800"/>
     
     <LinearLayout 
+        android:id="@+id/btnBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFF"

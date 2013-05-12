@@ -3,8 +3,10 @@
 
     <string name="app_name">Q短信</string>
     <string name="title">Q短信 - </string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">献给我最亲爱的小玲!</string>
+    <string name="action_settings">设置</string>
+    <string name="action_feedback">反馈</string>
+    <string name="suggest">我有话要说...</string>
+    <string name="action_about">关于Q短信</string>
     <string name="reply">回复</string>
     <string name="close">关闭</string>
     <string name="markRead">已读</string>
@@ -17,5 +19,23 @@
     <string name="testEnv">亲，点我</string>
     <string name="title_activity_main">Q短信</string>
     <string name="setting">设置Q短信</string>
-
+    <string name="testContent">当您收到短信后，短信正文会显示在这里, 感谢您对Q短信的支持！</string>
+    
+    <!-- Settings -->
+    <string name="title_activity_settings">Q短信设置</string>
+	<string name="qsmsEnable">开启Q短信</string>
+	<string name="qsmsEnableDsc">开启和关闭Q短信功能，关闭后Q短信将不再自动弹窗显示短信内容</string>
+	<string name="animation">启动与结束效果</string>
+	<string name="enableStartAnimation">开始动画</string>
+	<string name="enableStartAnimationDsc">打开/关闭开始动画，关闭可享受更快的启动速度 </string>
+	<string name="enableStopAnimation">结束动画</string>
+	<string name="enableStopAnimationDsc">打开关闭结束动画</string>
+	<string name="display">界面与显示(建议至少显示一个按纽)</string>
+	<string name="displaySumary">控制Q短信弹窗内的按纽是否显示</string>
+	<string name="displayCloseBtn">显示关闭按纽</string>
+	<string name="displayCloseBtnSumary">关闭后关闭按纽将不会显示在弹窗上面</string>
+	<string name="displayReadBtn">显示已读按纽</string>
+	<string name="displayReadBtnSumary">关闭后已读按纽将不会显示在弹窗上面</string>
+	<string name="displayDelete">显示删除按纽</string>
+	<string name="displayDeleteBtnSumary">关闭后删除按纽将不会显示在弹窗上面</string>
 </resources>

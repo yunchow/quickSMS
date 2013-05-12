@@ -46,10 +46,6 @@
             android:name="nick.chow.smsshow.SettingsActivity"
             android:label="@string/title_activity_settings" >
         </activity>
-        <activity
-            android:name="nick.chow.smsshow.Settings2Activity"
-            android:label="title_activity_settings" >
-        </activity>
     </application>
 
 </manifest>
