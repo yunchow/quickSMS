@@ -7,16 +7,23 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
+    android:background="#FFF"
     tools:context=".MainActivity" >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:text="@string/hello_world" />
 
     <Button android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:onClick="testEnv"
+        android:onClick="onTest"
         android:text="@string/testEnv"/>
+    
+    <Button android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onSetting"
+        android:text="@string/setting"/>
     
 </LinearLayout>

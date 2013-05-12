@@ -7,22 +7,25 @@
     <uses-sdk
         android:minSdkVersion="15"
         android:targetSdkVersion="15" />
-    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
-    <uses-permission android:name="android.permission.READ_SMS"/>
-    <uses-permission android:name="android.permission.WRITE_SMS"/>
-	<uses-permission android:name="android.permission.READ_CONTACTS"/>
-	<uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
-        android:label="@string/app_name"
         android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <activity android:name="nick.chow.smsshow.MainActivity"
+        <activity
+            android:name="nick.chow.smsshow.MainActivity"
             android:label="@string/title_activity_main"
             android:launchMode="singleTask" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -30,12 +33,23 @@
             android:name="nick.chow.smsshow.SMSPopupActivity"
             android:launchMode="singleTask"
             android:theme="@style/Theme.Translucent.NoTitleBar.Fullscreen" />
-        <receiver android:name="nick.chow.smsshow.SMSBroadcastReceiver">
-            <intent-filter android:priority="2147483647">
+
+        <receiver android:name="nick.chow.smsshow.SMSBroadcastReceiver" >
+            <intent-filter android:priority="2147483647" >
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
-        <service android:name=".QuickSMSService"/>
+
+        <service android:name="nick.chow.smsshow.QuickSMSService" />
+
+        <activity
+            android:name="nick.chow.smsshow.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name="nick.chow.smsshow.Settings2Activity"
+            android:label="title_activity_settings" >
+        </activity>
     </application>
 
 </manifest>

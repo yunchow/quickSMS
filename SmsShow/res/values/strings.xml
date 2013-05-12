@@ -14,7 +14,8 @@
     <string name="at">于</string>
     <string name="smscountleft">您共有</string>
     <string name="smscountright">条未读信息</string>
-    <string name="testEnv">帅哥，点我</string>
+    <string name="testEnv">亲，点我</string>
     <string name="title_activity_main">Q短信</string>
+    <string name="setting">设置Q短信</string>
 
 </resources>
