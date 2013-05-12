@@ -65,6 +65,7 @@
 	        android:layout_height="wrap_content"
 	        android:onClick="markRead"
 	        style="@style/buttonStyle"
+	        android:drawableLeft="@android:drawable/ic_menu_myplaces"
 	        android:text="@string/markRead" />
         <Button
 	        android:id="@+id/deleteAll"
@@ -73,6 +74,7 @@
 	        android:layout_height="wrap_content"
 	        android:onClick="deleteAll"
 	        style="@style/buttonStyle"
+	        android:drawableLeft="@android:drawable/ic_menu_delete"
 	        android:text="@string/delete" />
 	    <Button
 	        android:id="@+id/close"
@@ -80,6 +82,7 @@
 	        android:layout_weight="1"
 	        android:layout_height="wrap_content"
 	        android:onClick="close"
+	        android:drawableLeft="@android:drawable/ic_menu_close_clear_cancel"
 	        style="@style/buttonStyle"
 	        android:text="@string/close" />
     </LinearLayout>

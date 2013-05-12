@@ -14,24 +14,29 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:onClick="onTest"
+        android:contentDescription="@string/app_name"
+        android:drawableLeft="@android:drawable/ic_media_ff"
         android:text="@string/testEnv" />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:onClick="onSetting"
+        android:drawableLeft="@android:drawable/ic_menu_preferences"
         android:text="@string/setting" />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:onClick="onSetting"
+        android:visibility="gone"
         android:text="@string/suggest" />
 
     <Button
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:onClick="onSetting"
+        android:onClick="onAbout"
+        android:drawableLeft="@android:drawable/ic_menu_info_details"
         android:text="@string/action_about" />
 
 </LinearLayout>

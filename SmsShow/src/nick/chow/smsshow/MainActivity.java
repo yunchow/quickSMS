@@ -21,6 +21,11 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.main);
 	}
 	
+	public void onAbout(View view) {
+		Intent intent = new Intent(getApplicationContext(), AboutActivity.class);
+		startActivity(intent);
+	}
+	
 	public void onTest(View view) {
 		Intent intent = new Intent(getApplicationContext(), SMSPopupActivity.class);
 		intent.putExtra(Constants.IS_TEST, true);

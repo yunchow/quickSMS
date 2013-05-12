@@ -1,0 +1,65 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    android:padding="15dp" >
+
+    <TextView
+        android:id="@+id/thanks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/sym_action_chat"
+        android:paddingTop="30dp"
+        android:paddingLeft="55dp"
+        android:paddingRight="55dp"
+        android:paddingBottom="30dp"
+        android:text="@string/thanks" />
+    
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/verstion"
+        android:layout_below="@id/thanks"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logo"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:text="@string/verstion" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/version"
+        android:layout_marginTop="30dp"
+        android:autoLink="email"
+        android:gravity="center_vertical"
+        android:drawableLeft="@android:drawable/ic_menu_myplaces"
+        android:text="@string/authorContact" />
+    
+    <TextView
+        android:id="@+id/copyrights"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/copyright" />
+    
+     <TextView
+        android:id="@+id/declare"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_above="@id/copyrights"
+        android:layout_marginBottom="20dp"
+        android:text="@string/declare" />
+
+</RelativeLayout>
