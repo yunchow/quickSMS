@@ -81,13 +81,13 @@ public class SMSManager {
 	/**
 	 * @param unreadSMSIds  sms id
 	 */
-	public void markSMSReadFor(Set<String> unreadSMSIds) {
-		if (unreadSMSIds.isEmpty()) {
+	public void markSMSReadFor(Set<String> mids) {
+		if (mids.isEmpty()) {
 			Log.i(tag, "no need to upate");
 			return;
 		}
 		StringBuilder inClause = new StringBuilder("(");
-		for (String id : unreadSMSIds) {
+		for (String id : mids) {
 			inClause.append(id).append(",");
 		}
 		inClause.deleteCharAt(inClause.length() - 1);
@@ -98,6 +98,27 @@ public class SMSManager {
 		cv.put("read", "1");
 		
 		int upated = context.getContentResolver().update(SMS_PROVIDER_URI, cv, "_id in " + inClause, new String[]{});
+		Log.i(tag, "upated = " + upated);
+	}
+	
+	/**
+	 * @param mids
+	 */
+	public void deleteSMS(Set<String> mids) {
+		if (mids.isEmpty()) {
+			Log.i(tag, "no need to upate");
+			return;
+		}
+		StringBuilder inClause = new StringBuilder("(");
+		for (String id : mids) {
+			inClause.append(id).append(",");
+		}
+		inClause.deleteCharAt(inClause.length() - 1);
+		inClause.append(")");
+		Log.i(tag, "inClause = " + inClause);
+		String where = "_id in " + inClause;
+		
+		int upated = context.getContentResolver().delete(SMS_PROVIDER_URI, where, new String[]{});
 		Log.i(tag, "upated = " + upated);
 	}
 	

@@ -52,20 +52,19 @@ public class SMSPopupActivity extends Activity {
 	
 	private SMSManager smsService = SMSManager.getManager(this);
 	NotificationManager notificationManager;
-	private Set<String> unreadSMSIds = new HashSet<String>();
+	private Set<String> mids = new HashSet<String>();
 	private SharedPreferences prefs;
 	
 	private Button closeBtn;
 	private Button deleBtn;
 	private Button readBtn;
+	List<Map<String, String>> data;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
 		istest = getIntent().getBooleanExtra(Constants.IS_TEST, false);
-		
 		smsListView = (ListView) findViewById(R.id.smsListView);
 		titleView = (TextView) findViewById(R.id.title);
 		smsContainer = findViewById(R.id.smsContainer);
@@ -116,25 +115,28 @@ public class SMSPopupActivity extends Activity {
 		}
 	}
 	
-	@Override
-	protected void onResume() {
-		super.onResume();
+	public void setupWindow() {
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);  
 	    getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
 	    getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-	    
-	    List<Map<String, String>> data = smsService.querySMSDetail(unreadSMSIds);
-	    data = istest ? smsService.buildTestData() : data;
-	    
-	    // prepare for title rendering
+	}
+	
+	/**
+	 * prepare for title rendering
+	 */
+	public void setupTitle() {
 	    SpannableString titleCount = new SpannableString(getString(R.string.smscountleft) 
 	    		+ data.size() + getString(R.string.smscountright));
 	    titleCount.setSpan(new ForegroundColorSpan(Color.YELLOW), 0, titleCount.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
 	    titleCount.setSpan(new AbsoluteSizeSpan(14, true), 0, titleCount.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 	    titleView.setText(getString(R.string.title));
 	    titleView.append(titleCount);
-	    
-	    // for list view render
+	}
+	
+	/**
+	 * prepare for list view render
+	 */
+	public void setupListView() {
 		SimpleAdapter cursorAdapter = new SimpleAdapter(this, data, R.layout.sms_item_list,
 				new String[]{"body", "note"}, new int[]{R.id.smsDetail, R.id.note});
 		int layoutHeight = smsListView.getLayoutParams().height;
@@ -147,6 +149,22 @@ public class SMSPopupActivity extends Activity {
 			smsListView.getLayoutParams().height = disHeight;
 		}
 		smsListView.setAdapter(cursorAdapter);
+	}
+	
+	/**
+	 * prepare SMS data for list view
+	 */
+	public void setupData() {
+		data = istest ? smsService.buildTestData() : smsService.querySMSDetail(mids);
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		setupWindow();
+		setupData();
+		setupTitle();
+	    setupListView();
 	}
 
 	/**
@@ -163,23 +181,33 @@ public class SMSPopupActivity extends Activity {
 		}		
 	}
 	
+	/**
+	 * when click read button, this method triggered
+	 * @param view
+	 */
 	public void markRead(View view) {
 		if (prefs.getBoolean(Constants.ENABLE_STOP_ANIMATION, true)) {
 			Animation animation = AnimationUtils.loadAnimation(this, R.anim.hyperspace_jump_out);
 			animation.setAnimationListener(animationReadOut);
 			smsContainer.startAnimation(animation);
 		} else {
-			smsService.markSMSReadFor(unreadSMSIds);
+			smsService.markSMSReadFor(mids);
+			finish();
 		}
 		
 	}
 	
+	/**
+	 * when click delete button, this method triggered
+	 * @param view
+	 */
 	public void deleteAll(View view) {
 		if (prefs.getBoolean(Constants.ENABLE_STOP_ANIMATION, true)) {
 			Animation animation = AnimationUtils.loadAnimation(this, R.anim.hyperspace_jump_out);
 			animation.setAnimationListener(animationDeleteOut);
 			smsContainer.startAnimation(animation);
 		} else {
+			smsService.deleteSMS(mids);
 			finish();
 		}	
 	}
@@ -191,12 +219,18 @@ public class SMSPopupActivity extends Activity {
 	
 	private AnimationListener animationCloseOut = new MyAnimationDecrator();
 	
-	private AnimationListener animationDeleteOut = new MyAnimationDecrator();
+	private AnimationListener animationDeleteOut = new MyAnimationDecrator() {
+		
+		public void onAnimationEnd(Animation animation) {
+			smsService.deleteSMS(mids);
+			super.onAnimationEnd(animation);
+		}
+	};
 	
 	private AnimationListener animationReadOut = new MyAnimationDecrator() {
 		
 		public void onAnimationEnd(Animation animation) {
-			smsService.markSMSReadFor(unreadSMSIds);
+			smsService.markSMSReadFor(mids);
 			super.onAnimationEnd(animation);
 		}
 	};
