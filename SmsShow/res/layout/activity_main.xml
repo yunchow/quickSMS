@@ -60,7 +60,7 @@
 	        android:layout_width="0dp"
 	        android:layout_weight="1"
 	        android:layout_height="wrap_content"
-	        android:onClick="close"
+	        android:onClick="markRead"
 	        style="@style/buttonStyle"
 	        android:text="@string/markRead" />
         <Button
@@ -68,7 +68,7 @@
 	        android:layout_width="0dp"
 	        android:layout_weight="1"
 	        android:layout_height="wrap_content"
-	        android:onClick="close"
+	        android:onClick="deleteAll"
 	        style="@style/buttonStyle"
 	        android:text="@string/delete" />
 	    <Button

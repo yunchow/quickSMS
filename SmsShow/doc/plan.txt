@@ -1,4 +1,4 @@
-1, drag and drop
+1, drag and drop -> completed at 2013-5-10
 2, dial number when click SMS if contain phone number and animation support (completed)
 3, settings support
 4, add quick reply support

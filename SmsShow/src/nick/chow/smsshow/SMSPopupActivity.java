@@ -62,10 +62,12 @@ public class SMSPopupActivity extends Activity {
 		super.onResume();
 		Log.i(tag, "##### SMSPopupActivity onResume ########");
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);  
-	    getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 	    getWindow().addFlags(WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+	    getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 	    
 	    List<Map<String, String>> data = smsService.queryUnReadSMS(unreadSMSIds);
+	    
+	    // prepare for title rendering
 	    SpannableString titleCount = new SpannableString(getString(R.string.smscountleft) 
 	    		+ data.size() + getString(R.string.smscountright));
 	    titleCount.setSpan(new ForegroundColorSpan(Color.YELLOW), 0, titleCount.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
@@ -73,6 +75,7 @@ public class SMSPopupActivity extends Activity {
 	    titleView.setText(getString(R.string.title));
 	    titleView.append(titleCount);
 	    
+	    // for list view render
 		SimpleAdapter cursorAdapter = new SimpleAdapter(this, data, R.layout.sms_item_list,
 				new String[]{"body", "note"}, new int[]{R.id.smsDetail, R.id.note});
 		int layoutHeight = smsListView.getLayoutParams().height;
@@ -85,8 +88,10 @@ public class SMSPopupActivity extends Activity {
 			smsListView.getLayoutParams().height = disHeight;
 		}
 		smsListView.setAdapter(cursorAdapter);
+		
+		// start animation
 		Animation animation = AnimationUtils.loadAnimation(this, R.anim.hyperspace_jump_in);
-		smsContainer.setAnimation(animation);
+		smsContainer.startAnimation(animation);
 	}
 
 	/**
@@ -116,29 +121,19 @@ public class SMSPopupActivity extends Activity {
 		Toast.makeText(getApplicationContext(), "reply sms", Toast.LENGTH_LONG).show();
 	}
 	
-	private AnimationListener animationCloseOut = new AnimationDecrator() {
-		
-		public void onAnimationEnd(Animation animation) {
-			finish();
-		}
-	};
+	private AnimationListener animationCloseOut = new AnimationDecrator();
 	
-	private AnimationListener animationDeleteOut = new AnimationDecrator() {
-		
-		public void onAnimationEnd(Animation animation) {
-			finish();
-		}
-	};
+	private AnimationListener animationDeleteOut = new AnimationDecrator();
 	
 	private AnimationListener animationReadOut = new AnimationDecrator() {
 		
 		public void onAnimationEnd(Animation animation) {
 			smsService.markSMSReadFor(unreadSMSIds);
-			finish();
+			super.onAnimationEnd(animation);
 		}
 	};
 	
-	public static class AnimationDecrator implements AnimationListener {
+	public class AnimationDecrator implements AnimationListener {
 
 		@Override
 		public void onAnimationStart(Animation animation) {
@@ -147,7 +142,7 @@ public class SMSPopupActivity extends Activity {
 
 		@Override
 		public void onAnimationEnd(Animation animation) {
-			
+			finish();
 		}
 
 		@Override
