@@ -11,8 +11,8 @@
         android:layout_height="wrap_content"
         android:background="@android:drawable/sym_action_chat"
         android:paddingTop="30dp"
-        android:paddingLeft="55dp"
-        android:paddingRight="55dp"
+        android:paddingLeft="75dp"
+        android:paddingRight="60dp"
         android:paddingBottom="30dp"
         android:text="@string/thanks" />
     
