@@ -1,89 +1,41 @@
 package nick.chow.smsshow;
 
-import android.media.Ringtone;
-import android.media.RingtoneManager;
-import android.net.Uri;
+import nick.chow.app.context.Constants;
 import android.os.Bundle;
-import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
-import android.preference.RingtonePreference;
-import android.text.TextUtils;
+import android.preference.PreferenceScreen;
 
 /**
  * @author zhouyun
  *
  */
-public class SettingFragment extends PreferenceFragment {
+public class SettingFragment extends PreferenceFragment implements OnPreferenceChangeListener {
+	private PreferenceScreen preferenceScreen;
+	private int prferenceCount;
+	private Preference enableQSMSPreference;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.pref_general);
-		//bindPreferenceSummaryToValue(findPreference("example_text"));
-		//bindPreferenceSummaryToValue(findPreference("example_list"));
+		preferenceScreen = getPreferenceScreen();
+		prferenceCount = preferenceScreen.getPreferenceCount();
+		enableQSMSPreference = findPreference(Constants.ENABLE_QSMS);
+		enableQSMSPreference.setOnPreferenceChangeListener(this);
 	}
 	
-	static void bindPreferenceSummaryToValue(Preference preference) {
-		// Set the listener to watch for value changes.
-		preference
-				.setOnPreferenceChangeListener(sBindPreferenceSummaryToValueListener);
-
-		// Trigger the listener immediately with the preference's
-		// current value.
-		sBindPreferenceSummaryToValueListener.onPreferenceChange(
-				preference,
-				PreferenceManager.getDefaultSharedPreferences(
-						preference.getContext()).getString(preference.getKey(),
-						""));
-	}
-	
-	private static Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = new Preference.OnPreferenceChangeListener() {
-		@Override
-		public boolean onPreferenceChange(Preference preference, Object value) {
-			String stringValue = value.toString();
-
-			if (preference instanceof ListPreference) {
-				// For list preferences, look up the correct display value in
-				// the preference's 'entries' list.
-				ListPreference listPreference = (ListPreference) preference;
-				int index = listPreference.findIndexOfValue(stringValue);
-
-				// Set the summary to reflect the new value.
-				preference
-						.setSummary(index >= 0 ? listPreference.getEntries()[index]
-								: null);
-
-			} else if (preference instanceof RingtonePreference) {
-				// For ringtone preferences, look up the correct display value
-				// using RingtoneManager.
-				if (TextUtils.isEmpty(stringValue)) {
-					// Empty values correspond to 'silent' (no ringtone).
-					preference.setSummary("silent");
-
-				} else {
-					Ringtone ringtone = RingtoneManager.getRingtone(
-							preference.getContext(), Uri.parse(stringValue));
-
-					if (ringtone == null) {
-						// Clear the summary if there was a lookup error.
-						preference.setSummary(null);
-					} else {
-						// Set the summary to reflect the new ringtone display
-						// name.
-						String name = ringtone
-								.getTitle(preference.getContext());
-						preference.setSummary(name);
-					}
-				}
-
-			} else {
-				// For all other preferences, set the summary to the value's
-				// simple string representation.
-				preference.setSummary(stringValue);
+	@Override
+	public boolean onPreferenceChange(Preference preference, Object newValue) {
+		if (newValue instanceof Boolean) {
+			boolean enable = (Boolean) newValue;
+			for (int i = 1; i < prferenceCount; i++) {
+				Preference pref = preferenceScreen.getPreference(i);
+				pref.setEnabled(enable);
 			}
-			return true;
 		}
-	};
+		return true;
+	}
+	
 }

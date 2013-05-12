@@ -27,9 +27,9 @@
 	<string name="qsmsEnableDsc">开启和关闭Q短信功能，关闭后Q短信将不再自动弹窗显示短信内容</string>
 	<string name="animation">启动与结束效果</string>
 	<string name="enableStartAnimation">开始动画</string>
-	<string name="enableStartAnimationDsc">打开/关闭开始动画，关闭可享受更快的启动速度 </string>
-	<string name="enableStopAnimation">结束动画</string>
-	<string name="enableStopAnimationDsc">打开关闭结束动画</string>
+	<string name="enableStartAnimationDsc">打开/关闭开始动画，关闭可享受更快的启动动画效果</string>
+	<string name="enableStopAnimation">退出动画</string>
+	<string name="enableStopAnimationDsc">打开关闭退出动画</string>
 	<string name="display">界面与显示(建议至少显示一个按纽)</string>
 	<string name="displaySumary">控制Q短信弹窗内的按纽是否显示</string>
 	<string name="displayCloseBtn">显示关闭按纽</string>

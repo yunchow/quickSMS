@@ -64,7 +64,15 @@ public class SMSPopupActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		istest = getIntent().getBooleanExtra(Constants.IS_TEST, false);
+		init();
+		this.setupButton();
+		this.setupAnimation();
+	}
+	
+	/**
+	 * initialize all components and data
+	 */
+	protected void init() {
 		smsListView = (ListView) findViewById(R.id.smsListView);
 		titleView = (TextView) findViewById(R.id.title);
 		smsContainer = findViewById(R.id.smsContainer);
@@ -72,15 +80,15 @@ public class SMSPopupActivity extends Activity {
 		btnBar = (ViewGroup) findViewById(R.id.btnBar);
 		closeBtn = (Button) findViewById(R.id.close);
 		deleBtn = (Button) findViewById(R.id.deleteAll);
-		readBtn = (Button) findViewById(R.id.markRead);
-		
+		readBtn = (Button) findViewById(R.id.markRead);	
 		notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 		prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-		
-		this.setupButton();
-		this.setupAnimation();
+		istest = getIntent().getBooleanExtra(Constants.IS_TEST, false);
 	}
 	
+	/**
+	 * set animation for startup if need
+	 */
 	public void setupAnimation() {
 		if (prefs.getBoolean(Constants.ENABLE_START_ANIMATION, true)) {
 			// start animation
