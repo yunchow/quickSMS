@@ -55,7 +55,11 @@ public class DragTextView extends TextView implements View.OnLongClickListener {
 		bitmap = Bitmap.createBitmap(outerLayout.getDrawingCache());
 		imageView = new ImageView(getContext());
 		imageView.setImageBitmap(bitmap);
-		imageView.setAlpha(0.8f);
+		
+		/**
+		 * comment for compatibility android 2.1
+		 */
+		//imageView.setAlpha(0.8f);
 		
 		layout = new LayoutParams();
 		layout.width = LayoutParams.WRAP_CONTENT;
@@ -102,8 +106,11 @@ public class DragTextView extends TextView implements View.OnLongClickListener {
 		case MotionEvent.ACTION_UP:
 			if (outerLayout != null && imageView != null 
 					&& bitmap != null && layout != null) {
-				outerLayout.setX(layout.x);
-				outerLayout.setY(layout.y);
+				/**
+				 * comment for compatibility android 2.1
+				 * outerLayout.setX(layout.x);
+				 * outerLayout.setY(layout.y);
+				*/
 				outerLayout.setVisibility(VISIBLE);
 				windowManager.removeView(imageView);
 				imageView.setImageBitmap(null);

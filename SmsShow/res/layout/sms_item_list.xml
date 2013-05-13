@@ -1,9 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    tools:context=".MainActivity" >
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="fill_parent"
@@ -19,8 +18,7 @@
         android:autoLink="all"
         android:clickable="true"
         android:linksClickable="true"
-        android:focusable="true"
-        android:textIsSelectable="false" />
+        android:focusable="true"/>
 
     <TextView
         android:layout_width="fill_parent"
@@ -33,6 +31,5 @@
         android:paddingBottom="5dp"
         android:layout_margin="0dp"
         android:textSize="12sp"
-        android:textColor="#DDD"
-        android:textIsSelectable="true" />
+        android:textColor="#DDD" />
 </LinearLayout>

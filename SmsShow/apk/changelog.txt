@@ -1,0 +1,14 @@
+20130511.apk
+-----------------------------------
+1, fist condition just can run mainly
+
+V1.0.0_beta_20130513.apk
+-----------------------------------
+1, beautify user interface
+2, add setting feature
+
+V1.0.1_beta_20130513.apk
+-----------------------------------
+1, could be compatible with android version 2.1
+
+

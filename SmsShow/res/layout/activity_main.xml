@@ -30,7 +30,6 @@
         android:smoothScrollbar="true"
         android:isScrollContainer="true"
         android:fadeScrollbars="true"
-        android:overScrollMode="ifContentScrolls"
         android:scrollingCache="true"
         android:divider="#EEE"
         android:background="#FFF"
@@ -40,22 +39,21 @@
     
     <TextView 
         android:id="@+id/smsDivider"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="0.5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
-        android:textIsSelectable="false"
         android:background="#FF8800"/>
     
     <LinearLayout 
         android:id="@+id/btnBar"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="#FFF"
         android:layout_margin="5dp"
         android:paddingTop="10dp"
         android:paddingBottom="12dp"
-        style="@android:attr/buttonBarStyle"
+        style="@android:attr/button"
         android:orientation="horizontal">
         
         <Button

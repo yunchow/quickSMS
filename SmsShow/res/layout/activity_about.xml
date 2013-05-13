@@ -1,13 +1,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:background="#FFF"
     android:padding="15dp" >
 
     <TextView
         android:id="@+id/thanks"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@android:drawable/sym_action_chat"
         android:paddingTop="30dp"
@@ -28,7 +28,7 @@
 
     <TextView
         android:id="@+id/version"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/logo"
         android:layout_centerHorizontal="true"
@@ -37,7 +37,7 @@
 
     <TextView
         android:id="@+id/email"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/version"
         android:layout_marginTop="30dp"
@@ -48,14 +48,14 @@
     
     <TextView
         android:id="@+id/copyrights"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:text="@string/copyright" />
     
      <TextView
         android:id="@+id/declare"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_above="@id/copyrights"
