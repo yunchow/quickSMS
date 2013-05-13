@@ -21,7 +21,7 @@ public class QuickSMSService extends IntentService {
 		if (prefs.getBoolean(Constants.ENABLE_QSMS, true)) {
 			Log.i(tag, "QuickSMSService sleep 500 ms start");
 			try {
-				Thread.sleep(500);
+				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				Tools.show(this, e);
 			}

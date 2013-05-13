@@ -1,0 +1,155 @@
+android.support.v4.app.BackStackState
+android.support.v4.app.BackStackState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.Fragment$SavedState
+android.support.v4.app.Fragment$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.FragmentManagerState
+android.support.v4.app.FragmentManagerState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.FragmentState
+android.support.v4.app.FragmentState: android.os.Parcelable$Creator CREATOR
+android.support.v4.app.FragmentTabHost: void setOnTabChangedListener(android.widget.TabHost$OnTabChangeListener)
+android.support.v4.app.FragmentTabHost$SavedState
+android.support.v4.app.FragmentTabHost$SavedState: android.os.Parcelable$Creator CREATOR
+android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status[] values()
+android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status valueOf(java.lang.String)
+android.support.v4.util.LogWriter: void close()
+android.support.v4.view.PagerTabStrip: void setTabIndicatorColor(int)
+android.support.v4.view.PagerTabStrip: void setTabIndicatorColorResource(int)
+android.support.v4.view.PagerTabStrip: int getTabIndicatorColor()
+android.support.v4.view.PagerTabStrip: void setTextSpacing(int)
+android.support.v4.view.PagerTabStrip: void setBackgroundDrawable(android.graphics.drawable.Drawable)
+android.support.v4.view.PagerTabStrip: void setBackgroundColor(int)
+android.support.v4.view.PagerTabStrip: void setBackgroundResource(int)
+android.support.v4.view.PagerTabStrip: void setDrawFullUnderline(boolean)
+android.support.v4.view.PagerTabStrip: boolean getDrawFullUnderline()
+android.support.v4.view.PagerTabStrip: int getMinHeight()
+android.support.v4.view.PagerTitleStrip: void setSingleLineAllCaps(android.widget.TextView)
+android.support.v4.view.PagerTitleStrip: void setTextSpacing(int)
+android.support.v4.view.PagerTitleStrip: int getTextSpacing()
+android.support.v4.view.PagerTitleStrip: void setNonPrimaryAlpha(float)
+android.support.v4.view.PagerTitleStrip: void setTextColor(int)
+android.support.v4.view.PagerTitleStrip: void setGravity(int)
+android.support.v4.view.PagerTitleStrip: int getMinHeight()
+android.support.v4.view.ViewPager: void setScrollState(int)
+android.support.v4.view.ViewPager: void setAdapter(android.support.v4.view.PagerAdapter)
+android.support.v4.view.ViewPager: android.support.v4.view.PagerAdapter getAdapter()
+android.support.v4.view.ViewPager: void setOnAdapterChangeListener(android.support.v4.view.ViewPager$OnAdapterChangeListener)
+android.support.v4.view.ViewPager: void setCurrentItem(int)
+android.support.v4.view.ViewPager: int getCurrentItem()
+android.support.v4.view.ViewPager: void setOnPageChangeListener(android.support.v4.view.ViewPager$OnPageChangeListener)
+android.support.v4.view.ViewPager: void setChildrenDrawingOrderEnabledCompat(boolean)
+android.support.v4.view.ViewPager: int getOffscreenPageLimit()
+android.support.v4.view.ViewPager: void setOffscreenPageLimit(int)
+android.support.v4.view.ViewPager: void setPageMargin(int)
+android.support.v4.view.ViewPager: int getPageMargin()
+android.support.v4.view.ViewPager: void setPageMarginDrawable(android.graphics.drawable.Drawable)
+android.support.v4.view.ViewPager: void setPageMarginDrawable(int)
+android.support.v4.view.ViewPager: void setScrollingCacheEnabled(boolean)
+android.support.v4.view.ViewPager$SavedState
+android.support.v4.view.ViewPager$SavedState: android.os.Parcelable$Creator CREATOR
+nick.chow.app.component.DragTextView
+nick.chow.app.component.DragTextView: DragTextView(android.content.Context,android.util.AttributeSet)
+nick.chow.smsshow.AboutActivity
+nick.chow.smsshow.AboutActivity: AboutActivity()
+nick.chow.smsshow.MainActivity
+nick.chow.smsshow.MainActivity: MainActivity()
+nick.chow.smsshow.MainActivity: void onAbout(android.view.View)
+nick.chow.smsshow.MainActivity: void onTest(android.view.View)
+nick.chow.smsshow.MainActivity: void onSetting(android.view.View)
+nick.chow.smsshow.QuickSMSService
+nick.chow.smsshow.QuickSMSService: QuickSMSService()
+nick.chow.smsshow.R$anim: int hyperspace_jump_in
+nick.chow.smsshow.R$anim: int hyperspace_jump_out
+nick.chow.smsshow.R$color: int button_selector
+nick.chow.smsshow.R$color: int clolor_369
+nick.chow.smsshow.R$color: int clolor_DDD
+nick.chow.smsshow.R$color: int list_items_bg
+nick.chow.smsshow.R$color: int main_bg
+nick.chow.smsshow.R$color: int title_bg
+nick.chow.smsshow.R$dimen: int activity_horizontal_margin
+nick.chow.smsshow.R$dimen: int activity_vertical_margin
+nick.chow.smsshow.R$drawable: int ic_launcher
+nick.chow.smsshow.R$id: int action_about
+nick.chow.smsshow.R$id: int action_feedback
+nick.chow.smsshow.R$id: int action_settings
+nick.chow.smsshow.R$id: int btnBar
+nick.chow.smsshow.R$id: int close
+nick.chow.smsshow.R$id: int copyrights
+nick.chow.smsshow.R$id: int declare
+nick.chow.smsshow.R$id: int deleteAll
+nick.chow.smsshow.R$id: int email
+nick.chow.smsshow.R$id: int logo
+nick.chow.smsshow.R$id: int markRead
+nick.chow.smsshow.R$id: int note
+nick.chow.smsshow.R$id: int settingFragment
+nick.chow.smsshow.R$id: int smsContainer
+nick.chow.smsshow.R$id: int smsDetail
+nick.chow.smsshow.R$id: int smsDivider
+nick.chow.smsshow.R$id: int smsListView
+nick.chow.smsshow.R$id: int thanks
+nick.chow.smsshow.R$id: int title
+nick.chow.smsshow.R$id: int version
+nick.chow.smsshow.R$layout: int activity_about
+nick.chow.smsshow.R$layout: int activity_main
+nick.chow.smsshow.R$layout: int main
+nick.chow.smsshow.R$layout: int settings
+nick.chow.smsshow.R$layout: int sms_item_list
+nick.chow.smsshow.R$menu: int main
+nick.chow.smsshow.R$string: int action_about
+nick.chow.smsshow.R$string: int action_feedback
+nick.chow.smsshow.R$string: int action_settings
+nick.chow.smsshow.R$string: int animation
+nick.chow.smsshow.R$string: int app_name
+nick.chow.smsshow.R$string: int at
+nick.chow.smsshow.R$string: int authorContact
+nick.chow.smsshow.R$string: int close
+nick.chow.smsshow.R$string: int copyright
+nick.chow.smsshow.R$string: int declare
+nick.chow.smsshow.R$string: int delete
+nick.chow.smsshow.R$string: int display
+nick.chow.smsshow.R$string: int displayCloseBtn
+nick.chow.smsshow.R$string: int displayCloseBtnSumary
+nick.chow.smsshow.R$string: int displayDelete
+nick.chow.smsshow.R$string: int displayDeleteBtnSumary
+nick.chow.smsshow.R$string: int displayReadBtn
+nick.chow.smsshow.R$string: int displayReadBtnSumary
+nick.chow.smsshow.R$string: int displaySumary
+nick.chow.smsshow.R$string: int enableStartAnimation
+nick.chow.smsshow.R$string: int enableStartAnimationDsc
+nick.chow.smsshow.R$string: int enableStopAnimation
+nick.chow.smsshow.R$string: int enableStopAnimationDsc
+nick.chow.smsshow.R$string: int from
+nick.chow.smsshow.R$string: int markRead
+nick.chow.smsshow.R$string: int qsmsEnable
+nick.chow.smsshow.R$string: int qsmsEnableDsc
+nick.chow.smsshow.R$string: int reply
+nick.chow.smsshow.R$string: int sendTime
+nick.chow.smsshow.R$string: int setting
+nick.chow.smsshow.R$string: int smscountleft
+nick.chow.smsshow.R$string: int smscountright
+nick.chow.smsshow.R$string: int suggest
+nick.chow.smsshow.R$string: int testContent
+nick.chow.smsshow.R$string: int testEnv
+nick.chow.smsshow.R$string: int thanks
+nick.chow.smsshow.R$string: int title
+nick.chow.smsshow.R$string: int title_activity_about
+nick.chow.smsshow.R$string: int title_activity_main
+nick.chow.smsshow.R$string: int title_activity_settings
+nick.chow.smsshow.R$string: int verstion
+nick.chow.smsshow.R$style: int AppBaseTheme
+nick.chow.smsshow.R$style: int AppTheme
+nick.chow.smsshow.R$style: int Theme_Translucent_NoTitleBar_Fullscreen
+nick.chow.smsshow.R$style: int buttonStyle
+nick.chow.smsshow.R$style: int titleStyle
+nick.chow.smsshow.R$xml: int pref_general
+nick.chow.smsshow.SMSBroadcastReceiver
+nick.chow.smsshow.SMSBroadcastReceiver: SMSBroadcastReceiver()
+nick.chow.smsshow.SMSPopupActivity
+nick.chow.smsshow.SMSPopupActivity: SMSPopupActivity()
+nick.chow.smsshow.SMSPopupActivity: void close(android.view.View)
+nick.chow.smsshow.SMSPopupActivity: void markRead(android.view.View)
+nick.chow.smsshow.SMSPopupActivity: void deleteAll(android.view.View)
+nick.chow.smsshow.SMSPopupActivity: void replySMS(android.view.View)
+nick.chow.smsshow.SettingFragment
+nick.chow.smsshow.SettingFragment: SettingFragment()
+nick.chow.smsshow.SettingsActivity
+nick.chow.smsshow.SettingsActivity: SettingsActivity()
