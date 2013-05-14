@@ -18,7 +18,7 @@
     </style>
     
     <style name="Theme.Translucent.NoTitleBar.Fullscreen" parent="android:Theme.Translucent.NoTitleBar.Fullscreen">
-        <item name="android:background">#3AAA</item>
+        <item name="android:background">#8333</item>
     </style>
     
     <style name="titleStyle">

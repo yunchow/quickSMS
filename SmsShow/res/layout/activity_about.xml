@@ -40,7 +40,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/version"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:autoLink="email"
         android:gravity="center_vertical"
         android:drawableLeft="@android:drawable/ic_menu_myplaces"
@@ -57,9 +57,9 @@
         android:id="@+id/declare"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         android:layout_above="@id/copyrights"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="15dp"
         android:text="@string/declare" />
 
 </RelativeLayout>

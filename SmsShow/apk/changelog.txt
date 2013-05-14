@@ -11,4 +11,7 @@ V1.0.1_beta_20130513.apk
 -----------------------------------
 1, could be compatible with android version 2.1
 
+V1.0.2_beta_20130514.apk
+-----------------------------------
+1, compatible with android 2.1 message data model
 

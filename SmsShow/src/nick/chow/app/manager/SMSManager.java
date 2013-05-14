@@ -126,7 +126,7 @@ public class SMSManager {
 	 * @return Cursor
 	 */
 	public Cursor queryAllUnReadSMS() {
-		String[] projection = new String[]{"_id", "address", "date_sent", "body"};
+		String[] projection = new String[]{"_id", "address", "date", "body"};
 		return context.getContentResolver().query(SMS_PROVIDER_URI, projection, "read=?", new String[]{"0"}, null);
 	}
 	
