@@ -26,23 +26,17 @@
             android:launchMode="singleTask" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="nick.chow.smsshow.FeedbackActivity"
+            android:label="@string/feedbackTitle" >
         </activity>
         <activity
             android:name="nick.chow.smsshow.SMSPopupActivity"
             android:launchMode="singleTask"
             android:theme="@style/Theme.Translucent.NoTitleBar.Fullscreen" />
-
-        <receiver android:name="nick.chow.smsshow.SMSBroadcastReceiver" >
-            <intent-filter android:priority="0" >
-                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
-            </intent-filter>
-        </receiver>
-
-        <service android:name="nick.chow.smsshow.QuickSMSService" />
-
         <activity
             android:name="nick.chow.smsshow.SettingsActivity"
             android:label="@string/title_activity_settings" >
@@ -51,6 +45,16 @@
             android:name="nick.chow.smsshow.AboutActivity"
             android:label="@string/title_activity_about" >
         </activity>
+
+        <receiver android:name="nick.chow.smsshow.SMSBroadcastReceiver" >
+            <intent-filter android:priority="0" >
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="nick.chow.smsshow.QuickSMSService" />
+        <service android:name="nick.chow.smsshow.FeedbackService" >
+        </service>
     </application>
 
 </manifest>

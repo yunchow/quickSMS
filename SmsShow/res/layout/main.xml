@@ -39,6 +39,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:onClick="onFeedback"
+        android:drawableLeft="@android:drawable/sym_action_chat"
         android:text="@string/suggest" />
 
     <Button
