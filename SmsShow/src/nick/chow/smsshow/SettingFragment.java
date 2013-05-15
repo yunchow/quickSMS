@@ -3,19 +3,21 @@ package nick.chow.smsshow;
 /**
  * comment for compatibility android 2.1
  */
-/*import nick.chow.app.context.Constants;
+import nick.chow.app.context.Constants;
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceFragment;
-import android.preference.PreferenceScreen;*/
+import android.preference.PreferenceScreen;
 
 /**
  * @author zhouyun
  *
  */
-/**
- * public class SettingFragment extends PreferenceFragment implements OnPreferenceChangeListener {
+@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+public class SettingFragment extends PreferenceFragment implements OnPreferenceChangeListener {
 	private PreferenceScreen preferenceScreen;
 	private int prferenceCount;
 	private Preference enableQSMSPreference;
@@ -42,4 +44,4 @@ import android.preference.PreferenceScreen;*/
 		return true;
 	}
 	
-}*/
+}

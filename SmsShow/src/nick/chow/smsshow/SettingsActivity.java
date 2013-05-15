@@ -1,6 +1,7 @@
 package nick.chow.smsshow;
 
 import nick.chow.app.context.Constants;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
@@ -11,6 +12,7 @@ import android.preference.PreferenceScreen;
  * @author zhouyun
  * 
  */
+@SuppressWarnings("deprecation")
 public class SettingsActivity extends PreferenceActivity implements OnPreferenceChangeListener {
 	private PreferenceScreen preferenceScreen;
 	private int prferenceCount;
@@ -19,12 +21,19 @@ public class SettingsActivity extends PreferenceActivity implements OnPreference
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//setContentView(R.layout.settings);
-		addPreferencesFromResource(R.xml.pref_general);
-		preferenceScreen = getPreferenceScreen();
-		prferenceCount = preferenceScreen.getPreferenceCount();
-		enableQSMSPreference = findPreference(Constants.ENABLE_QSMS);
-		enableQSMSPreference.setOnPreferenceChangeListener(this);
+		if (isFragmentSupport()) {
+			setContentView(R.layout.settings);
+		} else {
+			addPreferencesFromResource(R.xml.pref_general);
+			preferenceScreen = getPreferenceScreen();
+			prferenceCount = preferenceScreen.getPreferenceCount();
+			enableQSMSPreference = findPreference(Constants.ENABLE_QSMS);
+			enableQSMSPreference.setOnPreferenceChangeListener(this);
+		}
+	}
+	
+	protected boolean isFragmentSupport() {
+		return Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB;
 	}
 
 	@Override
