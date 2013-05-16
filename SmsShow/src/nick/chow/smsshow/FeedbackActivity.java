@@ -30,10 +30,10 @@ public class FeedbackActivity extends Activity {
 		String qcontent = question.getText().toString();
 		if (qcontent.length() < 2) {
 			AlertDialog.Builder builder = new Builder(this);
-			builder.setTitle("Q短信问题反馈");
-			builder.setMessage("请输入您要反馈的问题（最少两个字）");
+			builder.setTitle(getString(R.string.subject));
+			builder.setMessage(getString(R.string.feedbackWarning));
 			builder.setCancelable(true);
-			builder.setPositiveButton("确定", null);
+			builder.setPositiveButton(getString(R.string.confirm), null);
 			AlertDialog alert = builder.create();
 			alert.show();
 		} else {
@@ -46,10 +46,9 @@ public class FeedbackActivity extends Activity {
 
 		@Override
 		protected Boolean doInBackground(String... params) {
-	        String from = params[1].length() > 0 ? "，" + params[1] : "";
 	        Intent service = new Intent();
 	        service.setClass(FeedbackActivity.this, FeedbackService.class);
-	        service.putExtra("from", from);
+	        service.putExtra("from", params[1]);
 	        service.putExtra("content", params[0]);
 	        startService(service);
 			return true;

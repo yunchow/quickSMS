@@ -42,12 +42,15 @@
     
     <!-- Feedback -->
     <string name="feedbackTitle">用户反馈</string>
+    <string name="subject">Q短信用户反馈</string>
+    <string name="feedbackWarning">请输入您要反馈的问题（最少两个字）</string>
     <string name="feedbackQuestion">您要反馈的问题：</string>
     <string name="feedbackQuestionHint">请输入您要反馈的问题，我们将以此为动力不断改进</string>
     <string name="feedbackthanks">感谢您的参与，我们将尽快处理您提交的问题。</string>
     <string name="feedbackContact">您的联系方式：</string>
     <string name="feedbackContactHint">可选填写，QQ、邮件、电话等</string>
     <string name="comitFeedback">提交</string>
+    <string name="confirm">确定</string>
     <string name="feedbackTip">为了更好地解决您的问题，我们会采集您的手机配置，但不涉及其他任何隐私信息。如果您已同意，请点击“提交”上传反馈。</string>
     
     <!-- Other -->

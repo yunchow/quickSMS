@@ -6,7 +6,10 @@ import java.util.concurrent.TimeUnit;
 
 import nick.chow.app.context.Mail;
 import android.app.IntentService;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 
 /**
@@ -52,10 +55,43 @@ public class FeedbackService extends IntentService {
         String[] toArr = {"yunchow@qq.com"};
     	m.set_to(toArr); 
         m.set_from("nick@chow.com"); 
-        m.set_subject("Q短信用户反馈"); 
+        m.set_subject(getString(R.string.subject)); 
         String from = intent.getStringExtra("from");
-        m.setBody(intent.getStringExtra("content") + from + "(" + errorCount + ")");
+        String body = intent.getStringExtra("content");
+        if (from.length() > 0) {
+        	body += "\r\n" + getString(R.string.from) + from;
+        }
+        if (errorCount > 0) {
+        	body += "\r\n errorCount = " + errorCount;
+        }
+        body += "\r\n " + buildDeviceInfo();
+        m.setBody(body);
         return m.send();
+	}
+	
+	private String buildDeviceInfo() {
+		String model = Build.MODEL;
+		String manufacture = Build.MANUFACTURER;
+		String product = Build.PRODUCT;
+		String brand = Build.BRAND;
+		String releaseVersion = Build.VERSION.RELEASE;
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append(" model = " + model).append("\n");
+		sb.append(" manufacture = " + manufacture).append("\n");
+		sb.append(" product = " + product).append("\n");
+		sb.append(" brand = " + brand).append("\n");
+		sb.append(" releaseVersion = " + releaseVersion).append("\n");
+		
+		try {
+			TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+			String line1Number = telephonyManager.getLine1Number();
+			sb.append(" line1Number = " + line1Number).append("\n");
+		} catch (Exception e) {
+			
+		}
+		
+		return sb.toString();
 	}
 
 }
