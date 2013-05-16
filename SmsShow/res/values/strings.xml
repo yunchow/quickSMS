@@ -40,6 +40,30 @@
     <string name="displayDelete">显示删除按纽</string>
     <string name="displayDeleteBtnSumary">关闭后删除按纽将不会显示在弹窗上面</string>
     
+    <!-- Animation -->
+    <string name="startAnimationType">启动动画类型</string>
+	<string-array name="startAnimationTitles">
+	    <item>渐渐淡入</item>
+	    <item>由小变大</item>
+	    <item>由小变大并旋转</item>
+	</string-array>
+	<string-array name="startAnimationValues">
+	    <item>fadeIn</item>
+	    <item>scaleIn</item>
+	    <item>scaleRotateIn</item>
+	</string-array>
+    <string name="stopAnimationType">退出动画类型</string>
+    <string-array name="stopAnimationTitles">
+	    <item>渐渐淡出</item>
+	    <item>由大变小</item>
+	    <item>由大变小并旋转</item>
+	</string-array>
+	<string-array name="stopAnimationValues">
+	    <item>fadeOut</item>
+	    <item>scaleOut</item>
+	    <item>scaleRotateOut</item>
+	</string-array>
+    
     <!-- Feedback -->
     <string name="feedbackTitle">用户反馈</string>
     <string name="subject">Q短信用户反馈</string>
@@ -52,13 +76,15 @@
     <string name="comitFeedback">提交</string>
     <string name="confirm">确定</string>
     <string name="feedbackTip">为了更好地解决您的问题，我们会采集您的手机配置，但不涉及其他任何隐私信息。如果您已同意，请点击“提交”上传反馈。</string>
-    
+
     <!-- Other -->
     <string name="title_activity_about">关于Q短信</string>
     <string name="verstion">Q短信 V1.0.0 Beta版</string>
     <string name="thanks">感谢我的家人和小玲一直以来对我的支持，谢谢你们的爱！</string>
     <string name="declare">声明：本软件为个人作品，可自由传播，但请尊重作者版权，切勿用于商业用途。</string>
-	<string name="copyright">&#169;2013 nick.chow All Rights Reserved</string>
+    <string name="copyright">&#169;2013 nick.chow All Rights Reserved</string>
     <string name="authorContact">联系作者：yunchow@126.com</string>
-    
+    <string name="title_activity_debug">DebugActivity</string>
+    <string name="console">Q短信控制台</string>
+
 </resources>

@@ -31,11 +31,25 @@
             android:key="enableStartAnimation"
             android:summary="@string/enableStartAnimationDsc"
             android:title="@string/enableStartAnimation" />
+        <ListPreference 
+            android:key="startAnimationTypeValue"
+            android:title="@string/startAnimationType"
+            android:dialogTitle="@string/startAnimationType"
+            android:entries="@array/startAnimationTitles"
+            android:entryValues="@array/startAnimationValues"
+            android:defaultValue="fadeIn"/>
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="enableStopAnimation"
             android:summary="@string/enableStopAnimationDsc"
             android:title="@string/enableStopAnimation" />
+        <ListPreference 
+            android:key="stopAnimationTypeValue"
+            android:title="@string/stopAnimationType"
+            android:dialogTitle="@string/stopAnimationType"
+            android:entries="@array/stopAnimationTitles"
+            android:entryValues="@array/stopAnimationValues"
+            android:defaultValue="fadeOut"/>
     </PreferenceCategory>
 
 </PreferenceScreen>

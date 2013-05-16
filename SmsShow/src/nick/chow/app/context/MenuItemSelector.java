@@ -1,6 +1,7 @@
 package nick.chow.app.context;
 
 import nick.chow.smsshow.AboutActivity;
+import nick.chow.smsshow.FeedbackActivity;
 import nick.chow.smsshow.R;
 import nick.chow.smsshow.SettingsActivity;
 import android.content.Context;
@@ -25,7 +26,7 @@ public class MenuItemSelector {
 			context.startActivity(setting);
 			break;
 		case R.id.action_feedback:
-			Intent feedback = new Intent(context, AboutActivity.class);
+			Intent feedback = new Intent(context, FeedbackActivity.class);
 			context.startActivity(feedback);
 			break;
 		case R.id.action_about:

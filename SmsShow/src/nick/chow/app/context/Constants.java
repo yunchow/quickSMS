@@ -10,6 +10,9 @@ public interface Constants {
 	String ENABLE_QSMS = "enableQSMS";
 	String ENABLE_START_ANIMATION = "enableStartAnimation";
 	String ENABLE_STOP_ANIMATION = "enableStopAnimation";
+	
+	String START_ANIMATION_TYPE_VALUE = "startAnimationTypeValue";
+	String STOP_ANIMATION_TYPE_VALUE = "stopAnimationTypeValue";
 
 	String DISPLAY_CLOSE_BTN = "displayCloseBtn";
 	String DISPLAY_READ_BTN = "displayReadBtn";
@@ -17,5 +20,7 @@ public interface Constants {
 	
 	String FEEDBACK_FROM = "from";
 	String FEEDBACK_CONTENT = "content";
+	
+	String EXCEPTION = "exception";
 	
 }

@@ -1,5 +1,7 @@
 package nick.chow.smsshow;
 
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -8,8 +10,10 @@ import java.util.Set;
 import nick.chow.app.context.AnimationDecrator;
 import nick.chow.app.context.Constants;
 import nick.chow.app.context.MenuItemSelector;
+import nick.chow.app.context.Tools;
 import nick.chow.app.manager.SMSManager;
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -92,7 +96,16 @@ public class SMSPopupActivity extends Activity {
 	public void setupAnimation() {
 		if (prefs.getBoolean(Constants.ENABLE_START_ANIMATION, true)) {
 			// start animation
-			Animation animation = AnimationUtils.loadAnimation(this, R.anim.hyperspace_jump_in);
+			int rid = R.anim.fade_in;
+			String startAnimVal = prefs.getString(Constants.START_ANIMATION_TYPE_VALUE, "");
+			if ("fadeIn".equals(startAnimVal)) {
+				rid = R.anim.fade_in;
+			} else if ("scaleIn".equals(startAnimVal)) {
+				rid = R.anim.scale_in;
+			} else if ("scaleRotateIn".equals(startAnimVal)) {
+				rid = R.anim.hyperspace_jump_in;
+			}
+			Animation animation = AnimationUtils.loadAnimation(this, rid);
 			smsContainer.startAnimation(animation);
 		}
 	}
@@ -175,13 +188,27 @@ public class SMSPopupActivity extends Activity {
 	    setupListView();
 	}
 
+	private Animation loadExitAnimation() {
+		String stopAnimVal = prefs.getString(Constants.STOP_ANIMATION_TYPE_VALUE, "");
+		int rid = R.anim.fade_out;
+		if ("fadeOut".equals(stopAnimVal)) {
+			rid = R.anim.fade_out;
+		} else if ("scaleOut".equals(stopAnimVal)) {
+			rid = R.anim.scale_out;
+		} else if ("scaleRotateOut".equals(stopAnimVal)) {
+			rid = R.anim.hyperspace_jump_out;
+		}
+		Animation animation = AnimationUtils.loadAnimation(this, rid);
+		return animation;
+	}
+	
 	/**
 	 * when click close button, this method triggered
 	 * @param view
 	 */
 	public void close(View view) {
 		if (prefs.getBoolean(Constants.ENABLE_STOP_ANIMATION, true)) {
-			Animation animation = AnimationUtils.loadAnimation(this, R.anim.hyperspace_jump_out);
+			Animation animation = loadExitAnimation();
 			animation.setAnimationListener(animationCloseOut);
 			smsContainer.startAnimation(animation);
 		} else {
@@ -195,7 +222,7 @@ public class SMSPopupActivity extends Activity {
 	 */
 	public void markRead(View view) {
 		if (prefs.getBoolean(Constants.ENABLE_STOP_ANIMATION, true)) {
-			Animation animation = AnimationUtils.loadAnimation(this, R.anim.hyperspace_jump_out);
+			Animation animation = loadExitAnimation();
 			animation.setAnimationListener(animationReadOut);
 			smsContainer.startAnimation(animation);
 		} else {
@@ -211,7 +238,7 @@ public class SMSPopupActivity extends Activity {
 	 */
 	public void deleteAll(View view) {
 		if (prefs.getBoolean(Constants.ENABLE_STOP_ANIMATION, true)) {
-			Animation animation = AnimationUtils.loadAnimation(this, R.anim.hyperspace_jump_out);
+			Animation animation = loadExitAnimation();
 			animation.setAnimationListener(animationDeleteOut);
 			smsContainer.startAnimation(animation);
 		} else {
@@ -247,8 +274,42 @@ public class SMSPopupActivity extends Activity {
 
 		@Override
 		public void onAnimationEnd(Animation animation) {
+			//cancelSMSNotification();
+			killSMS();
 			finish();
 		}
+	}
+	
+	@SuppressWarnings("deprecation")
+	public void killSMS() {
+		try {
+			ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+			am.restartPackage("com.android.mms");//killBackgroundProcesses("com.android.mms");
+		} catch (Exception e) {
+			Tools.show(this, e);
+		}
+	}
+	
+	protected void root() {
+		try {
+			Runtime.getRuntime().exec("su");
+		} catch (IOException e) {
+			Tools.show(this, e);
+		}
+	}
+	
+	protected boolean hasRoot() {
+		char[] arrayOfChar = new char[1024];
+		try {
+			int j = new InputStreamReader(Runtime.getRuntime().exec("su -c ls")
+					.getErrorStream()).read(arrayOfChar);
+			if (j == -1) {
+				return true;
+			}
+		} catch (IOException e) {
+			
+		}
+		return false;
 	}
 
 	@Override
