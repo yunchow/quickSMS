@@ -18,9 +18,10 @@ public final class R {
         public static final int button_selector=0x7f090002;
         public static final int clolor_369=0x7f090000;
         public static final int clolor_DDD=0x7f090001;
-        public static final int list_items_bg=0x7f090003;
-        public static final int main_bg=0x7f090004;
-        public static final int title_bg=0x7f090005;
+        public static final int edit_text_bg=0x7f090003;
+        public static final int list_items_bg=0x7f090004;
+        public static final int main_bg=0x7f090005;
+        public static final int title_bg=0x7f090006;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 

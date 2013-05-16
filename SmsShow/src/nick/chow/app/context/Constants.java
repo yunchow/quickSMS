@@ -15,4 +15,7 @@ public interface Constants {
 	String DISPLAY_READ_BTN = "displayReadBtn";
 	String DISPLAY_DELETE_BTN = "displayDeleteBtn";
 	
+	String FEEDBACK_FROM = "from";
+	String FEEDBACK_CONTENT = "content";
+	
 }

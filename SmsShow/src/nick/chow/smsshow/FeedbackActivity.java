@@ -1,5 +1,6 @@
 package nick.chow.smsshow;
 
+import nick.chow.app.context.Constants;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
@@ -48,8 +49,8 @@ public class FeedbackActivity extends Activity {
 		protected Boolean doInBackground(String... params) {
 	        Intent service = new Intent();
 	        service.setClass(FeedbackActivity.this, FeedbackService.class);
-	        service.putExtra("from", params[1]);
-	        service.putExtra("content", params[0]);
+	        service.putExtra(Constants.FEEDBACK_FROM, params[1]);
+	        service.putExtra(Constants.FEEDBACK_CONTENT, params[0]);
 	        startService(service);
 			return true;
 		}

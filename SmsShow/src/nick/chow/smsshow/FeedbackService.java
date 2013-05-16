@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.concurrent.TimeUnit;
 
+import nick.chow.app.context.Constants;
 import nick.chow.app.context.Mail;
 import android.app.IntentService;
 import android.content.Context;
@@ -56,8 +57,8 @@ public class FeedbackService extends IntentService {
     	m.set_to(toArr); 
         m.set_from("nick@chow.com"); 
         m.set_subject(getString(R.string.subject)); 
-        String from = intent.getStringExtra("from");
-        String body = intent.getStringExtra("content");
+        String from = intent.getStringExtra(Constants.FEEDBACK_FROM);
+        String body = intent.getStringExtra(Constants.FEEDBACK_CONTENT);
         if (from.length() > 0) {
         	body += "\r\n" + getString(R.string.from) + from;
         }

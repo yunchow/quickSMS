@@ -22,6 +22,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:hint="@string/feedbackQuestionHint"
+            android:background="@color/edit_text_bg"
+            android:gravity="top"
+            android:padding="5dp"
             android:maxLines="5"
             android:minLines="3" />
 
@@ -37,7 +40,9 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:padding="5dp"
             android:hint="@string/feedbackContactHint"
+            android:background="@color/edit_text_bg"
             android:singleLine="true" />
 
         <Button
