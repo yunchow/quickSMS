@@ -65,7 +65,7 @@ public class FeedbackService extends IntentService {
         if (errorCount > 0) {
         	body += "\r\n errorCount = " + errorCount;
         }
-        body += "\r\n " + buildDeviceInfo();
+        body += "\r\n" + buildDeviceInfo();
         m.setBody(body);
         return m.send();
 	}

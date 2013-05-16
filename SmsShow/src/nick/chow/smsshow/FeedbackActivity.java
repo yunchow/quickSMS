@@ -59,7 +59,7 @@ public class FeedbackActivity extends Activity {
 		protected void onPostExecute(Boolean result) {
 			Intent intent = new Intent(getApplicationContext(), MainActivity.class);
 			startActivity(intent);
-			Toast.makeText(FeedbackActivity.this, getString(R.string.feedbackthanks), Toast.LENGTH_SHORT).show();
+			Toast.makeText(FeedbackActivity.this, getString(R.string.feedbackthanks), Toast.LENGTH_LONG).show();
 		}
 		
 	}
