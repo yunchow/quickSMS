@@ -28,7 +28,7 @@
     <string name="qsmsEnableDsc">开启和关闭Q短信功能，关闭后Q短信将不再自动弹窗显示短信内容</string>
     <string name="animation">启动与结束效果</string>
     <string name="enableStartAnimation">开始动画</string>
-    <string name="enableStartAnimationDsc">打开/关闭开始动画，关闭可享受更快的启动动画效果</string>
+    <string name="enableStartAnimationDsc">打开/关闭开始动画，关闭可享受更快的启动速度</string>
     <string name="enableStopAnimation">退出动画</string>
     <string name="enableStopAnimationDsc">打开关闭退出动画</string>
     <string name="display">界面与显示(建议至少显示一个按纽)</string>
@@ -39,6 +39,14 @@
     <string name="displayReadBtnSumary">关闭后已读按纽将不会显示在弹窗上面</string>
     <string name="displayDelete">显示删除按纽</string>
     <string name="displayDeleteBtnSumary">关闭后删除按纽将不会显示在弹窗上面</string>
+    <string name="enableReminder">通知</string>
+    <string name="enableReminderSumarry">可设置收到短信后的提醒方式</string>
+    <string name="enableVibrate">短信振动</string>
+    <string name="enableVoice">启动提示音</string>
+    <string name="smsringtone">设置短信铃声</string>
+    <string name="configRingtong">设置短信提醒(默认不提醒)</string>
+    <string name="settingRingtoneTip">为了获得更好的体验，建议关闭系统自带短信的提醒功能</string>
+    <string name="settingRingtoneTipTitle">爱心提醒</string>
     
     <!-- Animation -->
     <string name="startAnimationType">启动动画类型</string>

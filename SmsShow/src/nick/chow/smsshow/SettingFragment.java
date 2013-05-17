@@ -4,11 +4,13 @@ package nick.chow.smsshow;
  * comment for compatibility android 2.1
  */
 import nick.chow.app.context.Constants;
+import nick.chow.app.context.OnPreferenceChangeListenerDecrator;
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.ListPreference;
+import android.os.Vibrator;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceFragment;
@@ -28,6 +30,8 @@ public class SettingFragment extends PreferenceFragment implements OnPreferenceC
 	private Preference stopAnimationPreference;
 	private Preference startAnimationPreferenceValue;
 	private Preference stopAnimationPreferenceValue;
+	private Preference ringtongPreference;
+	private Preference vibratePreference;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -42,11 +46,15 @@ public class SettingFragment extends PreferenceFragment implements OnPreferenceC
 		stopAnimationPreference = findPreference(Constants.ENABLE_STOP_ANIMATION);
 		startAnimationPreferenceValue = findPreference(Constants.START_ANIMATION_TYPE_VALUE);
 		stopAnimationPreferenceValue = findPreference(Constants.STOP_ANIMATION_TYPE_VALUE);
+		ringtongPreference = findPreference(Constants.SMS_RINGTONE);
+		vibratePreference = findPreference(Constants.ENABLE_VIBRATE);
 		startAnimationPreference.setOnPreferenceChangeListener(this);
 		stopAnimationPreference.setOnPreferenceChangeListener(this);
+		vibratePreference.setOnPreferenceChangeListener(this);
 		initPreferenceState();
-		bindPreferenceSummaryToValue(startAnimationPreferenceValue);
-		bindPreferenceSummaryToValue(stopAnimationPreferenceValue);
+		OnPreferenceChangeListenerDecrator.bindPreferenceSummary(startAnimationPreferenceValue);
+		OnPreferenceChangeListenerDecrator.bindPreferenceSummary(stopAnimationPreferenceValue);
+		OnPreferenceChangeListenerDecrator.bindPreferenceSummary(ringtongPreference);
 	}
 	
 	private void initPreferenceState() {
@@ -79,28 +87,10 @@ public class SettingFragment extends PreferenceFragment implements OnPreferenceC
 			startAnimationPreferenceValue.setEnabled(enabled);
 		} else if (stopAnimationPreference == preference) {
 			stopAnimationPreferenceValue.setEnabled(enabled);
+		} else if (vibratePreference == preference && enabled) {
+			Vibrator vibrator = (Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE);
+			vibrator.vibrate(300);
 		}
 		return true;
 	}
-	
-	private static void bindPreferenceSummaryToValue(Preference preference) {
-		preference.setOnPreferenceChangeListener(sBindPreferenceSummaryToValueListener);
-		sBindPreferenceSummaryToValueListener.onPreferenceChange(
-				preference, PreferenceManager.getDefaultSharedPreferences(
-						preference.getContext()).getString(preference.getKey(), ""));
-	}
-	
-	private static Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = new Preference.OnPreferenceChangeListener() {
-		@Override
-		public boolean onPreferenceChange(Preference preference, Object value) {
-			String stringValue = value.toString();
-			if (preference instanceof ListPreference) {
-				ListPreference listPreference = (ListPreference) preference;
-				int index = listPreference.findIndexOfValue(stringValue);
-				preference.setSummary(index >= 0 ? listPreference.getEntries()[index]: null);
-
-			}
-			return true;
-		}
-	};
 }

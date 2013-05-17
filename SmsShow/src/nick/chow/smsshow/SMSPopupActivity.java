@@ -14,11 +14,14 @@ import nick.chow.app.context.Tools;
 import nick.chow.app.manager.SMSManager;
 import android.app.Activity;
 import android.app.ActivityManager;
-import android.app.NotificationManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -55,14 +58,15 @@ public class SMSPopupActivity extends Activity {
 	private TextView smsDiver;
 	
 	private SMSManager smsService = SMSManager.getManager(this);
-	NotificationManager notificationManager;
+	//private NotificationManager notificationManager;
+	private Vibrator vibrator;
 	private Set<String> mids = new HashSet<String>();
 	private SharedPreferences prefs;
 	
 	private Button closeBtn;
 	private Button deleBtn;
 	private Button readBtn;
-	List<Map<String, String>> data;
+	private List<Map<String, String>> data;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -85,9 +89,10 @@ public class SMSPopupActivity extends Activity {
 		closeBtn = (Button) findViewById(R.id.close);
 		deleBtn = (Button) findViewById(R.id.deleteAll);
 		readBtn = (Button) findViewById(R.id.markRead);	
-		notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+		//notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 		prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 		istest = getIntent().getBooleanExtra(Constants.IS_TEST, false);
+		vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 	}
 	
 	/**
@@ -112,7 +117,7 @@ public class SMSPopupActivity extends Activity {
 	
 	public void setupButton() {
 		boolean display = false;
-		if (prefs.getBoolean(Constants.DISPLAY_CLOSE_BTN, true)) {
+		if (prefs.getBoolean(Constants.DISPLAY_CLOSE_BTN, false)) {
 			closeBtn.setVisibility(Button.VISIBLE);
 			display = true;
 		} else {
@@ -179,11 +184,44 @@ public class SMSPopupActivity extends Activity {
 		data = istest ? smsService.buildTestData() : smsService.querySMSDetail(mids);
 	}
 	
+	public void setupRemider() {
+		if (prefs.getBoolean(Constants.ENABLE_VIBRATE, false)) {
+			long[] pattern = new long[]{10, 500, 400, 500, 400, 500};
+			try {
+				vibrator.vibrate(pattern, -1);
+			} catch (Exception e) {
+				Log.e(tag, e.toString());
+				Tools.show(this, e);
+			}
+		}
+		if (prefs.getBoolean(Constants.ENABLE_VOICE, false)) {
+			int volume = -1;
+			AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);  
+	        volume = audioManager.getStreamVolume(AudioManager.STREAM_RING); 
+			if (volume > 0) {
+				volume = (volume + 1) / 2;
+				String defaultRing = "content://settings/system/notification_sound";
+				String ringtone = prefs.getString(Constants.SMS_RINGTONE, defaultRing);
+				MediaPlayer player = new MediaPlayer();
+				try {
+					player.setVolume(volume, volume);
+					player.setDataSource(this, Uri.parse(ringtone));
+					player.prepare();
+					player.start();
+				} catch (Exception e) {
+					Log.e(tag, e.toString());
+					Tools.show(this, e);
+				}
+			}
+		}
+	}
+	
 	@Override
 	protected void onResume() {
 		super.onResume();
 		setupWindow();
 		setupData();
+		setupRemider();
 		setupTitle();
 	    setupListView();
 	}

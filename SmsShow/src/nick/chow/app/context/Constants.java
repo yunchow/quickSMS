@@ -13,6 +13,10 @@ public interface Constants {
 	
 	String START_ANIMATION_TYPE_VALUE = "startAnimationTypeValue";
 	String STOP_ANIMATION_TYPE_VALUE = "stopAnimationTypeValue";
+	
+	String ENABLE_VIBRATE = "enableVibrate";
+	String ENABLE_VOICE = "enableVoice";
+	String SMS_RINGTONE = "smsringtone";
 
 	String DISPLAY_CLOSE_BTN = "displayCloseBtn";
 	String DISPLAY_READ_BTN = "displayReadBtn";

@@ -10,20 +10,45 @@
         android:summary="@string/displaySumary"
         android:title="@string/display" >
         <CheckBoxPreference
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:key="displayCloseBtn"
-            android:summary="@string/displayCloseBtnSumary"
             android:title="@string/displayCloseBtn" />
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="displayReadBtn"
-            android:summary="@string/displayReadBtnSumary"
             android:title="@string/displayReadBtn" />
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="displayDeleteBtn"
-            android:summary="@string/displayDeleteBtnSumary"
             android:title="@string/displayDelete" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/configRingtong" >
+        <Preference
+            android:summary="@string/settingRingtoneTip"
+            android:title="@string/settingRingtoneTipTitle" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="enableReminder"
+            android:summary="@string/enableReminderSumarry"
+            android:title="@string/enableReminder" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:dependency="enableReminder"
+            android:key="enableVibrate"
+            android:title="@string/enableVibrate" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:dependency="enableReminder"
+            android:key="enableVoice"
+            android:title="@string/enableVoice" />
+
+        <RingtonePreference
+            android:defaultValue="content://settings/system/notification_sound"
+            android:dependency="enableVoice"
+            android:key="smsringtone"
+            android:ringtoneType="notification"
+            android:title="@string/smsringtone" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/animation" >
         <CheckBoxPreference
@@ -31,25 +56,28 @@
             android:key="enableStartAnimation"
             android:summary="@string/enableStartAnimationDsc"
             android:title="@string/enableStartAnimation" />
-        <ListPreference 
-            android:key="startAnimationTypeValue"
-            android:title="@string/startAnimationType"
+
+        <ListPreference
+            android:defaultValue="fadeIn"
             android:dialogTitle="@string/startAnimationType"
             android:entries="@array/startAnimationTitles"
             android:entryValues="@array/startAnimationValues"
-            android:defaultValue="fadeIn"/>
+            android:key="startAnimationTypeValue"
+            android:title="@string/startAnimationType" />
+
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="enableStopAnimation"
             android:summary="@string/enableStopAnimationDsc"
             android:title="@string/enableStopAnimation" />
-        <ListPreference 
-            android:key="stopAnimationTypeValue"
-            android:title="@string/stopAnimationType"
+
+        <ListPreference
+            android:defaultValue="fadeOut"
             android:dialogTitle="@string/stopAnimationType"
             android:entries="@array/stopAnimationTitles"
             android:entryValues="@array/stopAnimationValues"
-            android:defaultValue="fadeOut"/>
+            android:key="stopAnimationTypeValue"
+            android:title="@string/stopAnimationType" />
     </PreferenceCategory>
 
 </PreferenceScreen>
