@@ -15,3 +15,12 @@ V1.0.2_beta_20130514.apk
 -----------------------------------
 1, compatible with android 2.1 message data model
 
+V1.1.0_20130517.apk
+------------------------------------
+1, add notification feature
+2, add new animation
+
+V1.1.1_20130517.apk
+------------------------------------
+1, fix remider defect
+

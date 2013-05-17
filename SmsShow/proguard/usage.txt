@@ -1757,6 +1757,7 @@ nick.chow.app.context.Constants:
     public static final java.lang.String ENABLE_VIBRATE
     public static final java.lang.String ENABLE_VOICE
     public static final java.lang.String SMS_RINGTONE
+    public static final java.lang.String ENABLE_REMINDER
     public static final java.lang.String DISPLAY_CLOSE_BTN
     public static final java.lang.String DISPLAY_READ_BTN
     public static final java.lang.String DISPLAY_DELETE_BTN
@@ -1804,8 +1805,8 @@ nick.chow.smsshow.R$string
 nick.chow.smsshow.R$style
 nick.chow.smsshow.R$xml
 nick.chow.smsshow.SMSPopupActivity:
-    333:337:protected void root()
-    340:350:protected boolean hasRoot()
+    336:340:protected void root()
+    343:353:protected boolean hasRoot()
 org.apache.harmony.awt.ContextStorage:
     private java.awt.Toolkit toolkit
     private java.awt.GraphicsEnvironment graphicsEnvironment

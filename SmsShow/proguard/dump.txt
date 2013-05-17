@@ -93362,7 +93362,7 @@ _____________________________________________________________________
 
 Interfaces (count = 0):
 
-Constant Pool (count = 485):
+Constant Pool (count = 487):
   + Integer [524288]
   + Integer [2097152]
   + Integer [2130903042]
@@ -93396,6 +93396,7 @@ Constant Pool (count = 485):
   + String [displayCloseBtn]
   + String [displayDeleteBtn]
   + String [displayReadBtn]
+  + String [enableReminder]
   + String [enableStartAnimation]
   + String [enableStopAnimation]
   + String [enableVibrate]
@@ -93756,6 +93757,7 @@ Constant Pool (count = 485):
   + Utf8 [displayDeleteBtn]
   + Utf8 [displayReadBtn]
   + Utf8 [e]
+  + Utf8 [enableReminder]
   + Utf8 [enableStartAnimation]
   + Utf8 [enableStopAnimation]
   + Utf8 [enableVibrate]
@@ -93908,55 +93910,55 @@ Methods (count = 21):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 69, locals = 1, stack = 4):
       [0] aload_0 v0
-      [1] invokespecial #115
+      [1] invokespecial #116
         + Methodref [android/app/Activity.<init> ()V]
       [4] aload_0 v0
-      [5] ldc #86
+      [5] ldc #87
         + Class [nick/chow/smsshow/SMSPopupActivity]
-      [7] invokevirtual #153
+      [7] invokevirtual #154
         + Methodref [java/lang/Class.getSimpleName ()Ljava/lang/String;]
-      [10] putfield #97
+      [10] putfield #98
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.a Ljava/lang/String;]
       [13] aload_0 v0
       [14] aload_0 v0
-      [15] invokestatic #166
+      [15] invokestatic #167
         + Methodref [nick/chow/app/b/b.a (Landroid/content/Context;)Lnick/chow/app/b/b;]
-      [18] putfield #104
+      [18] putfield #105
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.h Lnick/chow/app/b/b;]
       [21] aload_0 v0
-      [22] new #81
+      [22] new #82
         + Class [java/util/HashSet]
       [25] dup
-      [26] invokespecial #161
+      [26] invokespecial #162
         + Methodref [java/util/HashSet.<init> ()V]
-      [29] putfield #106
+      [29] putfield #107
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.j Ljava/util/Set;]
       [32] aload_0 v0
-      [33] new #89
+      [33] new #90
         + Class [nick/chow/smsshow/d]
       [36] dup
       [37] aload_0 v0
-      [38] invokespecial #190
+      [38] invokespecial #191
         + Methodref [nick/chow/smsshow/d.<init> (Lnick/chow/smsshow/SMSPopupActivity;)V]
-      [41] putfield #112
+      [41] putfield #113
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.p Landroid/view/animation/Animation$AnimationListener;]
       [44] aload_0 v0
-      [45] new #87
+      [45] new #88
         + Class [nick/chow/smsshow/b]
       [48] dup
       [49] aload_0 v0
-      [50] invokespecial #188
+      [50] invokespecial #189
         + Methodref [nick/chow/smsshow/b.<init> (Lnick/chow/smsshow/SMSPopupActivity;)V]
-      [53] putfield #113
+      [53] putfield #114
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.q Landroid/view/animation/Animation$AnimationListener;]
       [56] aload_0 v0
-      [57] new #88
+      [57] new #89
         + Class [nick/chow/smsshow/c]
       [60] dup
       [61] aload_0 v0
-      [62] invokespecial #189
+      [62] invokespecial #190
         + Methodref [nick/chow/smsshow/c.<init> (Lnick/chow/smsshow/SMSPopupActivity;)V]
-      [65] putfield #114
+      [65] putfield #115
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.r Landroid/view/animation/Animation$AnimationListener;]
       [68] return
       Code attribute exceptions (count = 0):
@@ -93968,21 +93970,21 @@ Methods (count = 21):
     + Code attribute instructions (code length = 24, locals = 2, stack = 2):
       [0] aload_0 v0
       [1] aload_1 v1
-      [2] invokespecial #116
+      [2] invokespecial #117
         + Methodref [android/app/Activity.onCreate (Landroid/os/Bundle;)V]
       [5] aload_0 v0
       [6] ldc #3
         + Integer [2130903042]
-      [8] invokevirtual #187
+      [8] invokevirtual #188
         + Methodref [nick/chow/smsshow/SMSPopupActivity.setContentView (I)V]
       [11] aload_0 v0
-      [12] invokevirtual #170
+      [12] invokevirtual #171
         + Methodref [nick/chow/smsshow/SMSPopupActivity.a ()V]
       [15] aload_0 v0
-      [16] invokevirtual #172
+      [16] invokevirtual #173
         + Methodref [nick/chow/smsshow/SMSPopupActivity.c ()V]
       [19] aload_0 v0
-      [20] invokevirtual #171
+      [20] invokevirtual #172
         + Methodref [nick/chow/smsshow/SMSPopupActivity.b ()V]
       [23] return
       Code attribute exceptions (count = 0):
@@ -93996,108 +93998,108 @@ Methods (count = 21):
       [1] aload_0 v0
       [2] ldc #17
         + Integer [2131492873]
-      [4] invokevirtual #176
+      [4] invokevirtual #177
         + Methodref [nick/chow/smsshow/SMSPopupActivity.findViewById (I)Landroid/view/View;]
-      [7] checkcast #73
+      [7] checkcast #74
         + Class [android/widget/ListView]
-      [10] putfield #98
+      [10] putfield #99
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.b Landroid/widget/ListView;]
       [13] aload_0 v0
       [14] aload_0 v0
       [15] ldc #16
         + Integer [2131492872]
-      [17] invokevirtual #176
+      [17] invokevirtual #177
         + Methodref [nick/chow/smsshow/SMSPopupActivity.findViewById (I)Landroid/view/View;]
-      [20] checkcast #75
+      [20] checkcast #76
         + Class [android/widget/TextView]
-      [23] putfield #99
+      [23] putfield #100
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.c Landroid/widget/TextView;]
       [26] aload_0 v0
       [27] aload_0 v0
       [28] ldc #15
         + Integer [2131492871]
-      [30] invokevirtual #176
+      [30] invokevirtual #177
         + Methodref [nick/chow/smsshow/SMSPopupActivity.findViewById (I)Landroid/view/View;]
-      [33] putfield #100
+      [33] putfield #101
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.d Landroid/view/View;]
       [36] aload_0 v0
       [37] aload_0 v0
       [38] ldc #18
         + Integer [2131492874]
-      [40] invokevirtual #176
+      [40] invokevirtual #177
         + Methodref [nick/chow/smsshow/SMSPopupActivity.findViewById (I)Landroid/view/View;]
-      [43] checkcast #75
+      [43] checkcast #76
         + Class [android/widget/TextView]
-      [46] putfield #103
+      [46] putfield #104
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.g Landroid/widget/TextView;]
       [49] aload_0 v0
       [50] aload_0 v0
       [51] ldc #19
         + Integer [2131492875]
-      [53] invokevirtual #176
+      [53] invokevirtual #177
         + Methodref [nick/chow/smsshow/SMSPopupActivity.findViewById (I)Landroid/view/View;]
-      [56] checkcast #67
+      [56] checkcast #68
         + Class [android/view/ViewGroup]
-      [59] putfield #102
+      [59] putfield #103
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.f Landroid/view/ViewGroup;]
       [62] aload_0 v0
       [63] aload_0 v0
       [64] ldc #22
         + Integer [2131492878]
-      [66] invokevirtual #176
+      [66] invokevirtual #177
         + Methodref [nick/chow/smsshow/SMSPopupActivity.findViewById (I)Landroid/view/View;]
-      [69] checkcast #72
+      [69] checkcast #73
         + Class [android/widget/Button]
-      [72] putfield #108
+      [72] putfield #109
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.l Landroid/widget/Button;]
       [75] aload_0 v0
       [76] aload_0 v0
       [77] ldc #21
         + Integer [2131492877]
-      [79] invokevirtual #176
+      [79] invokevirtual #177
         + Methodref [nick/chow/smsshow/SMSPopupActivity.findViewById (I)Landroid/view/View;]
-      [82] checkcast #72
+      [82] checkcast #73
         + Class [android/widget/Button]
-      [85] putfield #109
+      [85] putfield #110
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.m Landroid/widget/Button;]
       [88] aload_0 v0
       [89] aload_0 v0
       [90] ldc #20
         + Integer [2131492876]
-      [92] invokevirtual #176
+      [92] invokevirtual #177
         + Methodref [nick/chow/smsshow/SMSPopupActivity.findViewById (I)Landroid/view/View;]
-      [95] checkcast #72
+      [95] checkcast #73
         + Class [android/widget/Button]
-      [98] putfield #110
+      [98] putfield #111
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.n Landroid/widget/Button;]
       [101] aload_0 v0
       [102] aload_0 v0
-      [103] invokevirtual #179
+      [103] invokevirtual #180
         + Methodref [nick/chow/smsshow/SMSPopupActivity.getApplicationContext ()Landroid/content/Context;]
-      [106] invokestatic #129
+      [106] invokestatic #130
         + Methodref [android/preference/PreferenceManager.getDefaultSharedPreferences (Landroid/content/Context;)Landroid/content/SharedPreferences;]
-      [109] putfield #107
+      [109] putfield #108
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.k Landroid/content/SharedPreferences;]
       [112] aload_0 v0
       [113] aload_0 v0
-      [114] invokevirtual #180
+      [114] invokevirtual #181
         + Methodref [nick/chow/smsshow/SMSPopupActivity.getIntent ()Landroid/content/Intent;]
-      [117] ldc #40
+      [117] ldc #41
         + String [istest]
       [119] iconst_0
-      [120] invokevirtual #120
+      [120] invokevirtual #121
         + Methodref [android/content/Intent.getBooleanExtra (Ljava/lang/String;Z)Z]
-      [123] putfield #101
+      [123] putfield #102
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.e Z]
       [126] aload_0 v0
       [127] aload_0 v0
-      [128] ldc #50
+      [128] ldc #51
         + String [vibrator]
-      [130] invokevirtual #183
+      [130] invokevirtual #184
         + Methodref [nick/chow/smsshow/SMSPopupActivity.getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
-      [133] checkcast #59
+      [133] checkcast #60
         + Class [android/os/Vibrator]
-      [136] putfield #105
+      [136] putfield #106
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.i Landroid/os/Vibrator;]
       [139] return
       Code attribute exceptions (count = 0):
@@ -94108,51 +94110,51 @@ Methods (count = 21):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 89, locals = 4, stack = 3):
       [0] aload_0 v0
-      [1] getfield #107
+      [1] getfield #108
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.k Landroid/content/SharedPreferences;]
-      [4] ldc #34
+      [4] ldc #35
         + String [enableStartAnimation]
       [6] iconst_1
-      [7] invokeinterface #191
+      [7] invokeinterface #192
         + InterfaceMethodref [android/content/SharedPreferences.getBoolean (Ljava/lang/String;Z)Z]
       [12] ifeq +76 (target=88)
       [15] ldc #5
         + Integer [2130968576]
       [17] istore_1 v1
       [18] aload_0 v0
-      [19] getfield #107
+      [19] getfield #108
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.k Landroid/content/SharedPreferences;]
-      [22] ldc #48
+      [22] ldc #49
         + String [startAnimationTypeValue]
       [24] ldc #25
         + String []
-      [26] invokeinterface #192
+      [26] invokeinterface #193
         + InterfaceMethodref [android/content/SharedPreferences.getString (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
       [31] astore_2 v2
-      [32] ldc #38
+      [32] ldc #39
         + String [fadeIn]
       [34] aload_2 v2
-      [35] invokevirtual #155
+      [35] invokevirtual #156
         + Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
       [38] ifeq +9 (target=47)
       [41] ldc #5
         + Integer [2130968576]
       [43] istore_1 v1
       [44] goto +30 (target=74)
-      [47] ldc #43
+      [47] ldc #44
         + String [scaleIn]
       [49] aload_2 v2
-      [50] invokevirtual #155
+      [50] invokevirtual #156
         + Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
       [53] ifeq +9 (target=62)
       [56] ldc #9
         + Integer [2130968580]
       [58] istore_1 v1
       [59] goto +15 (target=74)
-      [62] ldc #45
+      [62] ldc #46
         + String [scaleRotateIn]
       [64] aload_2 v2
-      [65] invokevirtual #155
+      [65] invokevirtual #156
         + Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
       [68] ifeq +6 (target=74)
       [71] ldc #7
@@ -94160,14 +94162,14 @@ Methods (count = 21):
       [73] istore_1 v1
       [74] aload_0 v0
       [75] iload_1 v1
-      [76] invokestatic #142
+      [76] invokestatic #143
         + Methodref [android/view/animation/AnimationUtils.loadAnimation (Landroid/content/Context;I)Landroid/view/animation/Animation;]
       [79] astore_3 v3
       [80] aload_0 v0
-      [81] getfield #100
+      [81] getfield #101
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.d Landroid/view/View;]
       [84] aload_3 v3
-      [85] invokevirtual #138
+      [85] invokevirtual #139
         + Methodref [android/view/View.startAnimation (Landroid/view/animation/Animation;)V]
       [88] return
       Code attribute exceptions (count = 0):
@@ -94185,90 +94187,90 @@ Methods (count = 21):
       [0] iconst_0
       [1] istore_1 v1
       [2] aload_0 v0
-      [3] getfield #107
+      [3] getfield #108
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.k Landroid/content/SharedPreferences;]
       [6] ldc #31
         + String [displayCloseBtn]
       [8] iconst_0
-      [9] invokeinterface #191
+      [9] invokeinterface #192
         + InterfaceMethodref [android/content/SharedPreferences.getBoolean (Ljava/lang/String;Z)Z]
       [14] ifeq +16 (target=30)
       [17] aload_0 v0
-      [18] getfield #108
+      [18] getfield #109
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.l Landroid/widget/Button;]
       [21] iconst_0
-      [22] invokevirtual #143
+      [22] invokevirtual #144
         + Methodref [android/widget/Button.setVisibility (I)V]
       [25] iconst_1
       [26] istore_1 v1
       [27] goto +12 (target=39)
       [30] aload_0 v0
-      [31] getfield #108
+      [31] getfield #109
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.l Landroid/widget/Button;]
       [34] bipush 8
-      [36] invokevirtual #143
+      [36] invokevirtual #144
         + Methodref [android/widget/Button.setVisibility (I)V]
       [39] aload_0 v0
-      [40] getfield #107
+      [40] getfield #108
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.k Landroid/content/SharedPreferences;]
       [43] ldc #32
         + String [displayDeleteBtn]
       [45] iconst_1
-      [46] invokeinterface #191
+      [46] invokeinterface #192
         + InterfaceMethodref [android/content/SharedPreferences.getBoolean (Ljava/lang/String;Z)Z]
       [51] ifeq +16 (target=67)
       [54] aload_0 v0
-      [55] getfield #109
+      [55] getfield #110
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.m Landroid/widget/Button;]
       [58] iconst_0
-      [59] invokevirtual #143
+      [59] invokevirtual #144
         + Methodref [android/widget/Button.setVisibility (I)V]
       [62] iconst_1
       [63] istore_1 v1
       [64] goto +12 (target=76)
       [67] aload_0 v0
-      [68] getfield #109
+      [68] getfield #110
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.m Landroid/widget/Button;]
       [71] bipush 8
-      [73] invokevirtual #143
+      [73] invokevirtual #144
         + Methodref [android/widget/Button.setVisibility (I)V]
       [76] aload_0 v0
-      [77] getfield #107
+      [77] getfield #108
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.k Landroid/content/SharedPreferences;]
       [80] ldc #33
         + String [displayReadBtn]
       [82] iconst_1
-      [83] invokeinterface #191
+      [83] invokeinterface #192
         + InterfaceMethodref [android/content/SharedPreferences.getBoolean (Ljava/lang/String;Z)Z]
       [88] ifeq +16 (target=104)
       [91] aload_0 v0
-      [92] getfield #110
+      [92] getfield #111
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.n Landroid/widget/Button;]
       [95] iconst_0
-      [96] invokevirtual #143
+      [96] invokevirtual #144
         + Methodref [android/widget/Button.setVisibility (I)V]
       [99] iconst_1
       [100] istore_1 v1
       [101] goto +12 (target=113)
       [104] aload_0 v0
-      [105] getfield #110
+      [105] getfield #111
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.n Landroid/widget/Button;]
       [108] bipush 8
-      [110] invokevirtual #143
+      [110] invokevirtual #144
         + Methodref [android/widget/Button.setVisibility (I)V]
       [113] iload_1 v1
       [114] ifne +21 (target=135)
       [117] aload_0 v0
-      [118] getfield #103
+      [118] getfield #104
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.g Landroid/widget/TextView;]
       [121] bipush 8
-      [123] invokevirtual #150
+      [123] invokevirtual #151
         + Methodref [android/widget/TextView.setVisibility (I)V]
       [126] aload_0 v0
-      [127] getfield #102
+      [127] getfield #103
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.f Landroid/view/ViewGroup;]
       [130] bipush 8
-      [132] invokevirtual #139
+      [132] invokevirtual #140
         + Methodref [android/view/ViewGroup.setVisibility (I)V]
       [135] return
       Code attribute exceptions (count = 0):
@@ -94287,24 +94289,24 @@ Methods (count = 21):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 29, locals = 1, stack = 2):
       [0] aload_0 v0
-      [1] invokevirtual #184
+      [1] invokevirtual #185
         + Methodref [nick/chow/smsshow/SMSPopupActivity.getWindow ()Landroid/view/Window;]
       [4] ldc #1
         + Integer [524288]
-      [6] invokevirtual #140
+      [6] invokevirtual #141
         + Methodref [android/view/Window.addFlags (I)V]
       [9] aload_0 v0
-      [10] invokevirtual #184
+      [10] invokevirtual #185
         + Methodref [nick/chow/smsshow/SMSPopupActivity.getWindow ()Landroid/view/Window;]
       [13] ldc #2
         + Integer [2097152]
-      [15] invokevirtual #140
+      [15] invokevirtual #141
         + Methodref [android/view/Window.addFlags (I)V]
       [18] aload_0 v0
-      [19] invokevirtual #184
+      [19] invokevirtual #185
         + Methodref [nick/chow/smsshow/SMSPopupActivity.getWindow ()Landroid/view/Window;]
       [22] sipush 128
-      [25] invokevirtual #140
+      [25] invokevirtual #141
         + Methodref [android/view/Window.addFlags (I)V]
       [28] return
       Code attribute exceptions (count = 0):
@@ -94314,84 +94316,84 @@ Methods (count = 21):
       = public void e()
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 112, locals = 2, stack = 6):
-      [0] new #61
+      [0] new #62
         + Class [android/text/SpannableString]
       [3] dup
-      [4] new #80
+      [4] new #81
         + Class [java/lang/StringBuilder]
       [7] dup
       [8] aload_0 v0
       [9] ldc #12
         + Integer [2131165197]
-      [11] invokevirtual #182
+      [11] invokevirtual #183
         + Methodref [nick/chow/smsshow/SMSPopupActivity.getString (I)Ljava/lang/String;]
-      [14] invokestatic #156
+      [14] invokestatic #157
         + Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
-      [17] invokespecial #157
+      [17] invokespecial #158
         + Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
       [20] aload_0 v0
-      [21] getfield #111
+      [21] getfield #112
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.o Ljava/util/List;]
-      [24] invokeinterface #193
+      [24] invokeinterface #194
         + InterfaceMethodref [java/util/List.size ()I]
-      [29] invokevirtual #158
+      [29] invokevirtual #159
         + Methodref [java/lang/StringBuilder.append (I)Ljava/lang/StringBuilder;]
       [32] aload_0 v0
       [33] ldc #13
         + Integer [2131165198]
-      [35] invokevirtual #182
+      [35] invokevirtual #183
         + Methodref [nick/chow/smsshow/SMSPopupActivity.getString (I)Ljava/lang/String;]
-      [38] invokevirtual #159
+      [38] invokevirtual #160
         + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [41] invokevirtual #160
+      [41] invokevirtual #161
         + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [44] invokespecial #130
+      [44] invokespecial #131
         + Methodref [android/text/SpannableString.<init> (Ljava/lang/CharSequence;)V]
       [47] astore_1 v1
       [48] aload_1 v1
-      [49] new #63
+      [49] new #64
         + Class [android/text/style/ForegroundColorSpan]
       [52] dup
       [53] sipush -256
-      [56] invokespecial #134
+      [56] invokespecial #135
         + Methodref [android/text/style/ForegroundColorSpan.<init> (I)V]
       [59] iconst_0
       [60] aload_1 v1
-      [61] invokevirtual #131
+      [61] invokevirtual #132
         + Methodref [android/text/SpannableString.length ()I]
       [64] bipush 17
-      [66] invokevirtual #132
+      [66] invokevirtual #133
         + Methodref [android/text/SpannableString.setSpan (Ljava/lang/Object;III)V]
       [69] aload_1 v1
-      [70] new #62
+      [70] new #63
         + Class [android/text/style/AbsoluteSizeSpan]
       [73] dup
       [74] bipush 14
       [76] iconst_1
-      [77] invokespecial #133
+      [77] invokespecial #134
         + Methodref [android/text/style/AbsoluteSizeSpan.<init> (IZ)V]
       [80] iconst_0
       [81] aload_1 v1
-      [82] invokevirtual #131
+      [82] invokevirtual #132
         + Methodref [android/text/SpannableString.length ()I]
       [85] bipush 33
-      [87] invokevirtual #132
+      [87] invokevirtual #133
         + Methodref [android/text/SpannableString.setSpan (Ljava/lang/Object;III)V]
       [90] aload_0 v0
-      [91] getfield #99
+      [91] getfield #100
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.c Landroid/widget/TextView;]
       [94] aload_0 v0
       [95] ldc #11
         + Integer [2131165185]
-      [97] invokevirtual #182
+      [97] invokevirtual #183
         + Methodref [nick/chow/smsshow/SMSPopupActivity.getString (I)Ljava/lang/String;]
-      [100] invokevirtual #149
+      [100] invokevirtual #150
         + Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
       [103] aload_0 v0
-      [104] getfield #99
+      [104] getfield #100
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.c Landroid/widget/TextView;]
       [107] aload_1 v1
-      [108] invokevirtual #148
+      [108] invokevirtual #149
         + Methodref [android/widget/TextView.append (Ljava/lang/CharSequence;)V]
       [111] return
       Code attribute exceptions (count = 0):
@@ -94401,17 +94403,17 @@ Methods (count = 21):
       = public void f()
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 130, locals = 4, stack = 10):
-      [0] new #74
+      [0] new #75
         + Class [android/widget/SimpleAdapter]
       [3] dup
       [4] aload_0 v0
       [5] aload_0 v0
-      [6] getfield #111
+      [6] getfield #112
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.o Ljava/util/List;]
       [9] ldc #4
         + Integer [2130903046]
       [11] iconst_2
-      [12] anewarray #79
+      [12] anewarray #80
         + Class [java/lang/String]
       [15] dup
       [16] iconst_0
@@ -94420,7 +94422,7 @@ Methods (count = 21):
       [19] aastore
       [20] dup
       [21] iconst_1
-      [22] ldc #41
+      [22] ldc #42
         + String [note]
       [24] aastore
       [25] iconst_2
@@ -94435,29 +94437,29 @@ Methods (count = 21):
       [35] ldc #24
         + Integer [2131492883]
       [37] iastore
-      [38] invokespecial #147
+      [38] invokespecial #148
         + Methodref [android/widget/SimpleAdapter.<init> (Landroid/content/Context;Ljava/util/List;I[Ljava/lang/String;[I)V]
       [41] astore_1 v1
       [42] aload_0 v0
-      [43] getfield #98
+      [43] getfield #99
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.b Landroid/widget/ListView;]
-      [46] invokevirtual #145
+      [46] invokevirtual #146
         + Methodref [android/widget/ListView.getLayoutParams ()Landroid/view/ViewGroup$LayoutParams;]
-      [49] getfield #96
+      [49] getfield #97
         + Fieldref [android/view/ViewGroup$LayoutParams.height I]
       [52] istore_2 v2
       [53] aload_0 v0
-      [54] getfield #98
+      [54] getfield #99
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.b Landroid/widget/ListView;]
-      [57] invokevirtual #144
+      [57] invokevirtual #145
         + Methodref [android/widget/ListView.getHeight ()I]
       [60] istore_3 v3
       [61] iload_3 v3
       [62] ifne +35 (target=97)
       [65] aload_0 v0
-      [66] getfield #111
+      [66] getfield #112
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.o Ljava/util/List;]
-      [69] invokeinterface #193
+      [69] invokeinterface #194
         + InterfaceMethodref [java/util/List.size ()I]
       [74] iconst_3
       [75] ificmplt +22 (target=97)
@@ -94465,12 +94467,12 @@ Methods (count = 21):
       [79] bipush -2
       [81] ificmpne +16 (target=97)
       [84] aload_0 v0
-      [85] getfield #98
+      [85] getfield #99
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.b Landroid/widget/ListView;]
-      [88] invokevirtual #145
+      [88] invokevirtual #146
         + Methodref [android/widget/ListView.getLayoutParams ()Landroid/view/ViewGroup$LayoutParams;]
       [91] sipush 300
-      [94] putfield #96
+      [94] putfield #97
         + Fieldref [android/view/ViewGroup$LayoutParams.height I]
       [97] iload_3 v3
       [98] sipush 300
@@ -94479,18 +94481,18 @@ Methods (count = 21):
       [105] bipush -2
       [107] ificmpne +14 (target=121)
       [110] aload_0 v0
-      [111] getfield #98
+      [111] getfield #99
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.b Landroid/widget/ListView;]
-      [114] invokevirtual #145
+      [114] invokevirtual #146
         + Methodref [android/widget/ListView.getLayoutParams ()Landroid/view/ViewGroup$LayoutParams;]
       [117] iload_3 v3
-      [118] putfield #96
+      [118] putfield #97
         + Fieldref [android/view/ViewGroup$LayoutParams.height I]
       [121] aload_0 v0
-      [122] getfield #98
+      [122] getfield #99
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.b Landroid/widget/ListView;]
       [125] aload_1 v1
-      [126] invokevirtual #146
+      [126] invokevirtual #147
         + Methodref [android/widget/ListView.setAdapter (Landroid/widget/ListAdapter;)V]
       [129] return
       Code attribute exceptions (count = 0):
@@ -94505,24 +94507,24 @@ Methods (count = 21):
     + Code attribute instructions (code length = 33, locals = 1, stack = 3):
       [0] aload_0 v0
       [1] aload_0 v0
-      [2] getfield #101
+      [2] getfield #102
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.e Z]
       [5] ifeq +13 (target=18)
       [8] aload_0 v0
-      [9] getfield #104
+      [9] getfield #105
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.h Lnick/chow/app/b/b;]
-      [12] invokevirtual #165
+      [12] invokevirtual #166
         + Methodref [nick/chow/app/b/b.a ()Ljava/util/List;]
       [15] goto +14 (target=29)
       [18] aload_0 v0
-      [19] getfield #104
+      [19] getfield #105
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.h Lnick/chow/app/b/b;]
       [22] aload_0 v0
-      [23] getfield #106
+      [23] getfield #107
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.j Ljava/util/Set;]
-      [26] invokevirtual #167
+      [26] invokevirtual #168
         + Methodref [nick/chow/app/b/b.a (Ljava/util/Set;)Ljava/util/List;]
-      [29] putfield #111
+      [29] putfield #112
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.o Ljava/util/List;]
       [32] return
       Code attribute exceptions (count = 0):
@@ -94534,190 +94536,201 @@ Methods (count = 21):
     Access flags: 0x1
       = public void h()
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 210, locals = 7, stack = 5):
+    + Code attribute instructions (code length = 226, locals = 7, stack = 5):
       [0] aload_0 v0
-      [1] getfield #107
+      [1] getfield #108
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.k Landroid/content/SharedPreferences;]
-      [4] ldc #36
-        + String [enableVibrate]
+      [4] ldc #34
+        + String [enableReminder]
       [6] iconst_0
-      [7] invokeinterface #191
+      [7] invokeinterface #192
         + InterfaceMethodref [android/content/SharedPreferences.getBoolean (Ljava/lang/String;Z)Z]
-      [12] ifeq +74 (target=86)
-      [15] bipush 6
-      [17] newarray 11
-      [19] dup
-      [20] iconst_0
-      [21] ldc2_w #90
+      [12] ifne +4 (target=16)
+      [15] return
+      [16] aload_0 v0
+      [17] getfield #108
+        + Fieldref [nick/chow/smsshow/SMSPopupActivity.k Landroid/content/SharedPreferences;]
+      [20] ldc #37
+        + String [enableVibrate]
+      [22] iconst_0
+      [23] invokeinterface #192
+        + InterfaceMethodref [android/content/SharedPreferences.getBoolean (Ljava/lang/String;Z)Z]
+      [28] ifeq +74 (target=102)
+      [31] bipush 6
+      [33] newarray 11
+      [35] dup
+      [36] iconst_0
+      [37] ldc2_w #91
         + Long [10]
-      [24] lastore
-      [25] dup
-      [26] iconst_1
-      [27] ldc2_w #94
+      [40] lastore
+      [41] dup
+      [42] iconst_1
+      [43] ldc2_w #95
         + Long [500]
-      [30] lastore
-      [31] dup
-      [32] iconst_2
-      [33] ldc2_w #92
+      [46] lastore
+      [47] dup
+      [48] iconst_2
+      [49] ldc2_w #93
         + Long [400]
-      [36] lastore
-      [37] dup
-      [38] iconst_3
-      [39] ldc2_w #94
+      [52] lastore
+      [53] dup
+      [54] iconst_3
+      [55] ldc2_w #95
         + Long [500]
-      [42] lastore
-      [43] dup
-      [44] iconst_4
-      [45] ldc2_w #92
+      [58] lastore
+      [59] dup
+      [60] iconst_4
+      [61] ldc2_w #93
         + Long [400]
-      [48] lastore
-      [49] dup
-      [50] iconst_5
-      [51] ldc2_w #94
+      [64] lastore
+      [65] dup
+      [66] iconst_5
+      [67] ldc2_w #95
         + Long [500]
-      [54] lastore
-      [55] astore_1 v1
-      [56] aload_0 v0
-      [57] getfield #105
+      [70] lastore
+      [71] astore_1 v1
+      [72] aload_0 v0
+      [73] getfield #106
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.i Landroid/os/Vibrator;]
-      [60] aload_1 v1
-      [61] iconst_m1
-      [62] invokevirtual #128
+      [76] aload_1 v1
+      [77] iconst_m1
+      [78] invokevirtual #129
         + Methodref [android/os/Vibrator.vibrate ([JI)V]
-      [65] goto +21 (target=86)
-      [68] astore_2 v2
-      [69] aload_0 v0
-      [70] getfield #97
+      [81] goto +21 (target=102)
+      [84] astore_2 v2
+      [85] aload_0 v0
+      [86] getfield #98
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.a Ljava/lang/String;]
-      [73] aload_2 v2
-      [74] invokevirtual #154
+      [89] aload_2 v2
+      [90] invokevirtual #155
         + Methodref [java/lang/Exception.toString ()Ljava/lang/String;]
-      [77] invokestatic #135
+      [93] invokestatic #136
         + Methodref [android/util/Log.e (Ljava/lang/String;Ljava/lang/String;)I]
-      [80] pop
-      [81] aload_0 v0
-      [82] aload_2 v2
-      [83] invokestatic #164
+      [96] pop
+      [97] aload_0 v0
+      [98] aload_2 v2
+      [99] invokestatic #165
         + Methodref [nick/chow/app/a/f.a (Landroid/content/Context;Ljava/lang/Exception;)V]
-      [86] aload_0 v0
-      [87] getfield #107
+      [102] aload_0 v0
+      [103] getfield #108
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.k Landroid/content/SharedPreferences;]
-      [90] ldc #37
+      [106] ldc #38
         + String [enableVoice]
-      [92] iconst_0
-      [93] invokeinterface #191
+      [108] iconst_0
+      [109] invokeinterface #192
         + InterfaceMethodref [android/content/SharedPreferences.getBoolean (Ljava/lang/String;Z)Z]
-      [98] ifeq +111 (target=209)
-      [101] iconst_m1
-      [102] istore_1 v1
-      [103] aload_0 v0
-      [104] ldc #27
-        + String [audio]
-      [106] invokevirtual #183
-        + Methodref [nick/chow/smsshow/SMSPopupActivity.getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
-      [109] checkcast #56
-        + Class [android/media/AudioManager]
-      [112] astore_2 v2
-      [113] aload_2 v2
-      [114] iconst_2
-      [115] invokevirtual #121
-        + Methodref [android/media/AudioManager.getStreamVolume (I)I]
+      [114] ifeq +111 (target=225)
+      [117] iconst_m1
       [118] istore_1 v1
-      [119] iload_1 v1
-      [120] ifle +89 (target=209)
-      [123] iload_1 v1
-      [124] iconst_1
-      [125] iadd
-      [126] iconst_2
-      [127] idiv
-      [128] istore_1 v1
-      [129] ldc #30
+      [119] aload_0 v0
+      [120] ldc #27
+        + String [audio]
+      [122] invokevirtual #184
+        + Methodref [nick/chow/smsshow/SMSPopupActivity.getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
+      [125] checkcast #57
+        + Class [android/media/AudioManager]
+      [128] astore_2 v2
+      [129] aload_2 v2
+      [130] iconst_2
+      [131] invokevirtual #122
+        + Methodref [android/media/AudioManager.getStreamVolume (I)I]
+      [134] istore_1 v1
+      [135] iload_1 v1
+      [136] ifle +89 (target=225)
+      [139] iload_1 v1
+      [140] iconst_1
+      [141] iadd
+      [142] iconst_2
+      [143] idiv
+      [144] istore_1 v1
+      [145] ldc #30
         + String [content://settings/system/notification_sound]
-      [131] astore_3 v3
-      [132] aload_0 v0
-      [133] getfield #107
+      [147] astore_3 v3
+      [148] aload_0 v0
+      [149] getfield #108
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.k Landroid/content/SharedPreferences;]
-      [136] ldc #47
+      [152] ldc #48
         + String [smsringtone]
-      [138] aload_3 v3
-      [139] invokeinterface #192
+      [154] aload_3 v3
+      [155] invokeinterface #193
         + InterfaceMethodref [android/content/SharedPreferences.getString (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
-      [144] astore v4
-      [146] new #57
+      [160] astore v4
+      [162] new #58
         + Class [android/media/MediaPlayer]
-      [149] dup
-      [150] invokespecial #122
+      [165] dup
+      [166] invokespecial #123
         + Methodref [android/media/MediaPlayer.<init> ()V]
-      [153] astore v5
-      [155] aload v5
-      [157] iload_1 v1
-      [158] i2f
-      [159] iload_1 v1
-      [160] i2f
-      [161] invokevirtual #125
+      [169] astore v5
+      [171] aload v5
+      [173] iload_1 v1
+      [174] i2f
+      [175] iload_1 v1
+      [176] i2f
+      [177] invokevirtual #126
         + Methodref [android/media/MediaPlayer.setVolume (FF)V]
-      [164] aload v5
-      [166] aload_0 v0
-      [167] aload v4
-      [169] invokestatic #127
-        + Methodref [android/net/Uri.parse (Ljava/lang/String;)Landroid/net/Uri;]
-      [172] invokevirtual #124
-        + Methodref [android/media/MediaPlayer.setDataSource (Landroid/content/Context;Landroid/net/Uri;)V]
-      [175] aload v5
-      [177] invokevirtual #123
-        + Methodref [android/media/MediaPlayer.prepare ()V]
       [180] aload v5
-      [182] invokevirtual #126
+      [182] aload_0 v0
+      [183] aload v4
+      [185] invokestatic #128
+        + Methodref [android/net/Uri.parse (Ljava/lang/String;)Landroid/net/Uri;]
+      [188] invokevirtual #125
+        + Methodref [android/media/MediaPlayer.setDataSource (Landroid/content/Context;Landroid/net/Uri;)V]
+      [191] aload v5
+      [193] invokevirtual #124
+        + Methodref [android/media/MediaPlayer.prepare ()V]
+      [196] aload v5
+      [198] invokevirtual #127
         + Methodref [android/media/MediaPlayer.start ()V]
-      [185] goto +24 (target=209)
-      [188] astore v6
-      [190] aload_0 v0
-      [191] getfield #97
+      [201] goto +24 (target=225)
+      [204] astore v6
+      [206] aload_0 v0
+      [207] getfield #98
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.a Ljava/lang/String;]
-      [194] aload v6
-      [196] invokevirtual #154
+      [210] aload v6
+      [212] invokevirtual #155
         + Methodref [java/lang/Exception.toString ()Ljava/lang/String;]
-      [199] invokestatic #135
+      [215] invokestatic #136
         + Methodref [android/util/Log.e (Ljava/lang/String;Ljava/lang/String;)I]
-      [202] pop
-      [203] aload_0 v0
-      [204] aload v6
-      [206] invokestatic #164
+      [218] pop
+      [219] aload_0 v0
+      [220] aload v6
+      [222] invokestatic #165
         + Methodref [nick/chow/app/a/f.a (Landroid/content/Context;Ljava/lang/Exception;)V]
-      [209] return
+      [225] return
       Code attribute exceptions (count = 2):
-      - ExceptionInfo (56 -> 65: 68):
+      - ExceptionInfo (72 -> 81: 84):
       + Class [java/lang/Exception]
-      - ExceptionInfo (155 -> 185: 188):
+      - ExceptionInfo (171 -> 201: 204):
       + Class [java/lang/Exception]
       Code attribute attributes (attribute count = 1):
-      + Stack map table attribute (count = 4):
-        - [68] Var: [a:nick/chow/smsshow/SMSPopupActivity][a:[J], Stack: [a:java/lang/Exception]
-        - [86] Var: -1, Stack: (empty)
-        - [188] Var: [a:nick/chow/smsshow/SMSPopupActivity][i][a:android/media/AudioManager][a:java/lang/String][a:java/lang/String][a:android/media/MediaPlayer], Stack: [a:java/lang/Exception]
-        - [209] Var: [a:nick/chow/smsshow/SMSPopupActivity], Stack: 
+      + Stack map table attribute (count = 5):
+        - [16] Var: ..., Stack: (empty)
+        - [84] Var: [a:nick/chow/smsshow/SMSPopupActivity][a:[J], Stack: [a:java/lang/Exception]
+        - [102] Var: -1, Stack: (empty)
+        - [204] Var: [a:nick/chow/smsshow/SMSPopupActivity][i][a:android/media/AudioManager][a:java/lang/String][a:java/lang/String][a:android/media/MediaPlayer], Stack: [a:java/lang/Exception]
+        - [225] Var: [a:nick/chow/smsshow/SMSPopupActivity], Stack: 
   + Method:       onResume()V
     Access flags: 0x4
       = protected void onResume()
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 25, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] invokespecial #118
+      [1] invokespecial #119
         + Methodref [android/app/Activity.onResume ()V]
       [4] aload_0 v0
-      [5] invokevirtual #173
+      [5] invokevirtual #174
         + Methodref [nick/chow/smsshow/SMSPopupActivity.d ()V]
       [8] aload_0 v0
-      [9] invokevirtual #178
+      [9] invokevirtual #179
         + Methodref [nick/chow/smsshow/SMSPopupActivity.g ()V]
       [12] aload_0 v0
-      [13] invokevirtual #185
+      [13] invokevirtual #186
         + Methodref [nick/chow/smsshow/SMSPopupActivity.h ()V]
       [16] aload_0 v0
-      [17] invokevirtual #174
+      [17] invokevirtual #175
         + Methodref [nick/chow/smsshow/SMSPopupActivity.e ()V]
       [20] aload_0 v0
-      [21] invokevirtual #175
+      [21] invokevirtual #176
         + Methodref [nick/chow/smsshow/SMSPopupActivity.f ()V]
       [24] return
       Code attribute exceptions (count = 0):
@@ -94728,42 +94741,42 @@ Methods (count = 21):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 67, locals = 4, stack = 3):
       [0] aload_0 v0
-      [1] getfield #107
+      [1] getfield #108
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.k Landroid/content/SharedPreferences;]
-      [4] ldc #49
+      [4] ldc #50
         + String [stopAnimationTypeValue]
       [6] ldc #25
         + String []
-      [8] invokeinterface #192
+      [8] invokeinterface #193
         + InterfaceMethodref [android/content/SharedPreferences.getString (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;]
       [13] astore_1 v1
       [14] ldc #6
         + Integer [2130968577]
       [16] istore_2 v2
-      [17] ldc #39
+      [17] ldc #40
         + String [fadeOut]
       [19] aload_1 v1
-      [20] invokevirtual #155
+      [20] invokevirtual #156
         + Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
       [23] ifeq +9 (target=32)
       [26] ldc #6
         + Integer [2130968577]
       [28] istore_2 v2
       [29] goto +30 (target=59)
-      [32] ldc #44
+      [32] ldc #45
         + String [scaleOut]
       [34] aload_1 v1
-      [35] invokevirtual #155
+      [35] invokevirtual #156
         + Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
       [38] ifeq +9 (target=47)
       [41] ldc #10
         + Integer [2130968581]
       [43] istore_2 v2
       [44] goto +15 (target=59)
-      [47] ldc #46
+      [47] ldc #47
         + String [scaleRotateOut]
       [49] aload_1 v1
-      [50] invokevirtual #155
+      [50] invokevirtual #156
         + Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
       [53] ifeq +6 (target=59)
       [56] ldc #8
@@ -94771,7 +94784,7 @@ Methods (count = 21):
       [58] istore_2 v2
       [59] aload_0 v0
       [60] iload_2 v2
-      [61] invokestatic #142
+      [61] invokestatic #143
         + Methodref [android/view/animation/AnimationUtils.loadAnimation (Landroid/content/Context;I)Landroid/view/animation/Animation;]
       [64] astore_3 v3
       [65] aload_3 v3
@@ -94788,33 +94801,33 @@ Methods (count = 21):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 44, locals = 3, stack = 3):
       [0] aload_0 v0
-      [1] getfield #107
+      [1] getfield #108
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.k Landroid/content/SharedPreferences;]
-      [4] ldc #35
+      [4] ldc #36
         + String [enableStopAnimation]
       [6] iconst_1
-      [7] invokeinterface #191
+      [7] invokeinterface #192
         + InterfaceMethodref [android/content/SharedPreferences.getBoolean (Ljava/lang/String;Z)Z]
       [12] ifeq +27 (target=39)
       [15] aload_0 v0
-      [16] invokespecial #186
+      [16] invokespecial #187
         + Methodref [nick/chow/smsshow/SMSPopupActivity.j ()Landroid/view/animation/Animation;]
       [19] astore_2 v2
       [20] aload_2 v2
       [21] aload_0 v0
-      [22] getfield #112
+      [22] getfield #113
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.p Landroid/view/animation/Animation$AnimationListener;]
-      [25] invokevirtual #141
+      [25] invokevirtual #142
         + Methodref [android/view/animation/Animation.setAnimationListener (Landroid/view/animation/Animation$AnimationListener;)V]
       [28] aload_0 v0
-      [29] getfield #100
+      [29] getfield #101
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.d Landroid/view/View;]
       [32] aload_2 v2
-      [33] invokevirtual #138
+      [33] invokevirtual #139
         + Methodref [android/view/View.startAnimation (Landroid/view/animation/Animation;)V]
       [36] goto +7 (target=43)
       [39] aload_0 v0
-      [40] invokevirtual #177
+      [40] invokevirtual #178
         + Methodref [nick/chow/smsshow/SMSPopupActivity.finish ()V]
       [43] return
       Code attribute exceptions (count = 0):
@@ -94828,41 +94841,41 @@ Methods (count = 21):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 55, locals = 3, stack = 3):
       [0] aload_0 v0
-      [1] getfield #107
+      [1] getfield #108
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.k Landroid/content/SharedPreferences;]
-      [4] ldc #35
+      [4] ldc #36
         + String [enableStopAnimation]
       [6] iconst_1
-      [7] invokeinterface #191
+      [7] invokeinterface #192
         + InterfaceMethodref [android/content/SharedPreferences.getBoolean (Ljava/lang/String;Z)Z]
       [12] ifeq +27 (target=39)
       [15] aload_0 v0
-      [16] invokespecial #186
+      [16] invokespecial #187
         + Methodref [nick/chow/smsshow/SMSPopupActivity.j ()Landroid/view/animation/Animation;]
       [19] astore_2 v2
       [20] aload_2 v2
       [21] aload_0 v0
-      [22] getfield #114
+      [22] getfield #115
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.r Landroid/view/animation/Animation$AnimationListener;]
-      [25] invokevirtual #141
+      [25] invokevirtual #142
         + Methodref [android/view/animation/Animation.setAnimationListener (Landroid/view/animation/Animation$AnimationListener;)V]
       [28] aload_0 v0
-      [29] getfield #100
+      [29] getfield #101
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.d Landroid/view/View;]
       [32] aload_2 v2
-      [33] invokevirtual #138
+      [33] invokevirtual #139
         + Methodref [android/view/View.startAnimation (Landroid/view/animation/Animation;)V]
       [36] goto +18 (target=54)
       [39] aload_0 v0
-      [40] getfield #104
+      [40] getfield #105
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.h Lnick/chow/app/b/b;]
       [43] aload_0 v0
-      [44] getfield #106
+      [44] getfield #107
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.j Ljava/util/Set;]
-      [47] invokevirtual #168
+      [47] invokevirtual #169
         + Methodref [nick/chow/app/b/b.b (Ljava/util/Set;)V]
       [50] aload_0 v0
-      [51] invokevirtual #177
+      [51] invokevirtual #178
         + Methodref [nick/chow/smsshow/SMSPopupActivity.finish ()V]
       [54] return
       Code attribute exceptions (count = 0):
@@ -94876,41 +94889,41 @@ Methods (count = 21):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 55, locals = 3, stack = 3):
       [0] aload_0 v0
-      [1] getfield #107
+      [1] getfield #108
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.k Landroid/content/SharedPreferences;]
-      [4] ldc #35
+      [4] ldc #36
         + String [enableStopAnimation]
       [6] iconst_1
-      [7] invokeinterface #191
+      [7] invokeinterface #192
         + InterfaceMethodref [android/content/SharedPreferences.getBoolean (Ljava/lang/String;Z)Z]
       [12] ifeq +27 (target=39)
       [15] aload_0 v0
-      [16] invokespecial #186
+      [16] invokespecial #187
         + Methodref [nick/chow/smsshow/SMSPopupActivity.j ()Landroid/view/animation/Animation;]
       [19] astore_2 v2
       [20] aload_2 v2
       [21] aload_0 v0
-      [22] getfield #113
+      [22] getfield #114
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.q Landroid/view/animation/Animation$AnimationListener;]
-      [25] invokevirtual #141
+      [25] invokevirtual #142
         + Methodref [android/view/animation/Animation.setAnimationListener (Landroid/view/animation/Animation$AnimationListener;)V]
       [28] aload_0 v0
-      [29] getfield #100
+      [29] getfield #101
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.d Landroid/view/View;]
       [32] aload_2 v2
-      [33] invokevirtual #138
+      [33] invokevirtual #139
         + Methodref [android/view/View.startAnimation (Landroid/view/animation/Animation;)V]
       [36] goto +18 (target=54)
       [39] aload_0 v0
-      [40] getfield #104
+      [40] getfield #105
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.h Lnick/chow/app/b/b;]
       [43] aload_0 v0
-      [44] getfield #106
+      [44] getfield #107
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.j Ljava/util/Set;]
-      [47] invokevirtual #169
+      [47] invokevirtual #170
         + Methodref [nick/chow/app/b/b.c (Ljava/util/Set;)V]
       [50] aload_0 v0
-      [51] invokevirtual #177
+      [51] invokevirtual #178
         + Methodref [nick/chow/smsshow/SMSPopupActivity.finish ()V]
       [54] return
       Code attribute exceptions (count = 0):
@@ -94924,22 +94937,22 @@ Methods (count = 21):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 24, locals = 2, stack = 3):
       [0] aload_0 v0
-      [1] getfield #97
+      [1] getfield #98
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.a Ljava/lang/String;]
-      [4] ldc #42
+      [4] ldc #43
         + String [reply sms]
-      [6] invokestatic #136
+      [6] invokestatic #137
         + Methodref [android/util/Log.i (Ljava/lang/String;Ljava/lang/String;)I]
       [9] pop
       [10] aload_0 v0
-      [11] invokevirtual #179
+      [11] invokevirtual #180
         + Methodref [nick/chow/smsshow/SMSPopupActivity.getApplicationContext ()Landroid/content/Context;]
-      [14] ldc #42
+      [14] ldc #43
         + String [reply sms]
       [16] iconst_1
-      [17] invokestatic #151
+      [17] invokestatic #152
         + Methodref [android/widget/Toast.makeText (Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;]
-      [20] invokevirtual #152
+      [20] invokevirtual #153
         + Methodref [android/widget/Toast.show ()V]
       [23] return
       Code attribute exceptions (count = 0):
@@ -94952,21 +94965,21 @@ Methods (count = 21):
       [0] aload_0 v0
       [1] ldc #26
         + String [activity]
-      [3] invokevirtual #183
+      [3] invokevirtual #184
         + Methodref [nick/chow/smsshow/SMSPopupActivity.getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
-      [6] checkcast #53
+      [6] checkcast #54
         + Class [android/app/ActivityManager]
       [9] astore_1 v1
       [10] aload_1 v1
       [11] ldc #29
         + String [com.android.mms]
-      [13] invokevirtual #119
+      [13] invokevirtual #120
         + Methodref [android/app/ActivityManager.restartPackage (Ljava/lang/String;)V]
       [16] goto +9 (target=25)
       [19] astore_1 v1
       [20] aload_0 v0
       [21] aload_1 v1
-      [22] invokestatic #164
+      [22] invokestatic #165
         + Methodref [nick/chow/app/a/f.a (Landroid/content/Context;Ljava/lang/Exception;)V]
       [25] return
       Code attribute exceptions (count = 1):
@@ -94982,12 +94995,12 @@ Methods (count = 21):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 12, locals = 2, stack = 3):
       [0] aload_0 v0
-      [1] invokevirtual #181
+      [1] invokevirtual #182
         + Methodref [nick/chow/smsshow/SMSPopupActivity.getMenuInflater ()Landroid/view/MenuInflater;]
       [4] ldc #14
         + Integer [2131427329]
       [6] aload_1 v1
-      [7] invokevirtual #137
+      [7] invokevirtual #138
         + Methodref [android/view/MenuInflater.inflate (ILandroid/view/Menu;)V]
       [10] iconst_1
       [11] ireturn
@@ -94998,19 +95011,19 @@ Methods (count = 21):
       = public boolean onMenuItemSelected(int,android.view.MenuItem)
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 19, locals = 3, stack = 3):
-      [0] new #83
+      [0] new #84
         + Class [nick/chow/app/a/d]
       [3] dup
       [4] aload_0 v0
-      [5] invokespecial #162
+      [5] invokespecial #163
         + Methodref [nick/chow/app/a/d.<init> (Landroid/content/Context;)V]
       [8] aload_2 v2
-      [9] invokevirtual #163
+      [9] invokevirtual #164
         + Methodref [nick/chow/app/a/d.a (Landroid/view/MenuItem;)V]
       [12] aload_0 v0
       [13] iload_1 v1
       [14] aload_2 v2
-      [15] invokespecial #117
+      [15] invokespecial #118
         + Methodref [android/app/Activity.onMenuItemSelected (ILandroid/view/MenuItem;)Z]
       [18] ireturn
       Code attribute exceptions (count = 0):
@@ -95021,7 +95034,7 @@ Methods (count = 21):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #104
+      [1] getfield #105
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.h Lnick/chow/app/b/b;]
       [4] areturn
       Code attribute exceptions (count = 0):
@@ -95032,7 +95045,7 @@ Methods (count = 21):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 5, locals = 1, stack = 1):
       [0] aload_0 v0
-      [1] getfield #106
+      [1] getfield #107
         + Fieldref [nick/chow/smsshow/SMSPopupActivity.j Ljava/util/Set;]
       [4] areturn
       Code attribute exceptions (count = 0):
@@ -95314,7 +95327,7 @@ _____________________________________________________________________
 Interfaces (count = 1):
   + Class [android/preference/Preference$OnPreferenceChangeListener]
 
-Constant Pool (count = 149):
+Constant Pool (count = 145):
   + Integer [2131034112]
   + String [enableQSMS]
   + String [enableStartAnimation]
@@ -95352,7 +95365,6 @@ Constant Pool (count = 149):
   + Methodref [android/preference/PreferenceFragment.<init> ()V]
   + Methodref [android/preference/PreferenceFragment.onCreate (Landroid/os/Bundle;)V]
   + Methodref [android/preference/PreferenceManager.getSharedPreferences ()Landroid/content/SharedPreferences;]
-  + Methodref [android/preference/PreferenceManager.setDefaultValues (Landroid/content/Context;IZ)V]
   + Methodref [android/preference/PreferenceScreen.getPreference (I)Landroid/preference/Preference;]
   + Methodref [android/preference/PreferenceScreen.getPreferenceCount ()I]
   + Methodref [java/lang/Boolean.booleanValue ()Z]
@@ -95388,7 +95400,6 @@ Constant Pool (count = 149):
   + NameAndType [h Landroid/preference/Preference;]
   + NameAndType [i Landroid/preference/Preference;]
   + NameAndType [onCreate (Landroid/os/Bundle;)V]
-  + NameAndType [setDefaultValues (Landroid/content/Context;IZ)V]
   + NameAndType [setEnabled (Z)V]
   + NameAndType [setOnPreferenceChangeListener (Landroid/preference/Preference$OnPreferenceChangeListener;)V]
   + NameAndType [vibrate (J)V]
@@ -95402,7 +95413,6 @@ Constant Pool (count = 149):
   + Utf8 [(I)Landroid/preference/Preference;]
   + Utf8 [(I)V]
   + Utf8 [(J)V]
-  + Utf8 [(Landroid/content/Context;IZ)V]
   + Utf8 [(Landroid/os/Bundle;)V]
   + Utf8 [(Landroid/preference/Preference$OnPreferenceChangeListener;)V]
   + Utf8 [(Landroid/preference/Preference;)V]
@@ -95454,7 +95464,6 @@ Constant Pool (count = 149):
   + Utf8 [nick/chow/smsshow/SettingFragment]
   + Utf8 [onCreate]
   + Utf8 [onPreferenceChange]
-  + Utf8 [setDefaultValues]
   + Utf8 [setEnabled]
   + Utf8 [setOnPreferenceChangeListener]
   + Utf8 [smsringtone]
@@ -95508,7 +95517,7 @@ Methods (count = 4):
     Access flags: 0x1
       = public void onCreate(android.os.Bundle)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 168, locals = 2, stack = 3):
+    + Code attribute instructions (code length = 158, locals = 2, stack = 3):
       [0] aload_0 v0
       [1] aload_1 v1
       [2] invokespecial #37
@@ -95516,129 +95525,121 @@ Methods (count = 4):
       [5] aload_0 v0
       [6] ldc #1
         + Integer [2131034112]
-      [8] invokevirtual #45
+      [8] invokevirtual #44
         + Methodref [nick/chow/smsshow/SettingFragment.addPreferencesFromResource (I)V]
       [11] aload_0 v0
-      [12] invokevirtual #47
-        + Methodref [nick/chow/smsshow/SettingFragment.getActivity ()Landroid/app/Activity;]
-      [15] ldc #1
-        + Integer [2131034112]
-      [17] iconst_0
-      [18] invokestatic #39
-        + Methodref [android/preference/PreferenceManager.setDefaultValues (Landroid/content/Context;IZ)V]
-      [21] aload_0 v0
-      [22] aload_0 v0
-      [23] invokevirtual #49
+      [12] aload_0 v0
+      [13] invokevirtual #48
         + Methodref [nick/chow/smsshow/SettingFragment.getPreferenceScreen ()Landroid/preference/PreferenceScreen;]
-      [26] putfield #23
+      [16] putfield #23
         + Fieldref [nick/chow/smsshow/SettingFragment.a Landroid/preference/PreferenceScreen;]
-      [29] aload_0 v0
-      [30] aload_0 v0
-      [31] getfield #23
+      [19] aload_0 v0
+      [20] aload_0 v0
+      [21] getfield #23
         + Fieldref [nick/chow/smsshow/SettingFragment.a Landroid/preference/PreferenceScreen;]
-      [34] invokevirtual #41
+      [24] invokevirtual #40
         + Methodref [android/preference/PreferenceScreen.getPreferenceCount ()I]
-      [37] putfield #24
+      [27] putfield #24
         + Fieldref [nick/chow/smsshow/SettingFragment.b I]
-      [40] aload_0 v0
-      [41] aload_0 v0
-      [42] ldc #2
+      [30] aload_0 v0
+      [31] aload_0 v0
+      [32] ldc #2
         + String [enableQSMS]
-      [44] invokevirtual #46
+      [34] invokevirtual #45
         + Methodref [nick/chow/smsshow/SettingFragment.findPreference (Ljava/lang/CharSequence;)Landroid/preference/Preference;]
-      [47] putfield #25
+      [37] putfield #25
         + Fieldref [nick/chow/smsshow/SettingFragment.c Landroid/preference/Preference;]
-      [50] aload_0 v0
-      [51] getfield #25
+      [40] aload_0 v0
+      [41] getfield #25
         + Fieldref [nick/chow/smsshow/SettingFragment.c Landroid/preference/Preference;]
-      [54] aload_0 v0
-      [55] invokevirtual #35
+      [44] aload_0 v0
+      [45] invokevirtual #35
         + Methodref [android/preference/Preference.setOnPreferenceChangeListener (Landroid/preference/Preference$OnPreferenceChangeListener;)V]
+      [48] aload_0 v0
+      [49] aload_0 v0
+      [50] ldc #3
+        + String [enableStartAnimation]
+      [52] invokevirtual #45
+        + Methodref [nick/chow/smsshow/SettingFragment.findPreference (Ljava/lang/CharSequence;)Landroid/preference/Preference;]
+      [55] putfield #26
+        + Fieldref [nick/chow/smsshow/SettingFragment.d Landroid/preference/Preference;]
       [58] aload_0 v0
       [59] aload_0 v0
-      [60] ldc #3
-        + String [enableStartAnimation]
-      [62] invokevirtual #46
+      [60] ldc #4
+        + String [enableStopAnimation]
+      [62] invokevirtual #45
         + Methodref [nick/chow/smsshow/SettingFragment.findPreference (Ljava/lang/CharSequence;)Landroid/preference/Preference;]
-      [65] putfield #26
-        + Fieldref [nick/chow/smsshow/SettingFragment.d Landroid/preference/Preference;]
+      [65] putfield #27
+        + Fieldref [nick/chow/smsshow/SettingFragment.e Landroid/preference/Preference;]
       [68] aload_0 v0
       [69] aload_0 v0
-      [70] ldc #4
-        + String [enableStopAnimation]
-      [72] invokevirtual #46
+      [70] ldc #7
+        + String [startAnimationTypeValue]
+      [72] invokevirtual #45
         + Methodref [nick/chow/smsshow/SettingFragment.findPreference (Ljava/lang/CharSequence;)Landroid/preference/Preference;]
-      [75] putfield #27
-        + Fieldref [nick/chow/smsshow/SettingFragment.e Landroid/preference/Preference;]
+      [75] putfield #28
+        + Fieldref [nick/chow/smsshow/SettingFragment.f Landroid/preference/Preference;]
       [78] aload_0 v0
       [79] aload_0 v0
-      [80] ldc #7
-        + String [startAnimationTypeValue]
-      [82] invokevirtual #46
+      [80] ldc #8
+        + String [stopAnimationTypeValue]
+      [82] invokevirtual #45
         + Methodref [nick/chow/smsshow/SettingFragment.findPreference (Ljava/lang/CharSequence;)Landroid/preference/Preference;]
-      [85] putfield #28
-        + Fieldref [nick/chow/smsshow/SettingFragment.f Landroid/preference/Preference;]
+      [85] putfield #29
+        + Fieldref [nick/chow/smsshow/SettingFragment.g Landroid/preference/Preference;]
       [88] aload_0 v0
       [89] aload_0 v0
-      [90] ldc #8
-        + String [stopAnimationTypeValue]
-      [92] invokevirtual #46
+      [90] ldc #6
+        + String [smsringtone]
+      [92] invokevirtual #45
         + Methodref [nick/chow/smsshow/SettingFragment.findPreference (Ljava/lang/CharSequence;)Landroid/preference/Preference;]
-      [95] putfield #29
-        + Fieldref [nick/chow/smsshow/SettingFragment.g Landroid/preference/Preference;]
+      [95] putfield #30
+        + Fieldref [nick/chow/smsshow/SettingFragment.h Landroid/preference/Preference;]
       [98] aload_0 v0
       [99] aload_0 v0
-      [100] ldc #6
-        + String [smsringtone]
-      [102] invokevirtual #46
-        + Methodref [nick/chow/smsshow/SettingFragment.findPreference (Ljava/lang/CharSequence;)Landroid/preference/Preference;]
-      [105] putfield #30
-        + Fieldref [nick/chow/smsshow/SettingFragment.h Landroid/preference/Preference;]
-      [108] aload_0 v0
-      [109] aload_0 v0
-      [110] ldc #5
+      [100] ldc #5
         + String [enableVibrate]
-      [112] invokevirtual #46
+      [102] invokevirtual #45
         + Methodref [nick/chow/smsshow/SettingFragment.findPreference (Ljava/lang/CharSequence;)Landroid/preference/Preference;]
-      [115] putfield #31
+      [105] putfield #31
         + Fieldref [nick/chow/smsshow/SettingFragment.i Landroid/preference/Preference;]
-      [118] aload_0 v0
-      [119] getfield #26
+      [108] aload_0 v0
+      [109] getfield #26
         + Fieldref [nick/chow/smsshow/SettingFragment.d Landroid/preference/Preference;]
-      [122] aload_0 v0
-      [123] invokevirtual #35
+      [112] aload_0 v0
+      [113] invokevirtual #35
         + Methodref [android/preference/Preference.setOnPreferenceChangeListener (Landroid/preference/Preference$OnPreferenceChangeListener;)V]
-      [126] aload_0 v0
-      [127] getfield #27
+      [116] aload_0 v0
+      [117] getfield #27
         + Fieldref [nick/chow/smsshow/SettingFragment.e Landroid/preference/Preference;]
-      [130] aload_0 v0
-      [131] invokevirtual #35
+      [120] aload_0 v0
+      [121] invokevirtual #35
         + Methodref [android/preference/Preference.setOnPreferenceChangeListener (Landroid/preference/Preference$OnPreferenceChangeListener;)V]
-      [134] aload_0 v0
-      [135] getfield #31
+      [124] aload_0 v0
+      [125] getfield #31
         + Fieldref [nick/chow/smsshow/SettingFragment.i Landroid/preference/Preference;]
-      [138] aload_0 v0
-      [139] invokevirtual #35
+      [128] aload_0 v0
+      [129] invokevirtual #35
         + Methodref [android/preference/Preference.setOnPreferenceChangeListener (Landroid/preference/Preference$OnPreferenceChangeListener;)V]
-      [142] aload_0 v0
-      [143] invokespecial #44
+      [132] aload_0 v0
+      [133] invokespecial #43
         + Methodref [nick/chow/smsshow/SettingFragment.a ()V]
-      [146] aload_0 v0
-      [147] getfield #28
+      [136] aload_0 v0
+      [137] getfield #28
         + Fieldref [nick/chow/smsshow/SettingFragment.f Landroid/preference/Preference;]
-      [150] invokestatic #43
+      [140] invokestatic #42
         + Methodref [nick/chow/app/a/e.a (Landroid/preference/Preference;)V]
-      [153] aload_0 v0
-      [154] getfield #29
+      [143] aload_0 v0
+      [144] getfield #29
         + Fieldref [nick/chow/smsshow/SettingFragment.g Landroid/preference/Preference;]
-      [157] invokestatic #43
+      [147] invokestatic #42
         + Methodref [nick/chow/app/a/e.a (Landroid/preference/Preference;)V]
-      [160] aload_0 v0
-      [161] getfield #30
+      [150] aload_0 v0
+      [151] getfield #30
         + Fieldref [nick/chow/smsshow/SettingFragment.h Landroid/preference/Preference;]
-      [164] invokestatic #43
+      [154] invokestatic #42
         + Methodref [nick/chow/app/a/e.a (Landroid/preference/Preference;)V]
-      [167] return
+      [157] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 0):
   + Method:       a()V
@@ -95647,7 +95648,7 @@ Methods (count = 4):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 91, locals = 5, stack = 3):
       [0] aload_0 v0
-      [1] invokevirtual #48
+      [1] invokevirtual #47
         + Methodref [nick/chow/smsshow/SettingFragment.getPreferenceManager ()Landroid/preference/PreferenceManager;]
       [4] invokevirtual #38
         + Methodref [android/preference/PreferenceManager.getSharedPreferences ()Landroid/content/SharedPreferences;]
@@ -95656,7 +95657,7 @@ Methods (count = 4):
       [9] ldc #2
         + String [enableQSMS]
       [11] iconst_1
-      [12] invokeinterface #50
+      [12] invokeinterface #49
         + InterfaceMethodref [android/content/SharedPreferences.getBoolean (Ljava/lang/String;Z)Z]
       [17] istore_2 v2
       [18] iconst_1
@@ -95666,7 +95667,7 @@ Methods (count = 4):
       [24] getfield #23
         + Fieldref [nick/chow/smsshow/SettingFragment.a Landroid/preference/PreferenceScreen;]
       [27] iload_3 v3
-      [28] invokevirtual #40
+      [28] invokevirtual #39
         + Methodref [android/preference/PreferenceScreen.getPreference (I)Landroid/preference/Preference;]
       [31] astore v4
       [33] aload v4
@@ -95685,7 +95686,7 @@ Methods (count = 4):
       [55] ldc #3
         + String [enableStartAnimation]
       [57] iconst_1
-      [58] invokeinterface #50
+      [58] invokeinterface #49
         + InterfaceMethodref [android/content/SharedPreferences.getBoolean (Ljava/lang/String;Z)Z]
       [63] istore_2 v2
       [64] aload_0 v0
@@ -95698,7 +95699,7 @@ Methods (count = 4):
       [73] ldc #4
         + String [enableStopAnimation]
       [75] iconst_1
-      [76] invokeinterface #50
+      [76] invokeinterface #49
         + InterfaceMethodref [android/content/SharedPreferences.getBoolean (Ljava/lang/String;Z)Z]
       [81] istore_2 v2
       [82] aload_0 v0
@@ -95728,7 +95729,7 @@ Methods (count = 4):
       [9] aload_2 v2
       [10] checkcast #18
         + Class [java/lang/Boolean]
-      [13] invokevirtual #42
+      [13] invokevirtual #41
         + Methodref [java/lang/Boolean.booleanValue ()Z]
       [16] istore_3 v3
       [17] aload_0 v0
@@ -95743,7 +95744,7 @@ Methods (count = 4):
       [32] getfield #23
         + Fieldref [nick/chow/smsshow/SettingFragment.a Landroid/preference/PreferenceScreen;]
       [35] iload v4
-      [37] invokevirtual #40
+      [37] invokevirtual #39
         + Methodref [android/preference/PreferenceScreen.getPreference (I)Landroid/preference/Preference;]
       [40] astore v5
       [42] aload v5
@@ -95789,7 +95790,7 @@ Methods (count = 4):
       [109] iload_3 v3
       [110] ifeq +25 (target=135)
       [113] aload_0 v0
-      [114] invokevirtual #47
+      [114] invokevirtual #46
         + Methodref [nick/chow/smsshow/SettingFragment.getActivity ()Landroid/app/Activity;]
       [117] ldc #9
         + String [vibrator]
@@ -95829,7 +95830,7 @@ _____________________________________________________________________
 Interfaces (count = 1):
   + Class [android/preference/Preference$OnPreferenceChangeListener]
 
-Constant Pool (count = 150):
+Constant Pool (count = 154):
   + Integer [2130903045]
   + Integer [2131034112]
   + String [enableQSMS]
@@ -95868,6 +95869,7 @@ Constant Pool (count = 150):
   + Methodref [android/preference/PreferenceActivity.<init> ()V]
   + Methodref [android/preference/PreferenceActivity.onCreate (Landroid/os/Bundle;)V]
   + Methodref [android/preference/PreferenceManager.getSharedPreferences ()Landroid/content/SharedPreferences;]
+  + Methodref [android/preference/PreferenceManager.setDefaultValues (Landroid/content/Context;IZ)V]
   + Methodref [android/preference/PreferenceScreen.getPreference (I)Landroid/preference/Preference;]
   + Methodref [android/preference/PreferenceScreen.getPreferenceCount ()I]
   + Methodref [java/lang/Boolean.booleanValue ()Z]
@@ -95907,6 +95909,7 @@ Constant Pool (count = 150):
   + NameAndType [i Landroid/preference/Preference;]
   + NameAndType [onCreate (Landroid/os/Bundle;)V]
   + NameAndType [setContentView (I)V]
+  + NameAndType [setDefaultValues (Landroid/content/Context;IZ)V]
   + NameAndType [setEnabled (Z)V]
   + NameAndType [setOnPreferenceChangeListener (Landroid/preference/Preference$OnPreferenceChangeListener;)V]
   + NameAndType [vibrate (J)V]
@@ -95919,6 +95922,7 @@ Constant Pool (count = 150):
   + Utf8 [(I)Landroid/preference/Preference;]
   + Utf8 [(I)V]
   + Utf8 [(J)V]
+  + Utf8 [(Landroid/content/Context;IZ)V]
   + Utf8 [(Landroid/os/Bundle;)V]
   + Utf8 [(Landroid/preference/Preference$OnPreferenceChangeListener;)V]
   + Utf8 [(Landroid/preference/Preference;)V]
@@ -95971,6 +95975,7 @@ Constant Pool (count = 150):
   + Utf8 [onCreate]
   + Utf8 [onPreferenceChange]
   + Utf8 [setContentView]
+  + Utf8 [setDefaultValues]
   + Utf8 [setEnabled]
   + Utf8 [setOnPreferenceChangeListener]
   + Utf8 [smsringtone]
@@ -96024,29 +96029,29 @@ Methods (count = 5):
     Access flags: 0x4
       = protected void onCreate(android.os.Bundle)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 174, locals = 2, stack = 3):
+    + Code attribute instructions (code length = 181, locals = 2, stack = 3):
       [0] aload_0 v0
       [1] aload_1 v1
       [2] invokespecial #38
         + Methodref [android/preference/PreferenceActivity.onCreate (Landroid/os/Bundle;)V]
       [5] aload_0 v0
-      [6] invokevirtual #44
+      [6] invokevirtual #45
         + Methodref [nick/chow/smsshow/SettingsActivity.a ()Z]
       [9] ifne +12 (target=21)
       [12] aload_0 v0
       [13] ldc #1
         + Integer [2130903045]
-      [15] invokevirtual #51
+      [15] invokevirtual #52
         + Methodref [nick/chow/smsshow/SettingsActivity.setContentView (I)V]
       [18] goto +155 (target=173)
       [21] aload_0 v0
       [22] ldc #2
         + Integer [2131034112]
-      [24] invokevirtual #45
+      [24] invokevirtual #46
         + Methodref [nick/chow/smsshow/SettingsActivity.addPreferencesFromResource (I)V]
       [27] aload_0 v0
       [28] aload_0 v0
-      [29] invokevirtual #49
+      [29] invokevirtual #50
         + Methodref [nick/chow/smsshow/SettingsActivity.getPreferenceScreen ()Landroid/preference/PreferenceScreen;]
       [32] putfield #25
         + Fieldref [nick/chow/smsshow/SettingsActivity.a Landroid/preference/PreferenceScreen;]
@@ -96054,7 +96059,7 @@ Methods (count = 5):
       [36] aload_0 v0
       [37] getfield #25
         + Fieldref [nick/chow/smsshow/SettingsActivity.a Landroid/preference/PreferenceScreen;]
-      [40] invokevirtual #41
+      [40] invokevirtual #42
         + Methodref [android/preference/PreferenceScreen.getPreferenceCount ()I]
       [43] putfield #26
         + Fieldref [nick/chow/smsshow/SettingsActivity.b I]
@@ -96062,7 +96067,7 @@ Methods (count = 5):
       [47] aload_0 v0
       [48] ldc #3
         + String [enableQSMS]
-      [50] invokevirtual #47
+      [50] invokevirtual #48
         + Methodref [nick/chow/smsshow/SettingsActivity.findPreference (Ljava/lang/CharSequence;)Landroid/preference/Preference;]
       [53] putfield #27
         + Fieldref [nick/chow/smsshow/SettingsActivity.c Landroid/preference/Preference;]
@@ -96076,7 +96081,7 @@ Methods (count = 5):
       [65] aload_0 v0
       [66] ldc #4
         + String [enableStartAnimation]
-      [68] invokevirtual #47
+      [68] invokevirtual #48
         + Methodref [nick/chow/smsshow/SettingsActivity.findPreference (Ljava/lang/CharSequence;)Landroid/preference/Preference;]
       [71] putfield #28
         + Fieldref [nick/chow/smsshow/SettingsActivity.d Landroid/preference/Preference;]
@@ -96084,7 +96089,7 @@ Methods (count = 5):
       [75] aload_0 v0
       [76] ldc #5
         + String [enableStopAnimation]
-      [78] invokevirtual #47
+      [78] invokevirtual #48
         + Methodref [nick/chow/smsshow/SettingsActivity.findPreference (Ljava/lang/CharSequence;)Landroid/preference/Preference;]
       [81] putfield #29
         + Fieldref [nick/chow/smsshow/SettingsActivity.e Landroid/preference/Preference;]
@@ -96092,7 +96097,7 @@ Methods (count = 5):
       [85] aload_0 v0
       [86] ldc #8
         + String [startAnimationTypeValue]
-      [88] invokevirtual #47
+      [88] invokevirtual #48
         + Methodref [nick/chow/smsshow/SettingsActivity.findPreference (Ljava/lang/CharSequence;)Landroid/preference/Preference;]
       [91] putfield #30
         + Fieldref [nick/chow/smsshow/SettingsActivity.f Landroid/preference/Preference;]
@@ -96100,7 +96105,7 @@ Methods (count = 5):
       [95] aload_0 v0
       [96] ldc #9
         + String [stopAnimationTypeValue]
-      [98] invokevirtual #47
+      [98] invokevirtual #48
         + Methodref [nick/chow/smsshow/SettingsActivity.findPreference (Ljava/lang/CharSequence;)Landroid/preference/Preference;]
       [101] putfield #31
         + Fieldref [nick/chow/smsshow/SettingsActivity.g Landroid/preference/Preference;]
@@ -96108,7 +96113,7 @@ Methods (count = 5):
       [105] aload_0 v0
       [106] ldc #7
         + String [smsringtone]
-      [108] invokevirtual #47
+      [108] invokevirtual #48
         + Methodref [nick/chow/smsshow/SettingsActivity.findPreference (Ljava/lang/CharSequence;)Landroid/preference/Preference;]
       [111] putfield #32
         + Fieldref [nick/chow/smsshow/SettingsActivity.h Landroid/preference/Preference;]
@@ -96116,7 +96121,7 @@ Methods (count = 5):
       [115] aload_0 v0
       [116] ldc #6
         + String [enableVibrate]
-      [118] invokevirtual #47
+      [118] invokevirtual #48
         + Methodref [nick/chow/smsshow/SettingsActivity.findPreference (Ljava/lang/CharSequence;)Landroid/preference/Preference;]
       [121] putfield #33
         + Fieldref [nick/chow/smsshow/SettingsActivity.i Landroid/preference/Preference;]
@@ -96139,24 +96144,30 @@ Methods (count = 5):
       [145] invokevirtual #36
         + Methodref [android/preference/Preference.setOnPreferenceChangeListener (Landroid/preference/Preference$OnPreferenceChangeListener;)V]
       [148] aload_0 v0
-      [149] invokespecial #46
+      [149] invokespecial #47
         + Methodref [nick/chow/smsshow/SettingsActivity.b ()V]
       [152] aload_0 v0
       [153] getfield #30
         + Fieldref [nick/chow/smsshow/SettingsActivity.f Landroid/preference/Preference;]
-      [156] invokestatic #43
+      [156] invokestatic #44
         + Methodref [nick/chow/app/a/e.a (Landroid/preference/Preference;)V]
       [159] aload_0 v0
       [160] getfield #31
         + Fieldref [nick/chow/smsshow/SettingsActivity.g Landroid/preference/Preference;]
-      [163] invokestatic #43
+      [163] invokestatic #44
         + Methodref [nick/chow/app/a/e.a (Landroid/preference/Preference;)V]
       [166] aload_0 v0
       [167] getfield #32
         + Fieldref [nick/chow/smsshow/SettingsActivity.h Landroid/preference/Preference;]
-      [170] invokestatic #43
+      [170] invokestatic #44
         + Methodref [nick/chow/app/a/e.a (Landroid/preference/Preference;)V]
-      [173] return
+      [173] aload_0 v0
+      [174] ldc #2
+        + Integer [2131034112]
+      [176] iconst_0
+      [177] invokestatic #40
+        + Methodref [android/preference/PreferenceManager.setDefaultValues (Landroid/content/Context;IZ)V]
+      [180] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Stack map table attribute (count = 2):
@@ -96185,7 +96196,7 @@ Methods (count = 5):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 91, locals = 5, stack = 3):
       [0] aload_0 v0
-      [1] invokevirtual #48
+      [1] invokevirtual #49
         + Methodref [nick/chow/smsshow/SettingsActivity.getPreferenceManager ()Landroid/preference/PreferenceManager;]
       [4] invokevirtual #39
         + Methodref [android/preference/PreferenceManager.getSharedPreferences ()Landroid/content/SharedPreferences;]
@@ -96194,7 +96205,7 @@ Methods (count = 5):
       [9] ldc #3
         + String [enableQSMS]
       [11] iconst_1
-      [12] invokeinterface #52
+      [12] invokeinterface #53
         + InterfaceMethodref [android/content/SharedPreferences.getBoolean (Ljava/lang/String;Z)Z]
       [17] istore_2 v2
       [18] iconst_1
@@ -96204,7 +96215,7 @@ Methods (count = 5):
       [24] getfield #25
         + Fieldref [nick/chow/smsshow/SettingsActivity.a Landroid/preference/PreferenceScreen;]
       [27] iload_3 v3
-      [28] invokevirtual #40
+      [28] invokevirtual #41
         + Methodref [android/preference/PreferenceScreen.getPreference (I)Landroid/preference/Preference;]
       [31] astore v4
       [33] aload v4
@@ -96223,7 +96234,7 @@ Methods (count = 5):
       [55] ldc #4
         + String [enableStartAnimation]
       [57] iconst_1
-      [58] invokeinterface #52
+      [58] invokeinterface #53
         + InterfaceMethodref [android/content/SharedPreferences.getBoolean (Ljava/lang/String;Z)Z]
       [63] istore_2 v2
       [64] aload_0 v0
@@ -96236,7 +96247,7 @@ Methods (count = 5):
       [73] ldc #5
         + String [enableStopAnimation]
       [75] iconst_1
-      [76] invokeinterface #52
+      [76] invokeinterface #53
         + InterfaceMethodref [android/content/SharedPreferences.getBoolean (Ljava/lang/String;Z)Z]
       [81] istore_2 v2
       [82] aload_0 v0
@@ -96266,7 +96277,7 @@ Methods (count = 5):
       [9] aload_2 v2
       [10] checkcast #19
         + Class [java/lang/Boolean]
-      [13] invokevirtual #42
+      [13] invokevirtual #43
         + Methodref [java/lang/Boolean.booleanValue ()Z]
       [16] istore_3 v3
       [17] aload_0 v0
@@ -96281,7 +96292,7 @@ Methods (count = 5):
       [32] getfield #25
         + Fieldref [nick/chow/smsshow/SettingsActivity.a Landroid/preference/PreferenceScreen;]
       [35] iload v4
-      [37] invokevirtual #40
+      [37] invokevirtual #41
         + Methodref [android/preference/PreferenceScreen.getPreference (I)Landroid/preference/Preference;]
       [40] astore v5
       [42] aload v5
@@ -96329,7 +96340,7 @@ Methods (count = 5):
       [113] aload_0 v0
       [114] ldc #10
         + String [vibrator]
-      [116] invokevirtual #50
+      [116] invokevirtual #51
         + Methodref [nick/chow/smsshow/SettingsActivity.getSystemService (Ljava/lang/String;)Ljava/lang/Object;]
       [119] checkcast #13
         + Class [android/os/Vibrator]
