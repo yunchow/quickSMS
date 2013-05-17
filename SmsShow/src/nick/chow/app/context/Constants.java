@@ -6,6 +6,8 @@ package nick.chow.app.context;
  */
 public interface Constants {
 
+	Boolean RELEASE = true;
+	
 	String IS_TEST = "istest";
 	String ENABLE_QSMS = "enableQSMS";
 	String ENABLE_START_ANIMATION = "enableStartAnimation";
@@ -17,6 +19,7 @@ public interface Constants {
 	String ENABLE_VIBRATE = "enableVibrate";
 	String ENABLE_VOICE = "enableVoice";
 	String SMS_RINGTONE = "smsringtone";
+	String ENABLE_REMINDER = "enableReminder";
 
 	String DISPLAY_CLOSE_BTN = "displayCloseBtn";
 	String DISPLAY_READ_BTN = "displayReadBtn";

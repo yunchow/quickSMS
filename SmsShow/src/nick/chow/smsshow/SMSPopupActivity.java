@@ -185,6 +185,9 @@ public class SMSPopupActivity extends Activity {
 	}
 	
 	public void setupRemider() {
+		if (!prefs.getBoolean(Constants.ENABLE_REMINDER, false)) {
+			return;
+		}
 		if (prefs.getBoolean(Constants.ENABLE_VIBRATE, false)) {
 			long[] pattern = new long[]{10, 500, 400, 500, 400, 500};
 			try {

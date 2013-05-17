@@ -10,6 +10,7 @@ import android.os.Vibrator;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 
 /**
@@ -53,6 +54,7 @@ public class SettingsActivity extends PreferenceActivity implements OnPreference
 			OnPreferenceChangeListenerDecrator.bindPreferenceSummary(stopAnimationPreferenceValue);
 			OnPreferenceChangeListenerDecrator.bindPreferenceSummary(ringtongPreference);
 		}
+		PreferenceManager.setDefaultValues(this, R.xml.pref_general, false);
 	}
 	
 	protected boolean isFragmentSupport() {

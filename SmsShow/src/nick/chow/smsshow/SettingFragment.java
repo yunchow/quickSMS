@@ -14,7 +14,6 @@ import android.os.Vibrator;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
 
 /**
@@ -37,7 +36,6 @@ public class SettingFragment extends PreferenceFragment implements OnPreferenceC
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.pref_general);
-		PreferenceManager.setDefaultValues(this.getActivity(), R.xml.pref_general, false);
 		preferenceScreen = getPreferenceScreen();
 		prferenceCount = preferenceScreen.getPreferenceCount();
 		enableQSMSPreference = findPreference(Constants.ENABLE_QSMS);
