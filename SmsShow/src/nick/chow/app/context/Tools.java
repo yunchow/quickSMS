@@ -20,6 +20,12 @@ public class Tools {
 		}
 	}
 	
+	public static String parse(Exception e) {
+		StringWriter sw = new StringWriter();
+		e.printStackTrace(new PrintWriter(sw));
+		return sw.toString();
+	}
+	
 	public static void show(Context context, Exception e) {
 		if (!Constants.RELEASE) {
 			StringWriter sw = new StringWriter();

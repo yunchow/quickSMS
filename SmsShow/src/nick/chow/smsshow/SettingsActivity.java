@@ -1,7 +1,9 @@
 package nick.chow.smsshow;
 
 import nick.chow.app.context.Constants;
+import nick.chow.app.context.MenuItemSelector;
 import nick.chow.app.context.OnPreferenceChangeListenerDecrator;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -12,6 +14,8 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.preference.PreferenceScreen;
+import android.view.Menu;
+import android.view.MenuItem;
 
 /**
  * @author zhouyun
@@ -32,8 +36,9 @@ public class SettingsActivity extends PreferenceActivity implements OnPreference
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		if (!isFragmentSupport()) {
+		if (isFragmentSupport()) {
 			setContentView(R.layout.settings);
+			initActionBar();
 		} else {
 			addPreferencesFromResource(R.xml.pref_general);
 			preferenceScreen = getPreferenceScreen();
@@ -55,6 +60,11 @@ public class SettingsActivity extends PreferenceActivity implements OnPreference
 			OnPreferenceChangeListenerDecrator.bindPreferenceSummary(ringtongPreference);
 		}
 		PreferenceManager.setDefaultValues(this, R.xml.pref_general, false);
+	}
+	
+	@TargetApi(Build.VERSION_CODES.HONEYCOMB)
+	protected void initActionBar() {
+		getActionBar().show();
 	}
 	
 	protected boolean isFragmentSupport() {
@@ -96,6 +106,19 @@ public class SettingsActivity extends PreferenceActivity implements OnPreference
 			vibrator.vibrate(300);
 		}
 		return true;
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.setting, menu);
+		return true;
+	}
+	
+	@Override
+	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+		new MenuItemSelector(this).onItemSelect(item);
+		return super.onMenuItemSelected(featureId, item);
 	}
 	
 }

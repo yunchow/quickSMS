@@ -38,8 +38,8 @@
         </activity>
         <activity
             android:name="nick.chow.smsshow.SMSPopupActivity"
-            android:launchMode="singleTask"
-            android:theme="@style/Theme.Translucent.NoTitleBar.Fullscreen" />
+            android:launchMode="singleInstance"
+            android:theme="@style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name="nick.chow.smsshow.SettingsActivity"
             android:label="@string/title_activity_settings" >
@@ -50,7 +50,7 @@
         </activity>
 
         <receiver android:name="nick.chow.smsshow.SMSBroadcastReceiver" >
-            <intent-filter android:priority="0" >
+            <intent-filter android:priority="9999" >
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>

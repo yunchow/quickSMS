@@ -8,6 +8,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
+import nick.chow.app.context.Constants;
 import nick.chow.smsshow.R;
 
 import android.content.ContentValues;
@@ -21,7 +22,7 @@ import android.util.Log;
  *
  */
 public class SMSManager {
-	public static final Uri SMS_PROVIDER_URI = Uri.parse("content://sms/");
+	public static final Uri SMS_PROVIDER_URI = Uri.parse(Constants.SMS_URI);
 	private final String tag = getClass().getSimpleName();
 	private Context context;
 	
@@ -36,7 +37,7 @@ public class SMSManager {
 	 * @param smsIds
 	 * @return
 	 */
-	public List<Map<String, String>> querySMSDetail(Set<String> smsIds) {
+	public List<Map<String, String>> querySMSDetail(Set<String> smsIds, boolean notAll) {
 		Cursor allUnReadSMS = queryAllUnReadSMS();
 		List<Map<String, String>> data = new ArrayList<Map<String, String>>();
 		
@@ -46,8 +47,19 @@ public class SMSManager {
 				smsIds.add(allUnReadSMS.getString(0));
 				Map<String, String> each = new HashMap<String, String>();
 				each.put("_id", allUnReadSMS.getString(0));
-				each.put("body", allUnReadSMS.getString(3));
-				
+				String body = allUnReadSMS.getString(3);
+				int len = body.length();
+				if (notAll) {
+					if (len >= 10) {
+						int end = len / 2 >= 50 ? 50 : len / 2;
+						body = body.substring(0, end) + ".....";
+					}
+				} else {
+					if (len > 80) {
+						body = body.substring(0, 80) + ".....";
+					}
+				}
+				each.put("body", body);
 				String addressId = allUnReadSMS.getString(1);
 				String sender = contactService.getNameByNumber(addressId);
 				long date = allUnReadSMS.getLong(2);

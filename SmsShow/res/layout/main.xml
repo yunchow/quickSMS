@@ -46,6 +46,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:onClick="onAbout"
+        android:visibility="gone"
         android:drawableLeft="@android:drawable/ic_menu_info_details"
         android:text="@string/action_about" />
 

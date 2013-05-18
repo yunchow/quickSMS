@@ -3,16 +3,19 @@
     <CheckBoxPreference
         android:defaultValue="true"
         android:key="enableQSMS"
-        android:summary="@string/qsmsEnableDsc"
+        android:summaryOn="@string/qsmsEnableDsc"
+        android:summaryOff="@string/qsmsDisableDsc"
         android:title="@string/qsmsEnable" />
 
     <PreferenceCategory
         android:summary="@string/displaySumary"
         android:title="@string/display" >
-        <CheckBoxPreference
+        <CheckBoxPreference 
+            android:key="enablePrivateSMS"
             android:defaultValue="false"
-            android:key="displayCloseBtn"
-            android:title="@string/displayCloseBtn" />
+            android:title="@string/enablePrivateSMS"
+            android:summaryOn="@string/enableDisplayHalf"
+            android:summaryOff="@string/enableDisplayAll"/>
         <CheckBoxPreference
             android:defaultValue="true"
             android:key="displayReadBtn"
@@ -23,12 +26,8 @@
             android:title="@string/displayDelete" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/configRingtong" >
-        <Preference
-            android:summary="@string/settingRingtoneTip"
-            android:title="@string/settingRingtoneTipTitle" />
-
         <CheckBoxPreference
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:key="enableReminder"
             android:summary="@string/enableReminderSumarry"
             android:title="@string/enableReminder" />
@@ -72,7 +71,7 @@
             android:title="@string/enableStopAnimation" />
 
         <ListPreference
-            android:defaultValue="fadeOut"
+            android:defaultValue="scaleOut"
             android:dialogTitle="@string/stopAnimationType"
             android:entries="@array/stopAnimationTitles"
             android:entryValues="@array/stopAnimationValues"

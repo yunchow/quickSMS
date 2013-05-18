@@ -13,6 +13,9 @@ public interface Constants {
 	String ENABLE_START_ANIMATION = "enableStartAnimation";
 	String ENABLE_STOP_ANIMATION = "enableStopAnimation";
 	
+	String SMS_URI = "content://sms";
+	String ENABLE_PRIVATE_SMS = "enablePrivateSMS";
+	
 	String START_ANIMATION_TYPE_VALUE = "startAnimationTypeValue";
 	String STOP_ANIMATION_TYPE_VALUE = "stopAnimationTypeValue";
 	

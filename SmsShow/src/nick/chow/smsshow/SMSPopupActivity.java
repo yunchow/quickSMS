@@ -17,11 +17,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -59,11 +55,10 @@ public class SMSPopupActivity extends Activity {
 	
 	private SMSManager smsService = SMSManager.getManager(this);
 	//private NotificationManager notificationManager;
-	private Vibrator vibrator;
 	private Set<String> mids = new HashSet<String>();
 	private SharedPreferences prefs;
 	
-	private Button closeBtn;
+	//private Button closeBtn;
 	private Button deleBtn;
 	private Button readBtn;
 	private List<Map<String, String>> data;
@@ -86,13 +81,12 @@ public class SMSPopupActivity extends Activity {
 		smsContainer = findViewById(R.id.smsContainer);
 		smsDiver = (TextView) findViewById(R.id.smsDivider);
 		btnBar = (ViewGroup) findViewById(R.id.btnBar);
-		closeBtn = (Button) findViewById(R.id.close);
+		//closeBtn = (Button) findViewById(R.id.close);
 		deleBtn = (Button) findViewById(R.id.deleteAll);
 		readBtn = (Button) findViewById(R.id.markRead);	
 		//notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 		prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 		istest = getIntent().getBooleanExtra(Constants.IS_TEST, false);
-		vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 	}
 	
 	/**
@@ -117,12 +111,12 @@ public class SMSPopupActivity extends Activity {
 	
 	public void setupButton() {
 		boolean display = false;
-		if (prefs.getBoolean(Constants.DISPLAY_CLOSE_BTN, false)) {
+		/*if (prefs.getBoolean(Constants.DISPLAY_CLOSE_BTN, false)) {
 			closeBtn.setVisibility(Button.VISIBLE);
 			display = true;
 		} else {
 			closeBtn.setVisibility(Button.GONE);
-		}
+		}*/
 		if (prefs.getBoolean(Constants.DISPLAY_DELETE_BTN, true)) {
 			deleBtn.setVisibility(Button.VISIBLE);
 			display = true;
@@ -181,42 +175,8 @@ public class SMSPopupActivity extends Activity {
 	 * prepare SMS data for list view
 	 */
 	public void setupData() {
-		data = istest ? smsService.buildTestData() : smsService.querySMSDetail(mids);
-	}
-	
-	public void setupRemider() {
-		if (!prefs.getBoolean(Constants.ENABLE_REMINDER, false)) {
-			return;
-		}
-		if (prefs.getBoolean(Constants.ENABLE_VIBRATE, false)) {
-			long[] pattern = new long[]{10, 500, 400, 500, 400, 500};
-			try {
-				vibrator.vibrate(pattern, -1);
-			} catch (Exception e) {
-				Log.e(tag, e.toString());
-				Tools.show(this, e);
-			}
-		}
-		if (prefs.getBoolean(Constants.ENABLE_VOICE, false)) {
-			int volume = -1;
-			AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);  
-	        volume = audioManager.getStreamVolume(AudioManager.STREAM_RING); 
-			if (volume > 0) {
-				volume = (volume + 1) / 2;
-				String defaultRing = "content://settings/system/notification_sound";
-				String ringtone = prefs.getString(Constants.SMS_RINGTONE, defaultRing);
-				MediaPlayer player = new MediaPlayer();
-				try {
-					player.setVolume(volume, volume);
-					player.setDataSource(this, Uri.parse(ringtone));
-					player.prepare();
-					player.start();
-				} catch (Exception e) {
-					Log.e(tag, e.toString());
-					Tools.show(this, e);
-				}
-			}
-		}
+		boolean notAll = prefs.getBoolean(Constants.ENABLE_PRIVATE_SMS, false);
+		data = istest ? smsService.buildTestData() : smsService.querySMSDetail(mids, notAll);
 	}
 	
 	@Override
@@ -224,7 +184,6 @@ public class SMSPopupActivity extends Activity {
 		super.onResume();
 		setupWindow();
 		setupData();
-		setupRemider();
 		setupTitle();
 	    setupListView();
 	}

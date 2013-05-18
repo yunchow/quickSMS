@@ -1,15 +1,12 @@
 package nick.chow.smsshow;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
-
 import nick.chow.app.context.Constants;
-
 import android.content.BroadcastReceiver;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.telephony.SmsMessage;
@@ -25,13 +22,22 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 
 	@Override
 	public void onReceive(Context context, Intent intent ) {
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+		if (prefs.getBoolean(Constants.ENABLE_QSMS, true)) {
+			saveShortMessage(context, intent.getExtras());
+			abortBroadcast();
+			Log.i(tag, "abort broadcast");
+			Intent service = new Intent(context, QuickSMSService.class);
+			context.startService(service);
+		}
+	}
+	
+	protected void saveShortMessage(Context context, Bundle bundle) {  
 		Log.i(tag, "Receive a new message");
-		Bundle bundle = intent.getExtras();
 		Object[] pdus = (Object[]) bundle.get("pdus");
 		StringBuilder detail = new StringBuilder();
 		String sender = null;
 		long time = 0l;
-		DateFormat sdf = new SimpleDateFormat("MM/dd HH:mm", Locale.getDefault());
 		for (Object pdu : pdus) {
 			SmsMessage message  = SmsMessage.createFromPdu((byte[])pdu);
 			detail.append(message.getDisplayMessageBody());
@@ -39,21 +45,15 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 			time = message.getTimestampMillis();
 		}
 		Log.i(tag, "SMSBroadcastReceiver : message is " + detail);
-		/*Intent aIntent = new Intent(context, SMSPopupActivity.class);
-		aIntent.putExtra("sms", detail.toString());
-		aIntent.putExtra("sender", sender);
-		aIntent.putExtra("sendTime", sdf.format(time));
-		aIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		context.startActivity(aIntent);*/
 		
-		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-		if (prefs.getBoolean(Constants.ENABLE_QSMS, true)) {
-			Intent service = new Intent(context, QuickSMSService.class);
-			service.putExtra("sms", detail.toString());
-			service.putExtra("sender", sender);
-			service.putExtra("sendTime", sdf.format(time));
-			context.startService(service);
-		}
-	}
+	    ContentValues values = new ContentValues();
+	    values.put("address", sender);
+	    values.put("date", time);
+	    values.put("read", 0); // 1 read 0 not read
+	    values.put("status", 0); // must be ?
+	    values.put("type", 1);
+	    values.put("body", detail.toString());
+	    context.getContentResolver().insert(Uri.parse(Constants.SMS_URI),  values);
+	}  
 	
 }

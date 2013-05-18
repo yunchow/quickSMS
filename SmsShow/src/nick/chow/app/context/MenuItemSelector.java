@@ -2,6 +2,7 @@ package nick.chow.app.context;
 
 import nick.chow.smsshow.AboutActivity;
 import nick.chow.smsshow.FeedbackActivity;
+import nick.chow.smsshow.QuickSMSService;
 import nick.chow.smsshow.R;
 import nick.chow.smsshow.SettingsActivity;
 import android.content.Context;
@@ -32,6 +33,11 @@ public class MenuItemSelector {
 		case R.id.action_about:
 			Intent about = new Intent(context, AboutActivity.class);
 			context.startActivity(about);
+			break;
+		case R.id.previewSetting:
+			Intent settingPreview = new Intent(context, QuickSMSService.class);
+			settingPreview.putExtra(Constants.IS_TEST, true);
+			context.startService(settingPreview);
 			break;
 		}
 	}
