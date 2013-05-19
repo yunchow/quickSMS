@@ -50,7 +50,7 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 	    values.put("address", sender);
 	    values.put("date", time);
 	    values.put("read", 0); // 1 read 0 not read
-	    values.put("status", 0); // must be ?
+	    values.put("status", -1); // must be ?
 	    values.put("type", 1);
 	    values.put("body", detail.toString());
 	    context.getContentResolver().insert(Uri.parse(Constants.SMS_URI),  values);

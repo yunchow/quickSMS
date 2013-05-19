@@ -2,13 +2,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
+    android:background="@color/list_items_bg"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/smsDetail"
-        android:background="@color/list_items_bg"
         android:paddingLeft="10dp"
         android:paddingTop="10dp"
         android:paddingRight="10dp"
@@ -16,20 +16,21 @@
         android:layout_margin="0dp"
         android:textColor="#333"
         android:autoLink="all"
-        android:clickable="true"
+    	android:background="@color/list_items_bg"
         android:linksClickable="true"
-        android:focusable="true"/>
+        android:textIsSelectable="false"/>
 
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/note"
-        android:background="#FFF"
+    	android:background="@color/list_items_bg"
         android:paddingLeft="10dp"
         android:paddingTop="0dp"
         android:paddingRight="0dp"
         android:paddingBottom="5dp"
         android:layout_margin="0dp"
         android:textSize="12sp"
-        android:textColor="#DDD" />
+        android:textColor="#DDD"
+        android:textIsSelectable="false" />
 </LinearLayout>

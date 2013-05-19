@@ -48,17 +48,18 @@ public class SMSManager {
 				Map<String, String> each = new HashMap<String, String>();
 				each.put("_id", allUnReadSMS.getString(0));
 				String body = allUnReadSMS.getString(3);
+				each.put("_body", body);
 				int len = body.length();
 				if (notAll) {
 					if (len >= 10) {
 						int end = len / 2 >= 50 ? 50 : len / 2;
 						body = body.substring(0, end) + ".....";
 					}
-				} else {
+				}/* else {
 					if (len > 80) {
 						body = body.substring(0, 80) + ".....";
 					}
-				}
+				}*/
 				each.put("body", body);
 				String addressId = allUnReadSMS.getString(1);
 				String sender = contactService.getNameByNumber(addressId);
@@ -80,13 +81,15 @@ public class SMSManager {
 	 */
 	public List<Map<String, String>> buildTestData() {
 		List<Map<String, String>> data = new ArrayList<Map<String, String>>();
-		Map<String, String> each = new HashMap<String, String>();
-		each.put("_id", "-1");
-		each.put("body", context.getString(R.string.testContent));
-		String time = new SimpleDateFormat("MM/dd HH:mm", Locale.getDefault()).format(System.currentTimeMillis());
-		each.put("note", context.getString(R.string.from) + context.getString(R.string.app_name) 
-				+ context.getString(R.string.at) + time);
-		data.add(each);
+		for (int i = 0 ; i < 3; i++) {
+			Map<String, String> each = new HashMap<String, String>();
+			each.put("_id", "-1");
+			each.put("body", context.getString(R.string.testContent));
+			String time = new SimpleDateFormat("MM/dd HH:mm", Locale.getDefault()).format(System.currentTimeMillis());
+			each.put("note", context.getString(R.string.from) + context.getString(R.string.app_name) 
+					+ context.getString(R.string.at) + time);
+			data.add(each);
+		}
 		return data;
 	}
 

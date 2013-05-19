@@ -12,11 +12,13 @@ import nick.chow.app.context.Constants;
 import nick.chow.app.context.MenuItemSelector;
 import nick.chow.app.context.Tools;
 import nick.chow.app.manager.SMSManager;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.Spannable;
@@ -43,6 +45,7 @@ import android.widget.Toast;
  * @author zhouyun
  *
  */
+@TargetApi(Build.VERSION_CODES.ECLAIR)
 public class SMSPopupActivity extends Activity {
 	private final String tag = SMSPopupActivity.class.getSimpleName();
 	
@@ -66,6 +69,7 @@ public class SMSPopupActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		getWindow().setBackgroundDrawableResource(R.color.main_activity_bg);
 		setContentView(R.layout.activity_main);
 		init();
 		this.setupButton();
@@ -148,9 +152,14 @@ public class SMSPopupActivity extends Activity {
 	    SpannableString titleCount = new SpannableString(getString(R.string.smscountleft) 
 	    		+ data.size() + getString(R.string.smscountright));
 	    titleCount.setSpan(new ForegroundColorSpan(Color.YELLOW), 0, titleCount.length(), Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
-	    titleCount.setSpan(new AbsoluteSizeSpan(14, true), 0, titleCount.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+	    setupTitle2(titleCount);
 	    titleView.setText(getString(R.string.title));
 	    titleView.append(titleCount);
+	}
+	
+	@TargetApi(Build.VERSION_CODES.ECLAIR)
+	public void setupTitle2(SpannableString titleCount) {
+	    titleCount.setSpan(new AbsoluteSizeSpan(14, true), 0, titleCount.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 	}
 	
 	/**
@@ -159,7 +168,7 @@ public class SMSPopupActivity extends Activity {
 	public void setupListView() {
 		SimpleAdapter cursorAdapter = new SimpleAdapter(this, data, R.layout.sms_item_list,
 				new String[]{"body", "note"}, new int[]{R.id.smsDetail, R.id.note});
-		int layoutHeight = smsListView.getLayoutParams().height;
+		/*int layoutHeight = smsListView.getLayoutParams().height;
 		int disHeight = smsListView.getHeight();
 		
 		if (disHeight == 0 && data.size() >= 3 && layoutHeight == ViewGroup.LayoutParams.WRAP_CONTENT) {
@@ -167,7 +176,7 @@ public class SMSPopupActivity extends Activity {
 		}
 		if (disHeight >= 300 && layoutHeight == ViewGroup.LayoutParams.WRAP_CONTENT) {
 			smsListView.getLayoutParams().height = disHeight;
-		}
+		}*/
 		smsListView.setAdapter(cursorAdapter);
 	}
 	

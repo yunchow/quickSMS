@@ -10,8 +10,8 @@
     <string name="action_about">关于Q短信</string>
     <string name="reply">回复</string>
     <string name="close">关闭</string>
-    <string name="markRead">已读</string>
-    <string name="delete">删除</string>
+    <string name="markRead">确定</string>
+    <string name="delete">全部删除</string>
     <string name="sendTime">发送时间</string>
     <string name="from">来自</string>
     <string name="at">于</string>
@@ -21,12 +21,25 @@
     <string name="title_activity_main">Q短信</string>
     <string name="setting">设置Q短信</string>
     <string name="testContent">当您收到短信后，短信正文会显示在这里, 感谢您对Q短信的支持！</string>
+    
+    <string-array name="menu1">
+        <item>回复短信</item>
+        <item>呼叫联系人</item>
+    </string-array>
+    
+    <string-array name="menu2">
+        <item>回复短信</item>
+        <item>呼叫联系人</item>
+        <item>转发这条短信</item>
+        <item>删除这条短信</item>
+        <item>把号码添加到 &#8230;</item>
+    </string-array>
 
     <!-- Settings -->
     <string name="title_activity_settings">Q短信设置</string>
     <string name="qsmsEnable">开启Q短信</string>
     <string name="qsmsEnableDsc">主人，Q短信随时为你服务</string>
-    <string name="qsmsDisableDsc">主人，Q短信先告退了</string>
+    <string name="qsmsDisableDsc">主人，Q短信先行告退了</string>
     <string name="animation">启动与退出效果</string>
     <string name="enableStartAnimation">开始动画</string>
     <string name="enableStartAnimationDsc">打开/关闭开始动画</string>
@@ -45,7 +58,7 @@
     <string name="enableVibrate">短信振动</string>
     <string name="enableVoice">启动提示音</string>
     <string name="smsringtone">设置短信铃声</string>
-    <string name="configRingtong">设置短信提醒(默认不提醒)</string>
+    <string name="configRingtong">设置短信提醒</string>
     <string name="settingRingtoneTip">为了获得更好的体验，建议关闭系统自带短信的提醒功能</string>
     <string name="settingRingtoneTipTitle">爱心提醒</string>
     <string name="enablePrivateSMS">隐私模式</string>

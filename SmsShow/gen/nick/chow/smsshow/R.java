@@ -17,21 +17,24 @@ public final class R {
         public static final int scale_out=0x7f040005;
     }
     public static final class array {
-        public static final int startAnimationTitles=0x7f080000;
-        public static final int startAnimationValues=0x7f080001;
-        public static final int stopAnimationTitles=0x7f080002;
-        public static final int stopAnimationValues=0x7f080003;
+        public static final int menu1=0x7f080000;
+        public static final int menu2=0x7f080001;
+        public static final int startAnimationTitles=0x7f080002;
+        public static final int startAnimationValues=0x7f080003;
+        public static final int stopAnimationTitles=0x7f080004;
+        public static final int stopAnimationValues=0x7f080005;
     }
     public static final class attr {
     }
     public static final class color {
-        public static final int button_selector=0x7f0a0002;
+        public static final int button_selector=0x7f0a0003;
         public static final int clolor_369=0x7f0a0000;
         public static final int clolor_DDD=0x7f0a0001;
-        public static final int edit_text_bg=0x7f0a0003;
-        public static final int list_items_bg=0x7f0a0004;
-        public static final int main_bg=0x7f0a0005;
-        public static final int title_bg=0x7f0a0006;
+        public static final int edit_text_bg=0x7f0a0004;
+        public static final int list_items_bg=0x7f0a0005;
+        public static final int main_activity_bg=0x7f0a0002;
+        public static final int main_bg=0x7f0a0006;
+        public static final int title_bg=0x7f0a0007;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -47,12 +50,11 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_about=0x7f0c0016;
-        public static final int action_feedback=0x7f0c0015;
-        public static final int action_settings=0x7f0c0014;
+        public static final int action_about=0x7f0c0015;
+        public static final int action_feedback=0x7f0c0014;
+        public static final int action_settings=0x7f0c0013;
         public static final int btnBar=0x7f0c000b;
-        public static final int close=0x7f0c000e;
-        public static final int contactMethod=0x7f0c0010;
+        public static final int contactMethod=0x7f0c000f;
         public static final int copyrights=0x7f0c0004;
         public static final int declare=0x7f0c0005;
         public static final int deleteAll=0x7f0c000d;
@@ -60,12 +62,12 @@ public final class R {
         public static final int exceptionMsg=0x7f0c0006;
         public static final int logo=0x7f0c0001;
         public static final int markRead=0x7f0c000c;
-        public static final int note=0x7f0c0013;
-        public static final int previewSetting=0x7f0c0017;
-        public static final int question=0x7f0c000f;
-        public static final int settingFragment=0x7f0c0011;
+        public static final int note=0x7f0c0012;
+        public static final int previewSetting=0x7f0c0016;
+        public static final int question=0x7f0c000e;
+        public static final int settingFragment=0x7f0c0010;
         public static final int smsContainer=0x7f0c0007;
-        public static final int smsDetail=0x7f0c0012;
+        public static final int smsDetail=0x7f0c0011;
         public static final int smsDivider=0x7f0c000a;
         public static final int smsListView=0x7f0c0009;
         public static final int thanks=0x7f0c0000;
