@@ -1259,6 +1259,7 @@ javax.mail.Folder:
     public abstract boolean delete(boolean)
     public abstract boolean renameTo(javax.mail.Folder)
     public abstract void open(int)
+    public abstract void close(boolean)
     public abstract boolean isOpen()
     636:638:public int getMode()
     public abstract javax.mail.Flags getPermanentFlags()
@@ -1747,11 +1748,15 @@ myjava.awt.datatransfer.MimeTypeProcessor$MimeType:
     249:250:void addSystemParameter(java.lang.String,java.lang.Object)
 myjava.awt.datatransfer.Transferable
 myjava.awt.datatransfer.UnsupportedFlavorException
+nick.chow.app.component.SMSListView:
+    private static final java.lang.String SENT_SMS_ACTION
 nick.chow.app.context.Constants:
     public static final java.lang.String IS_TEST
     public static final java.lang.String ENABLE_QSMS
     public static final java.lang.String ENABLE_START_ANIMATION
     public static final java.lang.String ENABLE_STOP_ANIMATION
+    public static final java.lang.String SMS_URI
+    public static final java.lang.String ENABLE_PRIVATE_SMS
     public static final java.lang.String START_ANIMATION_TYPE_VALUE
     public static final java.lang.String STOP_ANIMATION_TYPE_VALUE
     public static final java.lang.String ENABLE_VIBRATE
@@ -1791,6 +1796,8 @@ nick.chow.app.context.Mail:
 nick.chow.app.context.Tools:
     15:15:public Tools()
 nick.chow.smsshow.BuildConfig
+nick.chow.smsshow.QuickSMSService:
+    private static final java.lang.String TAG
 nick.chow.smsshow.R
 nick.chow.smsshow.R$anim
 nick.chow.smsshow.R$array
@@ -1805,8 +1812,8 @@ nick.chow.smsshow.R$string
 nick.chow.smsshow.R$style
 nick.chow.smsshow.R$xml
 nick.chow.smsshow.SMSPopupActivity:
-    336:340:protected void root()
-    343:353:protected boolean hasRoot()
+    305:309:protected void root()
+    312:322:protected boolean hasRoot()
 org.apache.harmony.awt.ContextStorage:
     private java.awt.Toolkit toolkit
     private java.awt.GraphicsEnvironment graphicsEnvironment

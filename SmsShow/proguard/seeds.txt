@@ -14,7 +14,6 @@ android.support.v4.app.FragmentTabHost$SavedState
 android.support.v4.app.FragmentTabHost$SavedState: android.os.Parcelable$Creator CREATOR
 android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status[] values()
 android.support.v4.content.ModernAsyncTask$Status: android.support.v4.content.ModernAsyncTask$Status valueOf(java.lang.String)
-android.support.v4.util.LogWriter: void close()
 android.support.v4.view.PagerTabStrip
 android.support.v4.view.PagerTabStrip: PagerTabStrip(android.content.Context,android.util.AttributeSet)
 android.support.v4.view.PagerTabStrip: void setTabIndicatorColor(int)
@@ -57,23 +56,13 @@ android.support.v4.view.ViewPager$LayoutParams
 android.support.v4.view.ViewPager$LayoutParams: ViewPager$LayoutParams(android.content.Context,android.util.AttributeSet)
 android.support.v4.view.ViewPager$SavedState
 android.support.v4.view.ViewPager$SavedState: android.os.Parcelable$Creator CREATOR
-com.sun.mail.imap.IMAPFolder: void close(boolean)
-com.sun.mail.imap.IMAPFolder: void close(boolean,boolean)
-com.sun.mail.imap.IMAPStore: void close()
-com.sun.mail.imap.protocol.IMAPProtocol: void close()
-com.sun.mail.pop3.DefaultFolder: void close(boolean)
-com.sun.mail.pop3.POP3Folder: void close(boolean)
-com.sun.mail.pop3.POP3Store: void close()
-com.sun.mail.smtp.SMTPTransport: void close()
-com.sun.mail.util.BASE64EncoderStream: void close()
-com.sun.mail.util.QPEncoderStream: void close()
-com.sun.mail.util.UUEncoderStream: void close()
-javax.mail.Folder: void close(boolean)
-javax.mail.Service: void close()
-javax.mail.util.SharedFileInputStream: void close()
-javax.mail.util.SharedFileInputStream$SharedFile: void close()
 nick.chow.app.component.DragTextView
 nick.chow.app.component.DragTextView: DragTextView(android.content.Context,android.util.AttributeSet)
+nick.chow.app.component.SMSListView
+nick.chow.app.component.SMSListView: SMSListView(android.content.Context,android.util.AttributeSet)
+nick.chow.app.component.SMSListView: android.app.Activity getActivity()
+nick.chow.app.component.SMSListView: void setActivity(android.app.Activity)
+nick.chow.app.component.SMSListView$SMSReceiver
 nick.chow.smsshow.AboutActivity
 nick.chow.smsshow.AboutActivity: AboutActivity()
 nick.chow.smsshow.DebugActivity
@@ -97,6 +86,8 @@ nick.chow.smsshow.R$anim: int hyperspace_jump_in
 nick.chow.smsshow.R$anim: int hyperspace_jump_out
 nick.chow.smsshow.R$anim: int scale_in
 nick.chow.smsshow.R$anim: int scale_out
+nick.chow.smsshow.R$array: int holoDialogMenu
+nick.chow.smsshow.R$array: int quickDialogMenu
 nick.chow.smsshow.R$array: int startAnimationTitles
 nick.chow.smsshow.R$array: int startAnimationValues
 nick.chow.smsshow.R$array: int stopAnimationTitles
@@ -106,26 +97,35 @@ nick.chow.smsshow.R$color: int clolor_369
 nick.chow.smsshow.R$color: int clolor_DDD
 nick.chow.smsshow.R$color: int edit_text_bg
 nick.chow.smsshow.R$color: int list_items_bg
+nick.chow.smsshow.R$color: int main_activity_bg
 nick.chow.smsshow.R$color: int main_bg
+nick.chow.smsshow.R$color: int reply_edit_text_bg
 nick.chow.smsshow.R$color: int title_bg
 nick.chow.smsshow.R$dimen: int activity_horizontal_margin
 nick.chow.smsshow.R$dimen: int activity_vertical_margin
+nick.chow.smsshow.R$drawable: int ic_cab_done_holo_light
+nick.chow.smsshow.R$drawable: int ic_delete
 nick.chow.smsshow.R$drawable: int ic_launcher
+nick.chow.smsshow.R$drawable: int indicator_input_error
 nick.chow.smsshow.R$id: int action_about
 nick.chow.smsshow.R$id: int action_feedback
 nick.chow.smsshow.R$id: int action_settings
 nick.chow.smsshow.R$id: int btnBar
-nick.chow.smsshow.R$id: int close
 nick.chow.smsshow.R$id: int contactMethod
+nick.chow.smsshow.R$id: int contactor
 nick.chow.smsshow.R$id: int copyrights
 nick.chow.smsshow.R$id: int declare
 nick.chow.smsshow.R$id: int deleteAll
+nick.chow.smsshow.R$id: int detailContent
+nick.chow.smsshow.R$id: int detailSendTime
+nick.chow.smsshow.R$id: int detailSender
 nick.chow.smsshow.R$id: int email
 nick.chow.smsshow.R$id: int exceptionMsg
 nick.chow.smsshow.R$id: int logo
 nick.chow.smsshow.R$id: int markRead
-nick.chow.smsshow.R$id: int note
+nick.chow.smsshow.R$id: int previewSetting
 nick.chow.smsshow.R$id: int question
+nick.chow.smsshow.R$id: int replyContent
 nick.chow.smsshow.R$id: int settingFragment
 nick.chow.smsshow.R$id: int smsContainer
 nick.chow.smsshow.R$id: int smsDetail
@@ -139,10 +139,12 @@ nick.chow.smsshow.R$layout: int activity_debug
 nick.chow.smsshow.R$layout: int activity_main
 nick.chow.smsshow.R$layout: int feedback
 nick.chow.smsshow.R$layout: int main
+nick.chow.smsshow.R$layout: int reply
 nick.chow.smsshow.R$layout: int settings
+nick.chow.smsshow.R$layout: int sms_detail
 nick.chow.smsshow.R$layout: int sms_item_list
-nick.chow.smsshow.R$menu: int debug
 nick.chow.smsshow.R$menu: int main
+nick.chow.smsshow.R$menu: int setting
 nick.chow.smsshow.R$string: int action_about
 nick.chow.smsshow.R$string: int action_feedback
 nick.chow.smsshow.R$string: int action_settings
@@ -150,14 +152,22 @@ nick.chow.smsshow.R$string: int animation
 nick.chow.smsshow.R$string: int app_name
 nick.chow.smsshow.R$string: int at
 nick.chow.smsshow.R$string: int authorContact
+nick.chow.smsshow.R$string: int cancelBtn
 nick.chow.smsshow.R$string: int close
 nick.chow.smsshow.R$string: int comitFeedback
+nick.chow.smsshow.R$string: int commTitile
 nick.chow.smsshow.R$string: int configRingtong
 nick.chow.smsshow.R$string: int confirm
 nick.chow.smsshow.R$string: int console
+nick.chow.smsshow.R$string: int contentShortAlert
 nick.chow.smsshow.R$string: int copyright
 nick.chow.smsshow.R$string: int declare
 nick.chow.smsshow.R$string: int delete
+nick.chow.smsshow.R$string: int deletescuess
+nick.chow.smsshow.R$string: int deletesfail
+nick.chow.smsshow.R$string: int detailContent
+nick.chow.smsshow.R$string: int detailSendTime
+nick.chow.smsshow.R$string: int detailSender
 nick.chow.smsshow.R$string: int display
 nick.chow.smsshow.R$string: int displayCloseBtn
 nick.chow.smsshow.R$string: int displayCloseBtnSumary
@@ -166,6 +176,9 @@ nick.chow.smsshow.R$string: int displayDeleteBtnSumary
 nick.chow.smsshow.R$string: int displayReadBtn
 nick.chow.smsshow.R$string: int displayReadBtnSumary
 nick.chow.smsshow.R$string: int displaySumary
+nick.chow.smsshow.R$string: int enableDisplayAll
+nick.chow.smsshow.R$string: int enableDisplayHalf
+nick.chow.smsshow.R$string: int enablePrivateSMS
 nick.chow.smsshow.R$string: int enableReminder
 nick.chow.smsshow.R$string: int enableReminderSumarry
 nick.chow.smsshow.R$string: int enableStartAnimation
@@ -183,14 +196,25 @@ nick.chow.smsshow.R$string: int feedbackTitle
 nick.chow.smsshow.R$string: int feedbackWarning
 nick.chow.smsshow.R$string: int feedbackthanks
 nick.chow.smsshow.R$string: int from
+nick.chow.smsshow.R$string: int known
 nick.chow.smsshow.R$string: int markRead
+nick.chow.smsshow.R$string: int messageHint
+nick.chow.smsshow.R$string: int noSignal
+nick.chow.smsshow.R$string: int previewSettingTitle
+nick.chow.smsshow.R$string: int qsmsDisableDsc
 nick.chow.smsshow.R$string: int qsmsEnable
 nick.chow.smsshow.R$string: int qsmsEnableDsc
 nick.chow.smsshow.R$string: int reply
+nick.chow.smsshow.R$string: int replyBtn
+nick.chow.smsshow.R$string: int replyFail
+nick.chow.smsshow.R$string: int replyScuess
+nick.chow.smsshow.R$string: int replyTitle
 nick.chow.smsshow.R$string: int sendTime
 nick.chow.smsshow.R$string: int setting
 nick.chow.smsshow.R$string: int settingRingtoneTip
 nick.chow.smsshow.R$string: int settingRingtoneTipTitle
+nick.chow.smsshow.R$string: int smsDeliveryFail
+nick.chow.smsshow.R$string: int smsReceived
 nick.chow.smsshow.R$string: int smscountleft
 nick.chow.smsshow.R$string: int smscountright
 nick.chow.smsshow.R$string: int smsringtone
@@ -207,10 +231,12 @@ nick.chow.smsshow.R$string: int title_activity_debug
 nick.chow.smsshow.R$string: int title_activity_main
 nick.chow.smsshow.R$string: int title_activity_settings
 nick.chow.smsshow.R$string: int verstion
+nick.chow.smsshow.R$string: int viewDetail
 nick.chow.smsshow.R$style: int AppBaseTheme
 nick.chow.smsshow.R$style: int AppTheme
-nick.chow.smsshow.R$style: int Theme_Translucent_NoTitleBar_Fullscreen
+nick.chow.smsshow.R$style: int Theme_Translucent_NoTitleBar
 nick.chow.smsshow.R$style: int buttonStyle
+nick.chow.smsshow.R$style: int replyEditor
 nick.chow.smsshow.R$style: int titleStyle
 nick.chow.smsshow.R$xml: int pref_general
 nick.chow.smsshow.SMSBroadcastReceiver

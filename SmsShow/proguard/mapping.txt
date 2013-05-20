@@ -1432,7 +1432,6 @@ javax.mail.Folder -> b.b.i:
     javax.mail.EventQueue q -> a
     java.lang.Object qLock -> b
     java.lang.String getFullName() -> a
-    void close(boolean) -> close
     void terminateQueue() -> b
     void finalize() -> finalize
     java.lang.String toString() -> toString
@@ -1520,13 +1519,13 @@ javax.mail.Service -> b.b.v:
     boolean protocolConnect(java.lang.String,int,java.lang.String,java.lang.String) -> b
     boolean isConnected() -> b
     void setConnected(boolean) -> a
-    void close() -> close
-    javax.mail.URLName getURLName() -> c
+    void close() -> c
+    javax.mail.URLName getURLName() -> d
     void setURLName(javax.mail.URLName) -> a
     void notifyConnectionListeners(int) -> a
     java.lang.String toString() -> toString
     void queueEvent(javax.mail.event.MailEvent,java.util.Vector) -> a
-    void terminateQueue() -> d
+    void terminateQueue() -> e
     void finalize() -> finalize
 javax.mail.Service$TerminatorEvent -> b.b.w:
     void dispatch(java.lang.Object) -> a
@@ -2002,6 +2001,39 @@ nick.chow.app.component.DragTextView -> nick.chow.app.component.DragTextView:
     android.view.WindowManager$LayoutParams layout -> a
     boolean onLongClick(android.view.View) -> onLongClick
     boolean onTouchEvent(android.view.MotionEvent) -> onTouchEvent
+nick.chow.app.component.SMSListView -> nick.chow.app.component.SMSListView:
+    java.lang.String TAG -> a
+    android.app.Activity activity -> b
+    android.app.AlertDialog quickDialog -> c
+    android.app.AlertDialog holoDialog -> d
+    android.app.AlertDialog replyDialog -> e
+    java.lang.String sender -> f
+    java.lang.String number -> g
+    java.lang.String _id -> h
+    java.lang.String _body -> i
+    java.lang.String time -> j
+    android.widget.EditText editor -> k
+    java.lang.String content -> l
+    void onItemClick(android.widget.AdapterView,android.view.View,int,long) -> onItemClick
+    boolean onItemLongClick(android.widget.AdapterView,android.view.View,int,long) -> onItemLongClick
+    android.app.AlertDialog createDialog(int,int) -> a
+    android.app.AlertDialog$Builder createDiallogBuilder() -> a
+    android.app.AlertDialog$Builder createDiallogBuilderHolo() -> b
+    void onClick(android.content.DialogInterface,int) -> onClick
+    void doReplyMessage() -> c
+    void doReplyDetail(java.lang.String) -> a
+    void notifyFail(java.lang.String) -> b
+    void onHoloMenuClick(int) -> a
+    void prepareReplyDialog() -> d
+    void addContactPeople() -> e
+    void onQuickMenuClick(int) -> b
+    void viewDetail() -> f
+    android.app.Activity getActivity() -> getActivity
+    void setActivity(android.app.Activity) -> setActivity
+    void access$0(nick.chow.app.component.SMSListView,java.lang.String) -> a
+nick.chow.app.component.SMSListView$SMSReceiver -> nick.chow.app.component.SMSListView$SMSReceiver:
+    nick.chow.app.component.SMSListView this$0 -> a
+    void onReceive(android.content.Context,android.content.Intent) -> onReceive
 nick.chow.app.context.AnimationDecrator -> nick.chow.app.a.a:
     void onAnimationStart(android.view.animation.Animation) -> onAnimationStart
     void onAnimationEnd(android.view.animation.Animation) -> onAnimationEnd
@@ -2037,6 +2069,7 @@ nick.chow.app.context.OnPreferenceChangeListenerDecrator -> nick.chow.app.a.e:
     void bindPreferenceSummary(android.preference.Preference) -> a
 nick.chow.app.context.Tools -> nick.chow.app.a.f:
     void show(android.content.Context,java.lang.String) -> a
+    java.lang.String parse(java.lang.Exception) -> a
     void show(android.content.Context,java.lang.Exception) -> a
 nick.chow.app.manager.ContactBookManager -> nick.chow.app.b.a:
     android.net.Uri SMS_PROVIDER_URI -> a
@@ -2050,10 +2083,11 @@ nick.chow.app.manager.SMSManager -> nick.chow.app.b.b:
     java.lang.String tag -> b
     android.content.Context context -> c
     nick.chow.app.manager.ContactBookManager contactService -> d
-    java.util.List querySMSDetail(java.util.Set) -> a
+    java.util.List querySMSDetail(java.util.Set,boolean) -> a
     java.util.List buildTestData() -> a
-    void markSMSReadFor(java.util.Set) -> b
-    void deleteSMS(java.util.Set) -> c
+    void markSMSReadFor(java.util.Set) -> a
+    boolean deleteSMS(java.util.Set) -> b
+    boolean deleteSMS(java.lang.String[]) -> a
     android.database.Cursor queryAllUnReadSMS() -> b
     nick.chow.app.manager.SMSManager getManager(android.content.Context) -> a
 nick.chow.smsshow.AboutActivity -> nick.chow.smsshow.AboutActivity:
@@ -2088,46 +2122,47 @@ nick.chow.smsshow.MainActivity -> nick.chow.smsshow.MainActivity:
     boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
     boolean onMenuItemSelected(int,android.view.MenuItem) -> onMenuItemSelected
 nick.chow.smsshow.QuickSMSService -> nick.chow.smsshow.QuickSMSService:
-    java.lang.String tag -> a
+    android.content.SharedPreferences prefs -> a
+    android.os.Vibrator vibrator -> b
     void onHandleIntent(android.content.Intent) -> onHandleIntent
+    void setupRemider() -> a
 nick.chow.smsshow.SMSBroadcastReceiver -> nick.chow.smsshow.SMSBroadcastReceiver:
     java.lang.String tag -> a
     void onReceive(android.content.Context,android.content.Intent) -> onReceive
+    void saveShortMessage(android.content.Context,android.os.Bundle) -> a
 nick.chow.smsshow.SMSPopupActivity -> nick.chow.smsshow.SMSPopupActivity:
     java.lang.String tag -> a
-    android.widget.ListView smsListView -> b
+    nick.chow.app.component.SMSListView smsListView -> b
     android.widget.TextView titleView -> c
     android.view.View smsContainer -> d
     boolean istest -> e
     android.view.ViewGroup btnBar -> f
     android.widget.TextView smsDiver -> g
     nick.chow.app.manager.SMSManager smsService -> h
-    android.os.Vibrator vibrator -> i
-    java.util.Set mids -> j
-    android.content.SharedPreferences prefs -> k
-    android.widget.Button closeBtn -> l
-    android.widget.Button deleBtn -> m
-    android.widget.Button readBtn -> n
-    java.util.List data -> o
-    android.view.animation.Animation$AnimationListener animationCloseOut -> p
-    android.view.animation.Animation$AnimationListener animationDeleteOut -> q
-    android.view.animation.Animation$AnimationListener animationReadOut -> r
+    java.util.Set mids -> i
+    android.content.SharedPreferences prefs -> j
+    android.widget.Button deleBtn -> k
+    android.widget.Button readBtn -> l
+    java.util.List data -> m
+    android.view.animation.Animation$AnimationListener animationCloseOut -> n
+    android.view.animation.Animation$AnimationListener animationDeleteOut -> o
+    android.view.animation.Animation$AnimationListener animationReadOut -> p
     void onCreate(android.os.Bundle) -> onCreate
     void init() -> a
     void setupAnimation() -> b
     void setupButton() -> c
     void setupWindow() -> d
     void setupTitle() -> e
+    void setupTitle2(android.text.SpannableString) -> a
     void setupListView() -> f
     void setupData() -> g
-    void setupRemider() -> h
     void onResume() -> onResume
-    android.view.animation.Animation loadExitAnimation() -> j
+    android.view.animation.Animation loadExitAnimation() -> i
     void close(android.view.View) -> close
     void markRead(android.view.View) -> markRead
     void deleteAll(android.view.View) -> deleteAll
     void replySMS(android.view.View) -> replySMS
-    void killSMS() -> i
+    void killSMS() -> h
     boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
     boolean onMenuItemSelected(int,android.view.MenuItem) -> onMenuItemSelected
     nick.chow.app.manager.SMSManager access$0(nick.chow.smsshow.SMSPopupActivity) -> a
@@ -2165,9 +2200,12 @@ nick.chow.smsshow.SettingsActivity -> nick.chow.smsshow.SettingsActivity:
     android.preference.Preference ringtongPreference -> h
     android.preference.Preference vibratePreference -> i
     void onCreate(android.os.Bundle) -> onCreate
-    boolean isFragmentSupport() -> a
-    void initPreferenceState() -> b
+    void initActionBar() -> a
+    boolean isFragmentSupport() -> b
+    void initPreferenceState() -> c
     boolean onPreferenceChange(android.preference.Preference,java.lang.Object) -> onPreferenceChange
+    boolean onCreateOptionsMenu(android.view.Menu) -> onCreateOptionsMenu
+    boolean onMenuItemSelected(int,android.view.MenuItem) -> onMenuItemSelected
 org.apache.harmony.awt.ContextStorage -> d.a.a.a.a:
     boolean shutdownPending -> a
     org.apache.harmony.awt.ContextStorage globalContext -> b

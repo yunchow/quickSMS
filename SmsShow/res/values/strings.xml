@@ -125,7 +125,7 @@
 
     <!-- Other -->
     <string name="title_activity_about">关于Q短信</string>
-    <string name="verstion">Q短信 V1.1.1</string>
+    <string name="verstion">Q短信 V1.2.0</string>
     <string name="thanks">感谢我的家人和小玲一直以来对我的支持和包容！</string>
     <string name="declare">声明：本软件为个人作品，可自由传播，但请尊重作者版权，切勿用于商业用途。</string>
     <string name="copyright">&#169;2013 nick.chow All Rights Reserved</string>
