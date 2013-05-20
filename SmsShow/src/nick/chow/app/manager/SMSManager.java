@@ -48,6 +48,11 @@ public class SMSManager {
 				Map<String, String> each = new HashMap<String, String>();
 				each.put("_id", allUnReadSMS.getString(0));
 				String body = allUnReadSMS.getString(3);
+				String addressId = allUnReadSMS.getString(1);
+				String sender = contactService.getNameByNumber(addressId);
+				long date = allUnReadSMS.getLong(2);
+				String time = new SimpleDateFormat("MM/dd HH:mm", Locale.getDefault()).format(date);
+				each.put("note", context.getString(R.string.from) + sender + context.getString(R.string.at) + time);
 				each.put("_body", body);
 				int len = body.length();
 				if (notAll) {
@@ -60,12 +65,9 @@ public class SMSManager {
 						body = body.substring(0, 80) + ".....";
 					}
 				}*/
-				each.put("body", body);
-				String addressId = allUnReadSMS.getString(1);
-				String sender = contactService.getNameByNumber(addressId);
-				long date = allUnReadSMS.getLong(2);
-				String time = new SimpleDateFormat("MM/dd HH:mm", Locale.getDefault()).format(date);
-				each.put("note", context.getString(R.string.from) + sender + context.getString(R.string.at) + time);
+				each.put("body", "["+ time +"]" + body);
+				each.put("number", addressId);
+				each.put("sender", sender);
 				data.add(each);
 			}
 		} finally {
@@ -84,10 +86,13 @@ public class SMSManager {
 		for (int i = 0 ; i < 3; i++) {
 			Map<String, String> each = new HashMap<String, String>();
 			each.put("_id", "-1");
-			each.put("body", context.getString(R.string.testContent));
+			each.put("number", "10086");
+			each.put("sender", "Q¶ÌÐÅ");
+			each.put("_body", context.getString(R.string.testContent));
 			String time = new SimpleDateFormat("MM/dd HH:mm", Locale.getDefault()).format(System.currentTimeMillis());
 			each.put("note", context.getString(R.string.from) + context.getString(R.string.app_name) 
 					+ context.getString(R.string.at) + time);
+			each.put("body", "[" + time + "]" + context.getString(R.string.testContent));
 			data.add(each);
 		}
 		return data;
@@ -121,6 +126,17 @@ public class SMSManager {
 	 */
 	public void deleteSMS(Set<String> mids) {
 		if (mids.isEmpty()) {
+			Log.i(tag, "no need to upate");
+			return;
+		}
+		deleteSMS(mids.toArray(new String[]{}));
+	}
+	
+	/**
+	 * @param mids
+	 */
+	public void deleteSMS(String... mids) {
+		if (mids == null || mids.length == 0) {
 			Log.i(tag, "no need to upate");
 			return;
 		}

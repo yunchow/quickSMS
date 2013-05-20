@@ -58,7 +58,7 @@
 	        android:layout_weight="1"
 	        android:layout_height="wrap_content"
 	        android:onClick="markRead"
-	        android:drawableLeft="@android:drawable/ic_menu_myplaces"
+	        android:drawableLeft="@drawable/ic_menu_mark"
 	        android:text="@string/markRead" />
         <Button
 	        android:id="@+id/deleteAll"

@@ -56,7 +56,7 @@ public class ContactBookManager {
 		if (cName != null) {
 			return cName;
 		}
-		return number;
+		return null;
 	}
 	
 	public String queryNameByNumber(String... numbers) {

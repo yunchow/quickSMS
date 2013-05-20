@@ -20,18 +20,28 @@
     <string name="testEnv">亲，点我</string>
     <string name="title_activity_main">Q短信</string>
     <string name="setting">设置Q短信</string>
+    <string name="deletescuess">删除短信成功</string>
+    <string name="replyTitle">回复</string>
     <string name="testContent">当您收到短信后，短信正文会显示在这里, 感谢您对Q短信的支持！</string>
+    <string name="replyBtn">确定</string>
+    <string name="cancelBtn">取消</string>
+    <string name="messageHint">请输入您要回复的短信内容</string>
+    <string name="commTitile">Q短信提醒您</string>
+    <string name="contentShortAlert">您没有输入任何信息，短信未被发送</string>
+    <string name="known">知道了</string>
+    <string name="replyScuess">回复成功</string>
     
-    <string-array name="menu1">
+    <string-array name="quickDialogMenu">
         <item>回复短信</item>
         <item>呼叫联系人</item>
     </string-array>
     
-    <string-array name="menu2">
+    <string-array name="holoDialogMenu">
         <item>回复短信</item>
         <item>呼叫联系人</item>
-        <item>转发这条短信</item>
+        <item>打开系统短信</item>
         <item>删除这条短信</item>
+        <item>转发这条短信</item>
         <item>把号码添加到 &#8230;</item>
     </string-array>
 

@@ -167,7 +167,7 @@ public class SMSPopupActivity extends Activity {
 	 */
 	public void setupListView() {
 		SimpleAdapter cursorAdapter = new SimpleAdapter(this, data, R.layout.sms_item_list,
-				new String[]{"body", "note"}, new int[]{R.id.smsDetail, R.id.note});
+				new String[]{"body", "sender"}, new int[]{R.id.smsDetail, R.id.contactor});
 		/*int layoutHeight = smsListView.getLayoutParams().height;
 		int disHeight = smsListView.getHeight();
 		

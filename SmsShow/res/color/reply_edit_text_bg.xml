@@ -3,11 +3,11 @@
 
     <solid android:color="#FFF" />
 
-    <corners android:radius="5dp" />
+    <corners android:radius="1dp" />
 
     <stroke
-        android:width="0dip"
-        android:color="#FF8800" >
+        android:width="1dip"
+        android:color="#EEE" >
     </stroke>
 
 </shape>
