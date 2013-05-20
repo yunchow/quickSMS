@@ -5,12 +5,19 @@ import java.util.Map;
 
 import nick.chow.app.manager.SMSManager;
 import nick.chow.smsshow.R;
+import nick.chow.smsshow.SMSPopupActivity;
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Build;
 import android.telephony.SmsManager;
@@ -21,6 +28,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -30,6 +38,8 @@ import android.widget.Toast;
 public class SMSListView extends ListView implements AdapterView.OnItemClickListener, 
 		AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener {
 	private static String TAG = "SMSListView";
+	private static final String SENT_SMS_ACTION = "SENT_SMS_ACTION";
+	private Activity activity;
 	private AlertDialog quickDialog;
 	private AlertDialog holoDialog;
 	private AlertDialog replyDialog;
@@ -37,7 +47,9 @@ public class SMSListView extends ListView implements AdapterView.OnItemClickList
 	private String number;
 	private String _id;
 	private String _body;
+	private String time;
 	private EditText editor;
+	private String content;
 	
 	public SMSListView(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -67,6 +79,7 @@ public class SMSListView extends ListView implements AdapterView.OnItemClickList
 		number = item.get("number");
 		sender = item.get("sender");
 		_body = item.get("_body");
+		time = item.get("time");
 		AlertDialog.Builder builder = createDiallogBuilder();
 		String title = number;
 		if (sender != null && !"".equals(sender)) {
@@ -103,7 +116,7 @@ public class SMSListView extends ListView implements AdapterView.OnItemClickList
 	
 	private void doReplyMessage() {
 		editor = (EditText) replyDialog.findViewById(R.id.replyContent);
-		String content = editor.getText().toString();
+		content = editor.getText().toString();
 		Toast.makeText(getContext(), "content = " + content, Toast.LENGTH_SHORT).show();
 		if (content == null || content.length() < 1) {
 			AlertDialog.Builder builder = createDiallogBuilder();;
@@ -117,12 +130,56 @@ public class SMSListView extends ListView implements AdapterView.OnItemClickList
 	}
 	
 	private void doReplyDetail(String content) {
+		SMSReceiver sr = new SMSReceiver();
+		getContext().registerReceiver(sr, new IntentFilter(SENT_SMS_ACTION));
 		SmsManager smsManager = SmsManager.getDefault();  
 		List<String> divideContents = smsManager.divideMessage(content);    
+		Intent send = new Intent(SENT_SMS_ACTION);
+		PendingIntent sendPendingIntent = PendingIntent.getBroadcast(getContext(), 0, send, 0);
 		for (String text : divideContents) {    
-		    smsManager.sendTextMessage(number, null, text, null, null);    
+		    smsManager.sendTextMessage(number, null, text, sendPendingIntent, null);    
 		}
-		//Toast.makeText(getContext(), getResources().getString(R.string.replyScuess), Toast.LENGTH_SHORT).show();
+	}
+	
+	/**
+	 * @author zhouyun
+	 *
+	 */
+	public class SMSReceiver extends BroadcastReceiver {
+		public void onReceive(Context context, Intent intent) {
+			switch (getResultCode()) {
+			case Activity.RESULT_OK:
+				Toast.makeText(getContext(),
+						getResources().getString(R.string.replyScuess), Toast.LENGTH_SHORT).show();
+				break;
+			case SmsManager.RESULT_ERROR_GENERIC_FAILURE:
+				notifyFail(getResources().getString(R.string.replyFail));
+				break;
+			case SmsManager.RESULT_ERROR_RADIO_OFF:
+				notifyFail(getResources().getString(R.string.noSignal));
+				break;
+			}
+		}
+	}
+	
+	@SuppressWarnings("deprecation")
+	private void notifyFail(String errorDetail) {
+		NotificationManager notificationManager = (NotificationManager) getContext()
+				.getSystemService(Context.NOTIFICATION_SERVICE);
+		Notification notification = new Notification();
+		notification.defaults = Notification.DEFAULT_ALL;
+		notification.when = System.currentTimeMillis();
+		notification.tickerText = errorDetail + " " + content;
+		notification.icon = R.drawable.indicator_input_error;
+		
+		Uri uri = Uri.parse("smsto:" + number);            
+		Intent sms = new Intent(Intent.ACTION_SENDTO, uri);            
+		sms.putExtra("sms_body", _body);
+		
+		PendingIntent contentIntent = PendingIntent.getActivity(getContext(), R.string.app_name, 
+				sms, PendingIntent.FLAG_UPDATE_CURRENT);
+		notification.setLatestEventInfo(getContext(), errorDetail, content, contentIntent);
+		notificationManager.notify(9999, notification);
 	}
 
 	private void onHoloMenuClick(int which) {
@@ -140,8 +197,15 @@ public class SMSListView extends ListView implements AdapterView.OnItemClickList
 			getContext().startActivity(intent);
 			break;
 		case 3:
-			SMSManager.getManager(getContext()).deleteSMS(_id);
-			Toast.makeText(getContext(), getResources().getString(R.string.deletescuess), Toast.LENGTH_SHORT).show();
+			boolean updated = SMSManager.getManager(getContext()).deleteSMS(_id);
+			String updatedString = updated ? getResources().getString(R.string.deletescuess)
+										   : getResources().getString(R.string.deletesfail);
+			Toast.makeText(getContext(), updatedString, Toast.LENGTH_SHORT).show();
+			if (updated) {
+				Intent aintent = new Intent(getContext(), SMSPopupActivity.class);
+				aintent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				getActivity().startActivity(aintent);
+			}
 			break;
 		case 4:
 			Uri uri = Uri.parse("smsto:");            
@@ -189,7 +253,34 @@ public class SMSListView extends ListView implements AdapterView.OnItemClickList
 			Intent phoneIntent = new Intent("android.intent.action.CALL", Uri.parse("tel:" + number));
 			getContext().startActivity(phoneIntent);
 			break;
+		case 2:
+			viewDetail();
+			break;
 		}
+	}
+	
+	private void viewDetail() {
+		AlertDialog.Builder builder = createDiallogBuilder();;
+		builder.setTitle(R.string.viewDetail);
+		builder.setView(LayoutInflater.from(getContext()).inflate(R.layout.sms_detail, null));
+		builder.setPositiveButton(getResources().getString(R.string.close), null);
+		AlertDialog dia = builder.create();
+		dia.show();
+		String title = number;
+		if (sender != null && !"".equals(sender)) {
+			title = sender;
+		}
+		((TextView) dia.findViewById(R.id.detailSender)).setText(getResources().getString(R.string.detailSender) + title);
+		((TextView) dia.findViewById(R.id.detailSendTime)).setText(getResources().getString(R.string.detailSendTime) + time);
+		((TextView) dia.findViewById(R.id.detailContent)).setText(getResources().getString(R.string.detailContent) + _body);
+	}
+
+	public Activity getActivity() {
+		return activity;
+	}
+
+	public void setActivity(Activity activity) {
+		this.activity = activity;
 	}
 	
 }

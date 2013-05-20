@@ -68,6 +68,7 @@ public class SMSManager {
 				each.put("body", "["+ time +"]" + body);
 				each.put("number", addressId);
 				each.put("sender", sender);
+				each.put("time", time);
 				data.add(each);
 			}
 		} finally {
@@ -83,16 +84,15 @@ public class SMSManager {
 	 */
 	public List<Map<String, String>> buildTestData() {
 		List<Map<String, String>> data = new ArrayList<Map<String, String>>();
-		for (int i = 0 ; i < 3; i++) {
+		for (int i = 0 ; i < 2; i++) {
 			Map<String, String> each = new HashMap<String, String>();
 			each.put("_id", "-1");
 			each.put("number", "10086");
 			each.put("sender", "Q¶ÌÐÅ");
 			each.put("_body", context.getString(R.string.testContent));
 			String time = new SimpleDateFormat("MM/dd HH:mm", Locale.getDefault()).format(System.currentTimeMillis());
-			each.put("note", context.getString(R.string.from) + context.getString(R.string.app_name) 
-					+ context.getString(R.string.at) + time);
 			each.put("body", "[" + time + "]" + context.getString(R.string.testContent));
+			each.put("time", time);
 			data.add(each);
 		}
 		return data;
@@ -124,21 +124,21 @@ public class SMSManager {
 	/**
 	 * @param mids
 	 */
-	public void deleteSMS(Set<String> mids) {
+	public boolean deleteSMS(Set<String> mids) {
 		if (mids.isEmpty()) {
 			Log.i(tag, "no need to upate");
-			return;
+			return false;
 		}
-		deleteSMS(mids.toArray(new String[]{}));
+		return deleteSMS(mids.toArray(new String[]{}));
 	}
 	
 	/**
 	 * @param mids
 	 */
-	public void deleteSMS(String... mids) {
+	public boolean deleteSMS(String... mids) {
 		if (mids == null || mids.length == 0) {
 			Log.i(tag, "no need to upate");
-			return;
+			return false;
 		}
 		StringBuilder inClause = new StringBuilder("(");
 		for (String id : mids) {
@@ -151,6 +151,7 @@ public class SMSManager {
 		
 		int upated = context.getContentResolver().delete(SMS_PROVIDER_URI, where, new String[]{});
 		Log.i(tag, "upated = " + upated);
+		return upated > 0;
 	}
 	
 	/**

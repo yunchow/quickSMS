@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/contactor"
     	android:background="@color/list_items_bg"
-        android:paddingLeft="0dp"
+        android:paddingLeft="10dp"
         android:paddingTop="5dp"
         android:paddingRight="0dp"
         android:paddingBottom="0dp"
@@ -31,7 +31,7 @@
         android:textColor="#333"
         android:autoLink="all"
     	android:background="@color/list_items_bg"
-        android:linksClickable="true"
+        android:linksClickable="false"
         android:textIsSelectable="false"/>
 
 </LinearLayout>

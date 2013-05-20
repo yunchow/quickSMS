@@ -21,6 +21,7 @@
     <string name="title_activity_main">Q短信</string>
     <string name="setting">设置Q短信</string>
     <string name="deletescuess">删除短信成功</string>
+    <string name="deletesfail">很遗憾，删除短信失败</string>
     <string name="replyTitle">回复</string>
     <string name="testContent">当您收到短信后，短信正文会显示在这里, 感谢您对Q短信的支持！</string>
     <string name="replyBtn">确定</string>
@@ -30,10 +31,19 @@
     <string name="contentShortAlert">您没有输入任何信息，短信未被发送</string>
     <string name="known">知道了</string>
     <string name="replyScuess">回复成功</string>
+    <string name="replyFail">[Q短信]回复失败</string>
+    <string name="noSignal">[Q短信]没有信号,回复失败</string>
+    <string name="smsReceived">对方收到您刚发出的短信</string>
+    <string name="smsDeliveryFail">短信传输失败</string>
+    <string name="viewDetail">查看短信详情</string>
+    <string name="detailSender">发送者：</string>
+    <string name="detailSendTime">发送时间：</string>
+    <string name="detailContent">短信内容：</string>
     
     <string-array name="quickDialogMenu">
         <item>回复短信</item>
         <item>呼叫联系人</item>
+        <item>查看短信详情</item>
     </string-array>
     
     <string-array name="holoDialogMenu">

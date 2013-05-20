@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import nick.chow.app.component.SMSListView;
 import nick.chow.app.context.AnimationDecrator;
 import nick.chow.app.context.Constants;
 import nick.chow.app.context.MenuItemSelector;
@@ -35,7 +36,6 @@ import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,7 +49,7 @@ import android.widget.Toast;
 public class SMSPopupActivity extends Activity {
 	private final String tag = SMSPopupActivity.class.getSimpleName();
 	
-	private ListView smsListView;
+	private SMSListView smsListView;
 	private TextView titleView;
 	private View smsContainer;
 	private boolean istest;
@@ -80,7 +80,7 @@ public class SMSPopupActivity extends Activity {
 	 * initialize all components and data
 	 */
 	protected void init() {
-		smsListView = (ListView) findViewById(R.id.smsListView);
+		smsListView = (SMSListView) findViewById(R.id.smsListView);
 		titleView = (TextView) findViewById(R.id.title);
 		smsContainer = findViewById(R.id.smsContainer);
 		smsDiver = (TextView) findViewById(R.id.smsDivider);
@@ -177,6 +177,7 @@ public class SMSPopupActivity extends Activity {
 		if (disHeight >= 300 && layoutHeight == ViewGroup.LayoutParams.WRAP_CONTENT) {
 			smsListView.getLayoutParams().height = disHeight;
 		}*/
+		smsListView.setActivity(this);
 		smsListView.setAdapter(cursorAdapter);
 	}
 	
@@ -190,6 +191,7 @@ public class SMSPopupActivity extends Activity {
 	
 	@Override
 	protected void onResume() {
+		Tools.show(this, "## onResume ##");
 		super.onResume();
 		setupWindow();
 		setupData();
