@@ -201,7 +201,7 @@ public class SMSPopupActivity extends Activity {
 
 	private Animation loadExitAnimation() {
 		String stopAnimVal = prefs.getString(Constants.STOP_ANIMATION_TYPE_VALUE, "");
-		int rid = R.anim.fade_out;
+		int rid = R.anim.scale_out;
 		if ("fadeOut".equals(stopAnimVal)) {
 			rid = R.anim.fade_out;
 		} else if ("scaleOut".equals(stopAnimVal)) {

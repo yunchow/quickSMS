@@ -76,6 +76,7 @@ public class SMSListView extends ListView implements AdapterView.OnItemClickList
 	private AlertDialog createDialog(int position, int res) {
 		@SuppressWarnings("unchecked")
 		Map<String, String> item = (Map<String, String>) getItemAtPosition(position);
+		_id = item.get("_id");
 		number = item.get("number");
 		sender = item.get("sender");
 		_body = item.get("_body");
@@ -117,7 +118,6 @@ public class SMSListView extends ListView implements AdapterView.OnItemClickList
 	private void doReplyMessage() {
 		editor = (EditText) replyDialog.findViewById(R.id.replyContent);
 		content = editor.getText().toString();
-		Toast.makeText(getContext(), "content = " + content, Toast.LENGTH_SHORT).show();
 		if (content == null || content.length() < 1) {
 			AlertDialog.Builder builder = createDiallogBuilder();;
 			builder.setTitle(R.string.commTitile);
@@ -201,10 +201,12 @@ public class SMSListView extends ListView implements AdapterView.OnItemClickList
 			String updatedString = updated ? getResources().getString(R.string.deletescuess)
 										   : getResources().getString(R.string.deletesfail);
 			Toast.makeText(getContext(), updatedString, Toast.LENGTH_SHORT).show();
-			if (updated) {
+			if (updated && this.getCount() > 1) {
 				Intent aintent = new Intent(getContext(), SMSPopupActivity.class);
 				aintent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				getActivity().startActivity(aintent);
+			} else if (updated && this.getCount() <= 1) {
+				getActivity().finish();
 			}
 			break;
 		case 4:
@@ -234,6 +236,11 @@ public class SMSListView extends ListView implements AdapterView.OnItemClickList
 		builder.setNegativeButton(getResources().getString(R.string.cancelBtn), null);
 		replyDialog = builder.create();
 		replyDialog.show();
+		editor = (EditText) replyDialog.findViewById(R.id.replyContent);
+		editor.setFocusable(true);
+		editor.setFocusableInTouchMode(true);
+		editor.requestFocus();
+		editor.requestFocusFromTouch();
 	}
 	
 	@SuppressWarnings("deprecation")

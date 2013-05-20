@@ -67,6 +67,9 @@ public class SMSManager {
 				}*/
 				each.put("body", "["+ time +"]" + body);
 				each.put("number", addressId);
+				if (sender == null || "".equals(sender)) {
+					sender = addressId;
+				}
 				each.put("sender", sender);
 				each.put("time", time);
 				data.add(each);

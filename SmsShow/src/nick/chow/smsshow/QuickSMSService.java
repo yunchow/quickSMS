@@ -28,13 +28,13 @@ public class QuickSMSService extends IntentService {
 		vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 		
 		if (prefs.getBoolean(Constants.ENABLE_QSMS, true)) {
-			Log.i(TAG, "QuickSMSService sleep 500 ms start");
+			/*Log.i(TAG, "QuickSMSService sleep 500 ms start");
 			try {
-				Thread.sleep(500);
+				Thread.sleep(5);
 			} catch (InterruptedException e) {
 				Log.e(TAG, Tools.parse(e));
 			}
-			Log.i(TAG, "QuickSMSService sleep wake up");
+			Log.i(TAG, "QuickSMSService sleep wake up");*/
 			setupRemider();
 			Intent aIntent = new Intent(this, SMSPopupActivity.class);
 			aIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
