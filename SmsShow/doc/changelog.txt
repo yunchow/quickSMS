@@ -22,13 +22,13 @@ V1.1.0
 
 V1.1.1
 ------------------------------------
-1, fix remider defect
+1, fix reminder defect
 
 V1.2.0
 --------------------------------------
 1, add private mode
-2, add reply contactor
-3, add call contactor
+2, add reply contractor
+3, add call contractor
 4, add delete one message
 5, add transfer message to other people
 6, add open system SMS app
@@ -36,7 +36,7 @@ V1.2.0
 
 V1.2.1
 -----------------------------------------
-1, fix remider defect
+1, fix reminder defect
 2, add phone number for SMS details page
 
 
