@@ -89845,7 +89845,7 @@ Methods (count = 19):
     Access flags: 0x2
       = private void f()
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 204, locals = 4, stack = 5):
+    + Code attribute instructions (code length = 234, locals = 4, stack = 5):
       [0] aload_0 v0
       [1] invokespecial #159
         + Methodref [nick/chow/app/component/SMSListView.a ()Landroid/app/AlertDialog$Builder;]
@@ -89896,7 +89896,7 @@ Methods (count = 19):
       [59] aload_0 v0
       [60] getfield #93
         + Fieldref [nick/chow/app/component/SMSListView.f Ljava/lang/String;]
-      [63] ifnull +20 (target=83)
+      [63] ifnull +50 (target=113)
       [66] ldc #26
         + String []
       [68] aload_0 v0
@@ -89904,104 +89904,126 @@ Methods (count = 19):
         + Fieldref [nick/chow/app/component/SMSListView.f Ljava/lang/String;]
       [72] invokevirtual #150
         + Methodref [java/lang/String.equals (Ljava/lang/Object;)Z]
-      [75] ifne +8 (target=83)
-      [78] aload_0 v0
-      [79] getfield #93
+      [75] ifne +38 (target=113)
+      [78] new #74
+        + Class [java/lang/StringBuilder]
+      [81] dup
+      [82] aload_0 v0
+      [83] getfield #93
         + Fieldref [nick/chow/app/component/SMSListView.f Ljava/lang/String;]
-      [82] astore_3 v3
-      [83] aload_2 v2
-      [84] ldc #23
+      [86] invokestatic #152
+        + Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
+      [89] invokespecial #153
+        + Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
+      [92] ldc #28
+        + String [(]
+      [94] invokevirtual #154
+        + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+      [97] aload_0 v0
+      [98] getfield #94
+        + Fieldref [nick/chow/app/component/SMSListView.g Ljava/lang/String;]
+      [101] invokevirtual #154
+        + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+      [104] ldc #29
+        + String [)]
+      [106] invokevirtual #154
+        + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
+      [109] invokevirtual #155
+        + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
+      [112] astore_3 v3
+      [113] aload_2 v2
+      [114] ldc #23
         + Integer [2131492882]
-      [86] invokevirtual #102
+      [116] invokevirtual #102
         + Methodref [android/app/AlertDialog.findViewById (I)Landroid/view/View;]
-      [89] checkcast #71
+      [119] checkcast #71
         + Class [android/widget/TextView]
-      [92] new #74
+      [122] new #74
         + Class [java/lang/StringBuilder]
-      [95] dup
-      [96] aload_0 v0
-      [97] invokevirtual #174
+      [125] dup
+      [126] aload_0 v0
+      [127] invokevirtual #174
         + Methodref [nick/chow/app/component/SMSListView.getResources ()Landroid/content/res/Resources;]
-      [100] ldc #17
+      [130] ldc #17
         + Integer [2131165218]
-      [102] invokevirtual #132
+      [132] invokevirtual #132
         + Methodref [android/content/res/Resources.getString (I)Ljava/lang/String;]
-      [105] invokestatic #152
+      [135] invokestatic #152
         + Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
-      [108] invokespecial #153
+      [138] invokespecial #153
         + Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
-      [111] aload_3 v3
-      [112] invokevirtual #154
+      [141] aload_3 v3
+      [142] invokevirtual #154
         + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [115] invokevirtual #155
+      [145] invokevirtual #155
         + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [118] invokevirtual #147
+      [148] invokevirtual #147
         + Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
-      [121] aload_2 v2
-      [122] ldc #24
+      [151] aload_2 v2
+      [152] ldc #24
         + Integer [2131492883]
-      [124] invokevirtual #102
+      [154] invokevirtual #102
         + Methodref [android/app/AlertDialog.findViewById (I)Landroid/view/View;]
-      [127] checkcast #71
+      [157] checkcast #71
         + Class [android/widget/TextView]
-      [130] new #74
+      [160] new #74
         + Class [java/lang/StringBuilder]
-      [133] dup
-      [134] aload_0 v0
-      [135] invokevirtual #174
+      [163] dup
+      [164] aload_0 v0
+      [165] invokevirtual #174
         + Methodref [nick/chow/app/component/SMSListView.getResources ()Landroid/content/res/Resources;]
-      [138] ldc #18
+      [168] ldc #18
         + Integer [2131165219]
-      [140] invokevirtual #132
+      [170] invokevirtual #132
         + Methodref [android/content/res/Resources.getString (I)Ljava/lang/String;]
-      [143] invokestatic #152
+      [173] invokestatic #152
         + Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
-      [146] invokespecial #153
+      [176] invokespecial #153
         + Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
-      [149] aload_0 v0
-      [150] getfield #97
+      [179] aload_0 v0
+      [180] getfield #97
         + Fieldref [nick/chow/app/component/SMSListView.j Ljava/lang/String;]
-      [153] invokevirtual #154
+      [183] invokevirtual #154
         + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [156] invokevirtual #155
+      [186] invokevirtual #155
         + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [159] invokevirtual #147
+      [189] invokevirtual #147
         + Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
-      [162] aload_2 v2
-      [163] ldc #25
+      [192] aload_2 v2
+      [193] ldc #25
         + Integer [2131492884]
-      [165] invokevirtual #102
+      [195] invokevirtual #102
         + Methodref [android/app/AlertDialog.findViewById (I)Landroid/view/View;]
-      [168] checkcast #71
+      [198] checkcast #71
         + Class [android/widget/TextView]
-      [171] new #74
+      [201] new #74
         + Class [java/lang/StringBuilder]
-      [174] dup
-      [175] aload_0 v0
-      [176] invokevirtual #174
+      [204] dup
+      [205] aload_0 v0
+      [206] invokevirtual #174
         + Methodref [nick/chow/app/component/SMSListView.getResources ()Landroid/content/res/Resources;]
-      [179] ldc #19
+      [209] ldc #19
         + Integer [2131165220]
-      [181] invokevirtual #132
+      [211] invokevirtual #132
         + Methodref [android/content/res/Resources.getString (I)Ljava/lang/String;]
-      [184] invokestatic #152
+      [214] invokestatic #152
         + Methodref [java/lang/String.valueOf (Ljava/lang/Object;)Ljava/lang/String;]
-      [187] invokespecial #153
+      [217] invokespecial #153
         + Methodref [java/lang/StringBuilder.<init> (Ljava/lang/String;)V]
-      [190] aload_0 v0
-      [191] getfield #96
+      [220] aload_0 v0
+      [221] getfield #96
         + Fieldref [nick/chow/app/component/SMSListView.i Ljava/lang/String;]
-      [194] invokevirtual #154
+      [224] invokevirtual #154
         + Methodref [java/lang/StringBuilder.append (Ljava/lang/String;)Ljava/lang/StringBuilder;]
-      [197] invokevirtual #155
+      [227] invokevirtual #155
         + Methodref [java/lang/StringBuilder.toString ()Ljava/lang/String;]
-      [200] invokevirtual #147
+      [230] invokevirtual #147
         + Methodref [android/widget/TextView.setText (Ljava/lang/CharSequence;)V]
-      [203] return
+      [233] return
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Stack map table attribute (count = 1):
-        - [83] Var: ...[a:android/app/AlertDialog$Builder][a:android/app/AlertDialog][a:java/lang/String], Stack: (empty)
+        - [113] Var: ...[a:android/app/AlertDialog$Builder][a:android/app/AlertDialog][a:java/lang/String], Stack: (empty)
   + Method:       getActivity()Landroid/app/Activity;
     Access flags: 0x1
       = public android.app.Activity getActivity()
@@ -95301,7 +95323,7 @@ Methods (count = 3):
         + Fieldref [nick/chow/smsshow/QuickSMSService.a Landroid/content/SharedPreferences;]
       [20] ldc #8
         + String [enableVibrate]
-      [22] iconst_0
+      [22] iconst_1
       [23] invokeinterface #58
         + InterfaceMethodref [android/content/SharedPreferences.getBoolean (Ljava/lang/String;Z)Z]
       [28] ifeq +75 (target=103)
@@ -95367,7 +95389,7 @@ Methods (count = 3):
         + Fieldref [nick/chow/smsshow/QuickSMSService.a Landroid/content/SharedPreferences;]
       [107] ldc #9
         + String [enableVoice]
-      [109] iconst_0
+      [109] iconst_1
       [110] invokeinterface #58
         + InterfaceMethodref [android/content/SharedPreferences.getBoolean (Ljava/lang/String;Z)Z]
       [115] ifeq +111 (target=226)

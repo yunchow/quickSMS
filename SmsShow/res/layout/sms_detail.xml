@@ -13,6 +13,7 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:textColor="#333"
+        android:autoLink="phone"
         android:textIsSelectable="true"/>
     
     <TextView 

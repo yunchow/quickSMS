@@ -48,7 +48,7 @@ public class QuickSMSService extends IntentService {
 		if (!prefs.getBoolean(Constants.ENABLE_REMINDER, true)) {
 			return;
 		}
-		if (prefs.getBoolean(Constants.ENABLE_VIBRATE, false)) {
+		if (prefs.getBoolean(Constants.ENABLE_VIBRATE, true)) {
 			long[] pattern = new long[]{10, 500, 400, 500, 400, 500};
 			try {
 				vibrator.vibrate(pattern, -1);
@@ -57,7 +57,7 @@ public class QuickSMSService extends IntentService {
 				Log.e(TAG, Tools.parse(e));
 			}
 		}
-		if (prefs.getBoolean(Constants.ENABLE_VOICE, false)) {
+		if (prefs.getBoolean(Constants.ENABLE_VOICE, true)) {
 			int volume = -1;
 			AudioManager audioManager = (AudioManager)getSystemService(Context.AUDIO_SERVICE);  
 	        volume = audioManager.getStreamVolume(AudioManager.STREAM_RING); 

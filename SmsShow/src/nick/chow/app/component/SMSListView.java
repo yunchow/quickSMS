@@ -275,7 +275,7 @@ public class SMSListView extends ListView implements AdapterView.OnItemClickList
 		dia.show();
 		String title = number;
 		if (sender != null && !"".equals(sender)) {
-			title = sender;
+			title = sender + "("+ number +")";
 		}
 		((TextView) dia.findViewById(R.id.detailSender)).setText(getResources().getString(R.string.detailSender) + title);
 		((TextView) dia.findViewById(R.id.detailSendTime)).setText(getResources().getString(R.string.detailSendTime) + time);

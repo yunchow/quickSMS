@@ -1,2 +1,2 @@
 1, change release to true
-2, update version number
+2, update version number(string.xml, manifest.xml)

@@ -1,26 +1,49 @@
-20130511.apk
+V0.0.0
 -----------------------------------
 1, fist condition just can run mainly
 
-V1.0.0_beta_20130513.apk
+V1.0.0
 -----------------------------------
 1, beautify user interface
 2, add setting feature
 
-V1.0.1_beta_20130513.apk
+V1.0.1
 -----------------------------------
 1, could be compatible with android version 2.1
 
-V1.0.2_beta_20130514.apk
+V1.0.2
 -----------------------------------
 1, compatible with android 2.1 message data model
 
-V1.1.0_20130517.apk
+V1.1.0
 ------------------------------------
 1, add notification feature
 2, add new animation
 
-V1.1.1_20130517.apk
+V1.1.1
 ------------------------------------
 1, fix remider defect
+
+V1.2.0
+--------------------------------------
+1, add private mode
+2, add reply contactor
+3, add call contactor
+4, add delete one message
+5, add transfer message to other people
+6, add open system SMS app
+7, add view SMS details
+
+V1.2.1
+-----------------------------------------
+1, fix remider defect
+2, add phone number for SMS details page
+
+
+
+
+
+
+
+
 
