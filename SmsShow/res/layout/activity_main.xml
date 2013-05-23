@@ -27,7 +27,7 @@
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:divider="#EEE"
+        android:divider="@drawable/dialog_divider_part"
         android:background="#FFF"
         android:layout_margin="5dip"
         android:dividerHeight="1dp" />
@@ -35,11 +35,11 @@
     <TextView 
         android:id="@+id/smsDivider"
         android:layout_width="fill_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:textIsSelectable="true"
-        android:background="#FF8800"/>
+        android:layout_height="1dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:textIsSelectable="false"
+        android:background="@drawable/group_divider"/>
     
     <LinearLayout 
         android:id="@+id/btnBar"
@@ -48,7 +48,7 @@
         android:background="#FFF"
         android:layout_margin="5dp"
         android:paddingTop="10dp"
-        android:paddingBottom="12dp"
+        android:paddingBottom="10dp"
         style="@android:style/ButtonBar"
         android:orientation="horizontal">
         

@@ -10,13 +10,16 @@
         android:layout_height="wrap_content"
         android:id="@+id/contactor"
     	android:background="@color/list_items_bg"
-        android:paddingLeft="10dp"
+        android:paddingLeft="5dp"
         android:paddingTop="5dp"
-        android:paddingRight="0dp"
+        android:paddingRight="15dp"
         android:paddingBottom="0dp"
         android:layout_margin="0dp"
-        android:textSize="18sp"
+        android:textSize="16sp"
         android:textColor="#222"
+        android:gravity="bottom"
+        android:drawableLeft="@drawable/tab_icon_contact_selected"
+        android:drawableRight="@drawable/arrow_bottom_transparent"
         android:textIsSelectable="false" />
     
     <TextView
