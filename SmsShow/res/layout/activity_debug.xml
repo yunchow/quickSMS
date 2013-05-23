@@ -1,21 +1,28 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#FFF"
     android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:scrollbars="vertical"
     tools:context=".DebugActivity" >
 
-    <LinearLayout
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:onClick="feedbackLog"
+        android:text="@string/feedbackLog" />
+
+    <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:scrollbars="vertical" >
 
         <TextView
             android:id="@+id/exceptionMsg"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textIsSelectable="true" />
-    </LinearLayout>
+    </ScrollView>
 
-</ScrollView>
+</LinearLayout>

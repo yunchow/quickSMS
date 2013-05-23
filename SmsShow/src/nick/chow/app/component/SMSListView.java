@@ -3,6 +3,7 @@ package nick.chow.app.component;
 import java.util.List;
 import java.util.Map;
 
+import nick.chow.app.context.Constants;
 import nick.chow.app.manager.SMSManager;
 import nick.chow.smsshow.R;
 import nick.chow.smsshow.SMSPopupActivity;
@@ -39,6 +40,7 @@ public class SMSListView extends ListView implements AdapterView.OnItemClickList
 		AdapterView.OnItemLongClickListener, DialogInterface.OnClickListener {
 	private static String TAG = "SMSListView";
 	private static final String SENT_SMS_ACTION = "SENT_SMS_ACTION";
+	private NotificationManager notificationManager;
 	private Activity activity;
 	private AlertDialog quickDialog;
 	private AlertDialog holoDialog;
@@ -54,6 +56,7 @@ public class SMSListView extends ListView implements AdapterView.OnItemClickList
 	public SMSListView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		Log.i(TAG, "SMSListView(Context context, AttributeSet attrs)");
+		notificationManager = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
 		setOnItemClickListener(this);
 		setOnItemLongClickListener(this);
 	}
@@ -179,7 +182,7 @@ public class SMSListView extends ListView implements AdapterView.OnItemClickList
 		PendingIntent contentIntent = PendingIntent.getActivity(getContext(), R.string.app_name, 
 				sms, PendingIntent.FLAG_UPDATE_CURRENT);
 		notification.setLatestEventInfo(getContext(), errorDetail, content, contentIntent);
-		notificationManager.notify(9999, notification);
+		notificationManager.notify(Constants.NOTIFY_NO_SEND_FAIL, notification);
 	}
 
 	private void onHoloMenuClick(int which) {
@@ -206,6 +209,7 @@ public class SMSListView extends ListView implements AdapterView.OnItemClickList
 				aintent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				getActivity().startActivity(aintent);
 			} else if (updated && this.getCount() <= 1) {
+				notificationManager.cancel(Constants.NOTIFY_NO_NEW_SMS);
 				getActivity().finish();
 			}
 			break;

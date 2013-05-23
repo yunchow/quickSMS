@@ -13,6 +13,10 @@ public interface Constants {
 	String ENABLE_START_ANIMATION = "enableStartAnimation";
 	String ENABLE_STOP_ANIMATION = "enableStopAnimation";
 	
+	int NOTIFY_NO_NEW_SMS = 998;
+	int NOTIFY_NO_SEND_FAIL = 999;
+	
+	String NEW_MSG_CONTENT = "newMsgContent";
 	String SMS_URI = "content://sms";
 	String ENABLE_PRIVATE_SMS = "enablePrivateSMS";
 	

@@ -5,7 +5,7 @@ import java.io.StringWriter;
 import java.util.concurrent.TimeUnit;
 
 import nick.chow.app.context.Constants;
-import nick.chow.app.context.Mail;
+import nick.chow.app.context.SimpleMail;
 import android.app.IntentService;
 import android.content.Context;
 import android.content.Intent;
@@ -52,11 +52,7 @@ public class FeedbackService extends IntentService {
 	}
 	
 	private boolean doFeedback(Intent intent) throws Exception {
-		Mail m = new Mail("yunzhounj@gmail.com", "googlePassw0rd");
-        String[] toArr = {"yunchow@qq.com"};
-    	m.set_to(toArr); 
-        m.set_from("nick@chow.com"); 
-        m.set_subject(getString(R.string.subject)); 
+		SimpleMail m = new SimpleMail(this);
         String from = intent.getStringExtra(Constants.FEEDBACK_FROM);
         String body = intent.getStringExtra(Constants.FEEDBACK_CONTENT);
         if (from.length() > 0) {

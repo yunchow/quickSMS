@@ -25,6 +25,10 @@ public class FeedbackActivity extends Activity {
 		setContentView(R.layout.feedback);
 		question = (EditText) findViewById(R.id.question);
 		contactMetod = (EditText) findViewById(R.id.contactMethod);
+		String exceptionDetail = getIntent().getStringExtra(Constants.EXCEPTION);
+		if (exceptionDetail != null && exceptionDetail.length() > 0) {
+			question.setText(exceptionDetail);
+		}
 	}
 	
 	public void onFeedback(View view) {

@@ -52,6 +52,7 @@ public final class R {
         public static final int ic_delete=0x7f020001;
         public static final int ic_launcher=0x7f020002;
         public static final int indicator_input_error=0x7f020003;
+        public static final int state_notify_msg_orange_original=0x7f020004;
     }
     public static final class id {
         public static final int action_about=0x7f0c0019;
@@ -101,66 +102,68 @@ public final class R {
         public static final int action_about=0x7f070005;
         public static final int action_feedback=0x7f070003;
         public static final int action_settings=0x7f070002;
-        public static final int animation=0x7f070029;
+        public static final int animation=0x7f07002b;
         /**  Main 
          */
         public static final int app_name=0x7f070000;
         public static final int at=0x7f07000c;
-        public static final int authorContact=0x7f070054;
+        public static final int authorContact=0x7f070056;
         public static final int cancelBtn=0x7f070017;
         public static final int close=0x7f070007;
-        public static final int comitFeedback=0x7f07004c;
+        public static final int comitFeedback=0x7f07004e;
         public static final int commTitile=0x7f070019;
-        public static final int configRingtong=0x7f07003b;
-        public static final int confirm=0x7f07004d;
-        public static final int console=0x7f070056;
+        public static final int configRingtong=0x7f07003d;
+        public static final int confirm=0x7f07004f;
+        public static final int console=0x7f070058;
         public static final int contentShortAlert=0x7f07001a;
-        public static final int copyright=0x7f070053;
-        public static final int declare=0x7f070052;
+        public static final int copyright=0x7f070055;
+        public static final int declare=0x7f070054;
         public static final int delete=0x7f070009;
         public static final int deletescuess=0x7f070012;
         public static final int deletesfail=0x7f070013;
         public static final int detailContent=0x7f070024;
         public static final int detailSendTime=0x7f070023;
         public static final int detailSender=0x7f070022;
-        public static final int display=0x7f07002e;
-        public static final int displayCloseBtn=0x7f070030;
-        public static final int displayCloseBtnSumary=0x7f070031;
-        public static final int displayDelete=0x7f070034;
-        public static final int displayDeleteBtnSumary=0x7f070035;
-        public static final int displayReadBtn=0x7f070032;
-        public static final int displayReadBtnSumary=0x7f070033;
-        public static final int displaySumary=0x7f07002f;
-        public static final int enableDisplayAll=0x7f070040;
-        public static final int enableDisplayHalf=0x7f07003f;
-        public static final int enablePrivateSMS=0x7f07003e;
-        public static final int enableReminder=0x7f070036;
-        public static final int enableReminderSumarry=0x7f070037;
-        public static final int enableStartAnimation=0x7f07002a;
-        public static final int enableStartAnimationDsc=0x7f07002b;
-        public static final int enableStopAnimation=0x7f07002c;
-        public static final int enableStopAnimationDsc=0x7f07002d;
-        public static final int enableVibrate=0x7f070038;
-        public static final int enableVoice=0x7f070039;
-        public static final int feedbackContact=0x7f07004a;
-        public static final int feedbackContactHint=0x7f07004b;
-        public static final int feedbackQuestion=0x7f070047;
-        public static final int feedbackQuestionHint=0x7f070048;
-        public static final int feedbackTip=0x7f07004e;
+        public static final int display=0x7f070030;
+        public static final int displayCloseBtn=0x7f070032;
+        public static final int displayCloseBtnSumary=0x7f070033;
+        public static final int displayDelete=0x7f070036;
+        public static final int displayDeleteBtnSumary=0x7f070037;
+        public static final int displayReadBtn=0x7f070034;
+        public static final int displayReadBtnSumary=0x7f070035;
+        public static final int displaySumary=0x7f070031;
+        public static final int enableDisplayAll=0x7f070042;
+        public static final int enableDisplayHalf=0x7f070041;
+        public static final int enablePrivateSMS=0x7f070040;
+        public static final int enableReminder=0x7f070038;
+        public static final int enableReminderSumarry=0x7f070039;
+        public static final int enableStartAnimation=0x7f07002c;
+        public static final int enableStartAnimationDsc=0x7f07002d;
+        public static final int enableStopAnimation=0x7f07002e;
+        public static final int enableStopAnimationDsc=0x7f07002f;
+        public static final int enableVibrate=0x7f07003a;
+        public static final int enableVoice=0x7f07003b;
+        public static final int feedbackContact=0x7f07004c;
+        public static final int feedbackContactHint=0x7f07004d;
+        public static final int feedbackLog=0x7f070026;
+        public static final int feedbackQuestion=0x7f070049;
+        public static final int feedbackQuestionHint=0x7f07004a;
+        public static final int feedbackTip=0x7f070050;
         /**  Feedback 
          */
-        public static final int feedbackTitle=0x7f070044;
-        public static final int feedbackWarning=0x7f070046;
-        public static final int feedbackthanks=0x7f070049;
+        public static final int feedbackTitle=0x7f070046;
+        public static final int feedbackWarning=0x7f070048;
+        public static final int feedbackthanks=0x7f07004b;
         public static final int from=0x7f07000b;
         public static final int known=0x7f07001b;
         public static final int markRead=0x7f070008;
         public static final int messageHint=0x7f070018;
         public static final int noSignal=0x7f07001e;
-        public static final int previewSettingTitle=0x7f070041;
-        public static final int qsmsDisableDsc=0x7f070028;
-        public static final int qsmsEnable=0x7f070026;
-        public static final int qsmsEnableDsc=0x7f070027;
+        public static final int notifyNewTitle=0x7f070025;
+        public static final int previewSettingTitle=0x7f070043;
+        public static final int qsmsDisableDsc=0x7f07002a;
+        public static final int qsmsEnable=0x7f070028;
+        public static final int qsmsEnableDsc=0x7f070029;
         public static final int reply=0x7f070006;
         public static final int replyBtn=0x7f070016;
         public static final int replyFail=0x7f07001d;
@@ -168,32 +171,32 @@ public final class R {
         public static final int replyTitle=0x7f070014;
         public static final int sendTime=0x7f07000a;
         public static final int setting=0x7f070011;
-        public static final int settingRingtoneTip=0x7f07003c;
-        public static final int settingRingtoneTipTitle=0x7f07003d;
+        public static final int settingRingtoneTip=0x7f07003e;
+        public static final int settingRingtoneTipTitle=0x7f07003f;
         public static final int smsDeliveryFail=0x7f070020;
         public static final int smsReceived=0x7f07001f;
         public static final int smscountleft=0x7f07000d;
         public static final int smscountright=0x7f07000e;
-        public static final int smsringtone=0x7f07003a;
+        public static final int smsringtone=0x7f07003c;
         /**  Animation 
          */
-        public static final int startAnimationType=0x7f070042;
-        public static final int stopAnimationType=0x7f070043;
-        public static final int subject=0x7f070045;
+        public static final int startAnimationType=0x7f070044;
+        public static final int stopAnimationType=0x7f070045;
+        public static final int subject=0x7f070047;
         public static final int suggest=0x7f070004;
         public static final int testContent=0x7f070015;
         public static final int testEnv=0x7f07000f;
-        public static final int thanks=0x7f070051;
+        public static final int thanks=0x7f070053;
         public static final int title=0x7f070001;
         /**  Other 
          */
-        public static final int title_activity_about=0x7f07004f;
-        public static final int title_activity_debug=0x7f070055;
+        public static final int title_activity_about=0x7f070051;
+        public static final int title_activity_debug=0x7f070057;
         public static final int title_activity_main=0x7f070010;
         /**  Settings 
          */
-        public static final int title_activity_settings=0x7f070025;
-        public static final int verstion=0x7f070050;
+        public static final int title_activity_settings=0x7f070027;
+        public static final int verstion=0x7f070052;
         public static final int viewDetail=0x7f070021;
     }
     public static final class style {

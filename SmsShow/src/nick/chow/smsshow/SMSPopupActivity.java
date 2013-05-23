@@ -1,7 +1,5 @@
 package nick.chow.smsshow;
 
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +13,7 @@ import nick.chow.app.context.Tools;
 import nick.chow.app.manager.SMSManager;
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.app.ActivityManager;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -57,7 +55,7 @@ public class SMSPopupActivity extends Activity {
 	private TextView smsDiver;
 	
 	private SMSManager smsService = SMSManager.getManager(this);
-	//private NotificationManager notificationManager;
+	private NotificationManager notificationManager;
 	private Set<String> mids = new HashSet<String>();
 	private SharedPreferences prefs;
 	
@@ -88,7 +86,7 @@ public class SMSPopupActivity extends Activity {
 		//closeBtn = (Button) findViewById(R.id.close);
 		deleBtn = (Button) findViewById(R.id.deleteAll);
 		readBtn = (Button) findViewById(R.id.markRead);	
-		//notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+		notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 		prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 		istest = getIntent().getBooleanExtra(Constants.IS_TEST, false);
 	}
@@ -213,20 +211,6 @@ public class SMSPopupActivity extends Activity {
 	}
 	
 	/**
-	 * when click close button, this method triggered
-	 * @param view
-	 */
-	public void close(View view) {
-		if (prefs.getBoolean(Constants.ENABLE_STOP_ANIMATION, true)) {
-			Animation animation = loadExitAnimation();
-			animation.setAnimationListener(animationCloseOut);
-			smsContainer.startAnimation(animation);
-		} else {
-			finish();
-		}		
-	}
-	
-	/**
 	 * when click read button, this method triggered
 	 * @param view
 	 */
@@ -237,6 +221,7 @@ public class SMSPopupActivity extends Activity {
 			smsContainer.startAnimation(animation);
 		} else {
 			smsService.markSMSReadFor(mids);
+			notificationManager.cancel(Constants.NOTIFY_NO_NEW_SMS);
 			finish();
 		}
 		
@@ -253,6 +238,7 @@ public class SMSPopupActivity extends Activity {
 			smsContainer.startAnimation(animation);
 		} else {
 			smsService.deleteSMS(mids);
+			notificationManager.cancel(Constants.NOTIFY_NO_NEW_SMS);
 			finish();
 		}	
 	}
@@ -261,8 +247,6 @@ public class SMSPopupActivity extends Activity {
 		Log.i(tag, "reply sms");
 		Toast.makeText(getApplicationContext(), "reply sms", Toast.LENGTH_LONG).show();
 	}
-	
-	private AnimationListener animationCloseOut = new MyAnimationDecrator();
 	
 	private AnimationListener animationDeleteOut = new MyAnimationDecrator() {
 		
@@ -284,44 +268,11 @@ public class SMSPopupActivity extends Activity {
 
 		@Override
 		public void onAnimationEnd(Animation animation) {
-			//cancelSMSNotification();
-			killSMS();
+			notificationManager.cancel(Constants.NOTIFY_NO_NEW_SMS);
 			finish();
 		}
 	}
 	
-	@SuppressWarnings("deprecation")
-	public void killSMS() {
-		try {
-			ActivityManager am = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-			am.restartPackage("com.android.mms");//killBackgroundProcesses("com.android.mms");
-		} catch (Exception e) {
-			Tools.show(this, e);
-		}
-	}
-	
-	protected void root() {
-		try {
-			Runtime.getRuntime().exec("su");
-		} catch (IOException e) {
-			Tools.show(this, e);
-		}
-	}
-	
-	protected boolean hasRoot() {
-		char[] arrayOfChar = new char[1024];
-		try {
-			int j = new InputStreamReader(Runtime.getRuntime().exec("su -c ls")
-					.getErrorStream()).read(arrayOfChar);
-			if (j == -1) {
-				return true;
-			}
-		} catch (IOException e) {
-			
-		}
-		return false;
-	}
-
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

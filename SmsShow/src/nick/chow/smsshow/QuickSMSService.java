@@ -3,6 +3,9 @@ package nick.chow.smsshow;
 import nick.chow.app.context.Constants;
 import nick.chow.app.context.Tools;
 import android.app.IntentService;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -17,6 +20,7 @@ public class QuickSMSService extends IntentService {
 	private static final String TAG = "QuickSMSService";
 	private SharedPreferences prefs;
 	private Vibrator vibrator;
+	private NotificationManager notificationManager;
 	
 	public QuickSMSService() {
 		super(TAG);
@@ -26,15 +30,11 @@ public class QuickSMSService extends IntentService {
 	protected void onHandleIntent(Intent intent) {
 		prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+		notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 		
 		if (prefs.getBoolean(Constants.ENABLE_QSMS, true)) {
-			/*Log.i(TAG, "QuickSMSService sleep 500 ms start");
-			try {
-				Thread.sleep(5);
-			} catch (InterruptedException e) {
-				Log.e(TAG, Tools.parse(e));
-			}
-			Log.i(TAG, "QuickSMSService sleep wake up");*/
+			String detail = intent.getStringExtra(Constants.NEW_MSG_CONTENT);
+			setupNotification(detail);
 			setupRemider();
 			Intent aIntent = new Intent(this, SMSPopupActivity.class);
 			aIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -42,6 +42,22 @@ public class QuickSMSService extends IntentService {
 			startActivity(aIntent);
 			Log.i(TAG, "QuickSMSService start a new service");
 		}
+	}
+	
+	@SuppressWarnings("deprecation")
+	public void setupNotification(String detail) {
+		Notification notification = new Notification();
+		notification.icon = R.drawable.state_notify_msg_orange_original;
+		notification.when = System.currentTimeMillis();
+		notification.defaults = Notification.DEFAULT_LIGHTS;
+		notification.tickerText = detail;
+		String contentTitle = getString(R.string.notifyNewTitle);
+		String contentText = detail;
+		Intent aIntent = new Intent(this, SMSPopupActivity.class);
+		aIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0, aIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+		notification.setLatestEventInfo(getApplicationContext(), contentTitle, contentText, contentIntent);
+		notificationManager.notify(Constants.NOTIFY_NO_NEW_SMS, notification);
 	}
 	
 	public void setupRemider() {
