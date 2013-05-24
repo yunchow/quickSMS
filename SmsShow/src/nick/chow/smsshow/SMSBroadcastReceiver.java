@@ -52,6 +52,8 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 	    values.put("read", 0); // 1 read 0 not read
 	    values.put("status", -1); // must be ?
 	    values.put("type", 1);
+	    values.put("seen", 1);
+	    //values.put("sub_id", 1);
 	    values.put("body", detail);
 	    context.getContentResolver().insert(Uri.parse(Constants.SMS_INBOX_URI),  values);
 	}  
