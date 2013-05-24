@@ -2,6 +2,7 @@ package nick.chow.smsshow;
 
 import nick.chow.app.context.Constants;
 import nick.chow.app.context.Tools;
+import nick.chow.app.manager.SMSManager;
 import android.app.IntentService;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -9,6 +10,10 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -16,11 +21,18 @@ import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-public class QuickSMSService extends IntentService {
+/**
+ * @author zhouyun
+ *
+ */
+public class QuickSMSService extends IntentService implements SensorEventListener {
 	private static final String TAG = "QuickSMSService";
 	private SharedPreferences prefs;
 	private Vibrator vibrator;
 	private NotificationManager notificationManager;
+	private SensorManager sensorManager;
+	private Sensor lightSensor;
+	private boolean isTest;
 	
 	public QuickSMSService() {
 		super(TAG);
@@ -28,34 +40,58 @@ public class QuickSMSService extends IntentService {
 
 	@Override
 	protected void onHandleIntent(Intent intent) {
+		isTest = intent.getBooleanExtra(Constants.IS_TEST, false);
 		prefs = PreferenceManager.getDefaultSharedPreferences(this);
 		vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 		notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+		//sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+		if (sensorManager != null) {
+			lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+		}
 		
-		if (prefs.getBoolean(Constants.ENABLE_QSMS, true)) {
-			String detail = intent.getStringExtra(Constants.NEW_MSG_CONTENT);
-			setupNotification(detail);
-			setupRemider();
-			Intent aIntent = new Intent(this, SMSPopupActivity.class);
-			aIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			aIntent.putExtra(Constants.IS_TEST, intent.getBooleanExtra(Constants.IS_TEST, false));
-			startActivity(aIntent);
-			Log.i(TAG, "QuickSMSService start a new service");
+		if (!prefs.getBoolean(Constants.ENABLE_QSMS, true)) {
+			return;
+		}
+		
+		setupNotification(intent);
+		setupRemider();
+		openMainWindow();
+		
+		if (lightSensor != null) {
+			sensorManager.registerListener(this, lightSensor, SensorManager.SENSOR_DELAY_UI);
 		}
 	}
 	
+	public void openMainWindow() {
+		Intent aIntent = new Intent(this, SMSPopupActivity.class);
+		aIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		aIntent.putExtra(Constants.IS_TEST, isTest);
+		startActivity(aIntent);
+		if (sensorManager != null) {
+			sensorManager.unregisterListener(this);
+		}
+		Log.i(TAG, "QuickSMSService start a new service");
+	}
+	
 	@SuppressWarnings("deprecation")
-	public void setupNotification(String detail) {
+	public void setupNotification(Intent intent) {
+		String detail = isTest ? getString(R.string.testContent) : intent.getStringExtra(Constants.NEW_MSG_CONTENT);
+		
 		Notification notification = new Notification();
 		notification.icon = R.drawable.state_notify_msg_orange_original;
 		notification.when = System.currentTimeMillis();
 		notification.defaults = Notification.DEFAULT_LIGHTS;
 		notification.tickerText = detail;
-		String contentTitle = getString(R.string.notifyNewTitle);
+		
+		int count = SMSManager.getManager(this).countUnread();
+		String contentTitle = count + getString(R.string.notifyNewTitle);
 		String contentText = detail;
+		
 		Intent aIntent = new Intent(this, SMSPopupActivity.class);
 		aIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		aIntent.putExtra(Constants.IS_TEST, isTest);
 		PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0, aIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+		
 		notification.setLatestEventInfo(getApplicationContext(), contentTitle, contentText, contentIntent);
 		notificationManager.notify(Constants.NOTIFY_NO_NEW_SMS, notification);
 	}
@@ -93,6 +129,20 @@ public class QuickSMSService extends IntentService {
 				}
 			}
 		}
+	}
+
+	@Override
+	public void onSensorChanged(SensorEvent event) {
+		float maximumRange = event.sensor.getMaximumRange();
+		float currentValue = event.values[0];
+		if (maximumRange / currentValue >= 1) {
+			openMainWindow();
+		}
+	}
+
+	@Override
+	public void onAccuracyChanged(Sensor sensor, int accuracy) {
+		
 	}
 
 }

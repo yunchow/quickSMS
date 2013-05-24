@@ -22,7 +22,7 @@ import android.util.Log;
  *
  */
 public class SMSManager {
-	public static final Uri SMS_PROVIDER_URI = Uri.parse(Constants.SMS_URI);
+	public static final Uri SMS_PROVIDER_URI = Uri.parse(Constants.SMS_INBOX_URI);
 	private final String tag = getClass().getSimpleName();
 	private Context context;
 	
@@ -163,6 +163,20 @@ public class SMSManager {
 	public Cursor queryAllUnReadSMS() {
 		String[] projection = new String[]{"_id", "address", "date", "body"};
 		return context.getContentResolver().query(SMS_PROVIDER_URI, projection, "read=?", new String[]{"0"}, null);
+	}
+	
+	/**
+	 * @return
+	 */
+	public int countUnread() {
+		int count = 0;
+		Cursor cursor = queryAllUnReadSMS();
+		if (cursor != null) {
+			count = cursor.getCount();
+			cursor.close();
+			cursor = null;
+		}
+		return count;
 	}
 	
 	public static SMSManager getManager(Context context) {

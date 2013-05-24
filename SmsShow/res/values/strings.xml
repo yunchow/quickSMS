@@ -39,7 +39,7 @@
     <string name="detailSender">发送者：</string>
     <string name="detailSendTime">发送时间：</string>
     <string name="detailContent">短信内容：</string>
-    <string name="notifyNewTitle">未读消息</string>
+    <string name="notifyNewTitle">条未读消息</string>
     <string name="feedbackLog">将异常发送给作者</string>
     
     <string-array name="quickDialogMenu">

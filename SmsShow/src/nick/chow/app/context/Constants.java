@@ -17,7 +17,7 @@ public interface Constants {
 	int NOTIFY_NO_SEND_FAIL = 999;
 	
 	String NEW_MSG_CONTENT = "newMsgContent";
-	String SMS_URI = "content://sms";
+	String SMS_INBOX_URI = "content://sms/inbox";
 	String ENABLE_PRIVATE_SMS = "enablePrivateSMS";
 	
 	String START_ANIMATION_TYPE_VALUE = "startAnimationTypeValue";

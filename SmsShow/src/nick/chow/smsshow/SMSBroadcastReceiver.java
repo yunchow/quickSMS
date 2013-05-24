@@ -53,7 +53,7 @@ public class SMSBroadcastReceiver extends BroadcastReceiver {
 	    values.put("status", -1); // must be ?
 	    values.put("type", 1);
 	    values.put("body", detail);
-	    context.getContentResolver().insert(Uri.parse(Constants.SMS_URI),  values);
+	    context.getContentResolver().insert(Uri.parse(Constants.SMS_INBOX_URI),  values);
 	}  
 	
 }

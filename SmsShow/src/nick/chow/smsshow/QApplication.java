@@ -47,6 +47,8 @@ public class QApplication extends Application {
 							Log.i(TAG, "send exception log failed");
 							Log.e(TAG, Tools.parse(e));
 						}
+						Process.killProcess(Process.myPid());
+						System.exit(0);
 					};
 				}.start();
 				try {
@@ -55,8 +57,6 @@ public class QApplication extends Application {
 					Log.e(TAG, Tools.parse(e));
 				}
 				Log.i(TAG, "start to exit app");
-				Process.killProcess(Process.myPid());
-				System.exit(0);
 			}
 		});
 	}
