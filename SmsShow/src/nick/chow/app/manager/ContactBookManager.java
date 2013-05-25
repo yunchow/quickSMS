@@ -29,7 +29,7 @@ public class ContactBookManager {
 	 */
 	public String getNameByNumber(String number) {
 		if (number == null) {
-			return "N/A";
+			return "δ֪";
 		}
 		String tNumber = number, srcNumber = number, num1 = number, num2 = num1;
 		if (number.indexOf("+86") != -1) {

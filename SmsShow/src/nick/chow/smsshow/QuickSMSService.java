@@ -10,6 +10,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.ContentObserver;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -54,6 +55,7 @@ public class QuickSMSService extends IntentService implements SensorEventListene
 		}
 		
 		setupNotification(intent);
+		setupSMSContentObserver();
 		setupRemider();
 		openMainWindow();
 		
@@ -61,6 +63,21 @@ public class QuickSMSService extends IntentService implements SensorEventListene
 			sensorManager.registerListener(this, lightSensor, SensorManager.SENSOR_DELAY_UI);
 		}
 	}
+
+	public void setupSMSContentObserver() {
+		getContentResolver().registerContentObserver(Uri.parse(Constants.SMS_URI), true, contentObserver);
+	}
+	
+	private ContentObserver contentObserver = new ContentObserver(null) {
+		
+		public void onChange(boolean selfChange) {
+			Log.i("contentObserver", "############## onChange");
+			super.onChange(selfChange);
+			notificationManager.cancel(Constants.NOTIFY_NO_NEW_SMS);
+			getContentResolver().unregisterContentObserver(contentObserver);
+		};
+		
+	};
 	
 	public void openMainWindow() {
 		Intent aIntent = new Intent(this, SMSPopupActivity.class);

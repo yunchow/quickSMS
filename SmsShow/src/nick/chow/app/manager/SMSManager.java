@@ -38,21 +38,23 @@ public class SMSManager {
 	 * @return
 	 */
 	public List<Map<String, String>> querySMSDetail(Set<String> smsIds, boolean notAll) {
-		Cursor allUnReadSMS = queryAllUnReadSMS();
+		Cursor cursor = queryAllUnReadSMS();
+		if (cursor == null || cursor.getCount() <= 0) {
+			cursor = queryNewSMS();
+		}
 		List<Map<String, String>> data = new ArrayList<Map<String, String>>();
 		
 		try {
-			while (allUnReadSMS != null && allUnReadSMS.moveToNext()) {
-				Log.i(tag, "current cursor : " + allUnReadSMS);
-				smsIds.add(allUnReadSMS.getString(0));
+			while (cursor != null && cursor.moveToNext()) {
+				Log.i(tag, "current cursor : " + cursor);
+				smsIds.add(cursor.getString(0));
 				Map<String, String> each = new HashMap<String, String>();
-				each.put("_id", allUnReadSMS.getString(0));
-				String body = allUnReadSMS.getString(3);
-				String addressId = allUnReadSMS.getString(1);
+				each.put("_id", cursor.getString(0));
+				String body = cursor.getString(3);
+				String addressId = cursor.getString(1);
 				String sender = contactService.getNameByNumber(addressId);
-				long date = allUnReadSMS.getLong(2);
+				long date = cursor.getLong(2);
 				String time = new SimpleDateFormat("MM/dd HH:mm", Locale.getDefault()).format(date);
-				each.put("note", context.getString(R.string.from) + sender + context.getString(R.string.at) + time);
 				each.put("_body", body);
 				int len = body.length();
 				if (notAll) {
@@ -60,23 +62,21 @@ public class SMSManager {
 						int end = len / 2 >= 50 ? 50 : len / 2;
 						body = body.substring(0, end) + ".....";
 					}
-				}/* else {
-					if (len > 80) {
-						body = body.substring(0, 80) + ".....";
-					}
-				}*/
+				}
 				each.put("body", "["+ time +"]" + body);
 				each.put("number", addressId);
-				if (sender == null || "".equals(sender)) {
-					sender = addressId;
-				}
 				each.put("sender", sender);
+				String name = sender;
+				if (name == null || "".equals(name)) {
+					name = addressId;
+				}
+				each.put("name", name);
 				each.put("time", time);
 				data.add(each);
 			}
 		} finally {
-			if (allUnReadSMS != null && !allUnReadSMS.isClosed()) {
-				allUnReadSMS.close();
+			if (cursor != null && !cursor.isClosed()) {
+				cursor.close();
 			}
 		}
 		return data;
@@ -163,6 +163,11 @@ public class SMSManager {
 	public Cursor queryAllUnReadSMS() {
 		String[] projection = new String[]{"_id", "address", "date", "body"};
 		return context.getContentResolver().query(SMS_PROVIDER_URI, projection, "read=?", new String[]{"0"}, null);
+	}
+	
+	public Cursor queryNewSMS() {
+		String[] projection = new String[]{"_id", "address", "date", "body"};
+		return context.getContentResolver().query(SMS_PROVIDER_URI, projection, null, new String[]{}, "date desc limit 1");
 	}
 	
 	/**
