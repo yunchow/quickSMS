@@ -1755,7 +1755,11 @@ nick.chow.app.context.Constants:
     public static final java.lang.String ENABLE_QSMS
     public static final java.lang.String ENABLE_START_ANIMATION
     public static final java.lang.String ENABLE_STOP_ANIMATION
+    public static final int NOTIFY_NO_NEW_SMS
+    public static final int NOTIFY_NO_SEND_FAIL
+    public static final java.lang.String NEW_MSG_CONTENT
     public static final java.lang.String SMS_URI
+    public static final java.lang.String SMS_INBOX_URI
     public static final java.lang.String ENABLE_PRIVATE_SMS
     public static final java.lang.String START_ANIMATION_TYPE_VALUE
     public static final java.lang.String STOP_ANIMATION_TYPE_VALUE
@@ -1794,8 +1798,13 @@ nick.chow.app.context.Mail:
     248:248:public javax.mail.Multipart get_multipart()
     252:253:public void set_multipart(javax.mail.Multipart)
 nick.chow.app.context.Tools:
-    15:15:public Tools()
+    18:18:public Tools()
+    33:40:public static void show(android.content.Context,java.lang.Exception)
+    44:48:public static void root()
+    51:61:public static boolean hasRoot()
 nick.chow.smsshow.BuildConfig
+nick.chow.smsshow.QApplication:
+    private static final java.lang.String TAG
 nick.chow.smsshow.QuickSMSService:
     private static final java.lang.String TAG
 nick.chow.smsshow.R
@@ -1811,9 +1820,6 @@ nick.chow.smsshow.R$menu
 nick.chow.smsshow.R$string
 nick.chow.smsshow.R$style
 nick.chow.smsshow.R$xml
-nick.chow.smsshow.SMSPopupActivity:
-    305:309:protected void root()
-    312:322:protected boolean hasRoot()
 org.apache.harmony.awt.ContextStorage:
     private java.awt.Toolkit toolkit
     private java.awt.GraphicsEnvironment graphicsEnvironment

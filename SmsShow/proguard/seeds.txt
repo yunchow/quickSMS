@@ -67,6 +67,7 @@ nick.chow.smsshow.AboutActivity
 nick.chow.smsshow.AboutActivity: AboutActivity()
 nick.chow.smsshow.DebugActivity
 nick.chow.smsshow.DebugActivity: DebugActivity()
+nick.chow.smsshow.DebugActivity: void feedbackLog(android.view.View)
 nick.chow.smsshow.FeedbackActivity
 nick.chow.smsshow.FeedbackActivity: FeedbackActivity()
 nick.chow.smsshow.FeedbackActivity: void onFeedback(android.view.View)
@@ -78,6 +79,8 @@ nick.chow.smsshow.MainActivity: void onAbout(android.view.View)
 nick.chow.smsshow.MainActivity: void onTest(android.view.View)
 nick.chow.smsshow.MainActivity: void onSetting(android.view.View)
 nick.chow.smsshow.MainActivity: void onFeedback(android.view.View)
+nick.chow.smsshow.QApplication
+nick.chow.smsshow.QApplication: QApplication()
 nick.chow.smsshow.QuickSMSService
 nick.chow.smsshow.QuickSMSService: QuickSMSService()
 nick.chow.smsshow.R$anim: int fade_in
@@ -103,10 +106,15 @@ nick.chow.smsshow.R$color: int reply_edit_text_bg
 nick.chow.smsshow.R$color: int title_bg
 nick.chow.smsshow.R$dimen: int activity_horizontal_margin
 nick.chow.smsshow.R$dimen: int activity_vertical_margin
+nick.chow.smsshow.R$drawable: int arrow_bottom_transparent
+nick.chow.smsshow.R$drawable: int dialog_divider_part
+nick.chow.smsshow.R$drawable: int group_divider
 nick.chow.smsshow.R$drawable: int ic_cab_done_holo_light
 nick.chow.smsshow.R$drawable: int ic_delete
 nick.chow.smsshow.R$drawable: int ic_launcher
 nick.chow.smsshow.R$drawable: int indicator_input_error
+nick.chow.smsshow.R$drawable: int state_notify_msg_orange_original
+nick.chow.smsshow.R$drawable: int tab_icon_contact_selected
 nick.chow.smsshow.R$id: int action_about
 nick.chow.smsshow.R$id: int action_feedback
 nick.chow.smsshow.R$id: int action_settings
@@ -189,6 +197,7 @@ nick.chow.smsshow.R$string: int enableVibrate
 nick.chow.smsshow.R$string: int enableVoice
 nick.chow.smsshow.R$string: int feedbackContact
 nick.chow.smsshow.R$string: int feedbackContactHint
+nick.chow.smsshow.R$string: int feedbackLog
 nick.chow.smsshow.R$string: int feedbackQuestion
 nick.chow.smsshow.R$string: int feedbackQuestionHint
 nick.chow.smsshow.R$string: int feedbackTip
@@ -200,6 +209,7 @@ nick.chow.smsshow.R$string: int known
 nick.chow.smsshow.R$string: int markRead
 nick.chow.smsshow.R$string: int messageHint
 nick.chow.smsshow.R$string: int noSignal
+nick.chow.smsshow.R$string: int notifyNewTitle
 nick.chow.smsshow.R$string: int previewSettingTitle
 nick.chow.smsshow.R$string: int qsmsDisableDsc
 nick.chow.smsshow.R$string: int qsmsEnable
@@ -243,7 +253,6 @@ nick.chow.smsshow.SMSBroadcastReceiver
 nick.chow.smsshow.SMSBroadcastReceiver: SMSBroadcastReceiver()
 nick.chow.smsshow.SMSPopupActivity
 nick.chow.smsshow.SMSPopupActivity: SMSPopupActivity()
-nick.chow.smsshow.SMSPopupActivity: void close(android.view.View)
 nick.chow.smsshow.SMSPopupActivity: void markRead(android.view.View)
 nick.chow.smsshow.SMSPopupActivity: void deleteAll(android.view.View)
 nick.chow.smsshow.SMSPopupActivity: void replySMS(android.view.View)
