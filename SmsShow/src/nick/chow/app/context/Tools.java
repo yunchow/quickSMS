@@ -8,6 +8,7 @@ import java.io.StringWriter;
 import nick.chow.smsshow.DebugActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.widget.Toast;
 
 /**
@@ -58,6 +59,23 @@ public class Tools {
 
 		}
 		return false;
+	}
+	
+	public static String buildDeviceInfo() {
+		String model = Build.MODEL;
+		String manufacture = Build.MANUFACTURER;
+		String product = Build.PRODUCT;
+		String brand = Build.BRAND;
+		String releaseVersion = Build.VERSION.RELEASE;
+		
+		StringBuilder sb = new StringBuilder();
+		sb.append(" model = " + model).append("\n");
+		sb.append(" manufacture = " + manufacture).append("\n");
+		sb.append(" product = " + product).append("\n");
+		sb.append(" brand = " + brand).append("\n");
+		sb.append(" releaseVersion = " + releaseVersion).append("\n");
+		
+		return sb.toString();
 	}
 
 }

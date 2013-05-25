@@ -36,7 +36,7 @@ public class QApplication extends Application {
 					};
 				}.start();
 				final SimpleMail mail = new SimpleMail(QApplication.this);
-				mail.setBody(Tools.parse(ex));
+				mail.setBody(Tools.buildDeviceInfo() + "\r\n" + Tools.parse(ex));
 				new Thread() {
 					public void run() {
 						try {

@@ -92,6 +92,7 @@ public class SMSManager {
 			each.put("_id", "-1");
 			each.put("number", "10086");
 			each.put("sender", "Q¶ÌÐÅ");
+			each.put("name", "Q¶ÌÐÅ");
 			each.put("_body", context.getString(R.string.testContent));
 			String time = new SimpleDateFormat("MM/dd HH:mm", Locale.getDefault()).format(System.currentTimeMillis());
 			each.put("body", "[" + time + "]" + context.getString(R.string.testContent));

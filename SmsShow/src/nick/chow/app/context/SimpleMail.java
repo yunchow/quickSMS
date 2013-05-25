@@ -27,5 +27,5 @@ public class SimpleMail {
 	public boolean send() throws Exception {
 		return m.send();
 	}
-
+	
 }

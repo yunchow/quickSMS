@@ -6,11 +6,9 @@ import java.util.concurrent.TimeUnit;
 
 import nick.chow.app.context.Constants;
 import nick.chow.app.context.SimpleMail;
+import nick.chow.app.context.Tools;
 import android.app.IntentService;
-import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
-import android.telephony.TelephonyManager;
 import android.util.Log;
 
 /**
@@ -61,34 +59,8 @@ public class FeedbackService extends IntentService {
         if (errorCount > 0) {
         	body += "\r\n errorCount = " + errorCount;
         }
-        body += "\r\n" + buildDeviceInfo();
+        body += "\r\n" + Tools.buildDeviceInfo();
         m.setBody(body);
         return m.send();
 	}
-	
-	private String buildDeviceInfo() {
-		String model = Build.MODEL;
-		String manufacture = Build.MANUFACTURER;
-		String product = Build.PRODUCT;
-		String brand = Build.BRAND;
-		String releaseVersion = Build.VERSION.RELEASE;
-		
-		StringBuilder sb = new StringBuilder();
-		sb.append(" model = " + model).append("\n");
-		sb.append(" manufacture = " + manufacture).append("\n");
-		sb.append(" product = " + product).append("\n");
-		sb.append(" brand = " + brand).append("\n");
-		sb.append(" releaseVersion = " + releaseVersion).append("\n");
-		
-		try {
-			TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-			String line1Number = telephonyManager.getLine1Number();
-			sb.append(" line1Number = " + line1Number).append("\n");
-		} catch (Exception e) {
-			
-		}
-		
-		return sb.toString();
-	}
-
 }

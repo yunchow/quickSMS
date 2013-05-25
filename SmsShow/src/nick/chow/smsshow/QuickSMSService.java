@@ -71,7 +71,6 @@ public class QuickSMSService extends IntentService implements SensorEventListene
 	private ContentObserver contentObserver = new ContentObserver(null) {
 		
 		public void onChange(boolean selfChange) {
-			Log.i("contentObserver", "############## onChange");
 			super.onChange(selfChange);
 			notificationManager.cancel(Constants.NOTIFY_NO_NEW_SMS);
 			getContentResolver().unregisterContentObserver(contentObserver);
@@ -96,8 +95,11 @@ public class QuickSMSService extends IntentService implements SensorEventListene
 		
 		Notification notification = new Notification();
 		notification.icon = R.drawable.state_notify_msg_orange_original;
+		//notification.defaults = Notification.FLAG_SHOW_LIGHTS;
 		notification.when = System.currentTimeMillis();
-		notification.defaults = Notification.DEFAULT_LIGHTS;
+		notification.ledARGB = 0x00FF00;
+		notification.ledOnMS = 100;
+		notification.ledOffMS = 100;
 		notification.tickerText = detail;
 		
 		int count = SMSManager.getManager(this).countUnread();
