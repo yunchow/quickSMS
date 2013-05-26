@@ -92543,7 +92543,7 @@ _____________________________________________________________________
 
 Interfaces (count = 0):
 
-Constant Pool (count = 296):
+Constant Pool (count = 299):
   + Integer [2131165205]
   + String []
   + String [(]
@@ -92563,7 +92563,7 @@ Constant Pool (count = 296):
   + String [_id in ]
   + String [address]
   + String [body]
-  + String [content://sms/inbox]
+  + String [content://sms]
   + String [current cursor : ]
   + String [date]
   + String [date desc limit 1]
@@ -92653,6 +92653,7 @@ Constant Pool (count = 296):
   + InterfaceMethodref [java/util/Set.add (Ljava/lang/Object;)Z]
   + InterfaceMethodref [java/util/Set.isEmpty ()Z]
   + InterfaceMethodref [java/util/Set.iterator ()Ljava/util/Iterator;]
+  + InterfaceMethodref [java/util/Set.size ()I]
   + InterfaceMethodref [java/util/Set.toArray ([Ljava/lang/Object;)[Ljava/lang/Object;]
   + NameAndType [<init> ()V]
   + NameAndType [<init> (Landroid/content/Context;)V]
@@ -92696,6 +92697,7 @@ Constant Pool (count = 296):
   + NameAndType [put (Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;]
   + NameAndType [put (Ljava/lang/String;Ljava/lang/String;)V]
   + NameAndType [query (Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;]
+  + NameAndType [size ()I]
   + NameAndType [substring (II)Ljava/lang/String;]
   + NameAndType [toArray ([Ljava/lang/Object;)[Ljava/lang/Object;]
   + NameAndType [toString ()Ljava/lang/String;]
@@ -92780,7 +92782,7 @@ Constant Pool (count = 296):
   + Utf8 [body]
   + Utf8 [c]
   + Utf8 [close]
-  + Utf8 [content://sms/inbox]
+  + Utf8 [content://sms]
   + Utf8 [current cursor : ]
   + Utf8 [currentTimeMillis]
   + Utf8 [d]
@@ -92832,6 +92834,7 @@ Constant Pool (count = 296):
   + Utf8 [read]
   + Utf8 [read=?]
   + Utf8 [sender]
+  + Utf8 [size]
   + Utf8 [substring]
   + Utf8 [time]
   + Utf8 [toArray]
@@ -92861,7 +92864,7 @@ Methods (count = 11):
     Class member attributes (count = 1):
     + Code attribute instructions (code length = 9, locals = 0, stack = 1):
       [0] ldc #20
-        + String [content://sms/inbox]
+        + String [content://sms]
       [2] invokestatic #68
         + Methodref [android/net/Uri.parse (Ljava/lang/String;)Landroid/net/Uri;]
       [5] putstatic #57
@@ -93453,7 +93456,7 @@ Methods (count = 11):
     Access flags: 0x1
       = public boolean b(java.util.Set)
     Class member attributes (count = 1):
-    + Code attribute instructions (code length = 39, locals = 2, stack = 3):
+    + Code attribute instructions (code length = 44, locals = 2, stack = 3):
       [0] aload_1 v1
       [1] invokeinterface #108
         + InterfaceMethodref [java/util/Set.isEmpty ()Z]
@@ -93470,16 +93473,18 @@ Methods (count = 11):
       [20] ireturn
       [21] aload_0 v0
       [22] aload_1 v1
-      [23] iconst_0
-      [24] anewarray #43
+      [23] aload_1 v1
+      [24] invokeinterface #110
+        + InterfaceMethodref [java/util/Set.size ()I]
+      [29] anewarray #43
         + Class [java/lang/String]
-      [27] invokeinterface #110
+      [32] invokeinterface #111
         + InterfaceMethodref [java/util/Set.toArray ([Ljava/lang/Object;)[Ljava/lang/Object;]
-      [32] checkcast #33
+      [37] checkcast #33
         + Class [[Ljava/lang/String;]
-      [35] invokevirtual #94
+      [40] invokevirtual #94
         + Methodref [nick/chow/app/b/b.a ([Ljava/lang/String;)Z]
-      [38] ireturn
+      [43] ireturn
       Code attribute exceptions (count = 0):
       Code attribute attributes (attribute count = 1):
       + Stack map table attribute (count = 1):
