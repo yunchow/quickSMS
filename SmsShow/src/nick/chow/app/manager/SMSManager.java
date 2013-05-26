@@ -10,7 +10,6 @@ import java.util.Set;
 
 import nick.chow.app.context.Constants;
 import nick.chow.smsshow.R;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -22,7 +21,7 @@ import android.util.Log;
  *
  */
 public class SMSManager {
-	public static final Uri SMS_PROVIDER_URI = Uri.parse(Constants.SMS_INBOX_URI);
+	public static final Uri SMS_PROVIDER_URI = Uri.parse(Constants.SMS_URI);
 	private final String tag = getClass().getSimpleName();
 	private Context context;
 	
@@ -133,7 +132,7 @@ public class SMSManager {
 			Log.i(tag, "no need to upate");
 			return false;
 		}
-		return deleteSMS(mids.toArray(new String[]{}));
+		return deleteSMS(mids.toArray(new String[mids.size()]));
 	}
 	
 	/**
